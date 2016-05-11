@@ -2,9 +2,15 @@ import React from 'react';
 import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn} from 'material-ui/Table';
 import IconAscending from 'material-ui/svg-icons/communication/call-made';
 import IconDecending from 'material-ui/svg-icons/communication/call-received';
+var { ipcRenderer } = window.require('electron');
 
 var OverviewTable = React.createClass({
 	getInitialState() {
+		var inst = this;
+		ipcRenderer.on('reload-table', function(event, data) {
+			console.log(data);
+			inst.setState(data);
+		});
 		return {
 			// Raw data, for now
 			students: [
@@ -12,19 +18,50 @@ var OverviewTable = React.createClass({
 					name: 'Natsu Kagami',
 					total: 40,
 					problems: {
-						GIFTS: 10,
-						DOMINO: 10,
-						COLOR: 10,
-						PAREN: 10
+						GIFTS: {
+							score: 10,
+							details: {
+								'Test00': {
+									score: 1,
+									time: 0.001, // in seconds
+									mem: 128, // in kilobytes
+									result: 'Kết quả đúng'
+								}
+							}
+						},
+						DOMINO: {
+							score: 10,
+							details: []
+						},
+						COLOR: {
+							score: 10,
+							details: []
+						},
+						PAREN: {
+							score: 10,
+							details: []
+						}
 					}
 				}, {
 					name: 'Pham Chi Bach',
 					total: 30,
 					problems: {
-						COLOR: 1,
-						PAREN: 10,
-						GIFTS: 10,
-						DOMINO: 9
+						COLOR: {
+							score: 1,
+							details: []
+						},
+						PAREN: {
+							score: 10,
+							details: []
+						},
+						GIFTS: {
+							score: 10,
+							details: []
+						},
+						DOMINO: {
+							score: 9,
+							details: []
+						}
 					}
 				}
 			],
@@ -39,27 +76,36 @@ var OverviewTable = React.createClass({
 	},
 	handleHeaderClick(event) {
 		if (event.target.getAttribute('data-colName') === undefined) return;
-		if (event.target.getAttribute('data-colName') == this.state.currentOrder.col) {
-			this.state.currentOrder.order *= -1;
-		} else this.state.currentOrder = {
-			col: event.target.getAttribute('data-colName'),
-			order: 1
-		};
-		var instance = this;
-		this.state.students.sort(function(a, b) {
-			var x, y;
-			if (instance.state.currentOrder.col === '__name') {
-				x = a.name, y = b.name;
-			} else if (instance.state.currentOrder.col === '__total') {
-				x = a.total, y = b.total;
-			} else {
-				x = a.problems[instance.state.currentOrder.col], y = b.problems[instance.state.currentOrder.col];
-			}
-			var ans = (x < y ? -1 : (x === y ? 0 : 1)) * instance.state.currentOrder.order;
-			console.log(a, b, x, y, instance.state.currentOrder.col, ans); return ans;
+		var target = event.target;
+		this.setState(function(state, props) {
+			var newState = {};
+			if (target.getAttribute('data-colName') === state.currentOrder.col) {
+				newState.currentOrder = {
+					col: state.currentOrder.col,
+					order: state.currentOrder.order * -1
+				};
+			} else newState.currentOrder = {
+				col: target.getAttribute('data-colName'),
+				order: 1
+			};
+			state.students.sort(function(a, b) {
+				var x, y;
+				if (newState.currentOrder.col === '__name') {
+					x = a.name, y = b.name;
+				} else if (newState.currentOrder.col === '__total') {
+					x = a.total, y = b.total;
+				} else {
+					var pName = newState.currentOrder.col;
+					x = ((typeof a.problems[pName]) === 'object' ? a.problems[pName].score : -1);
+					y = ((typeof b.problems[pName]) === 'object' ? b.problems[pName].score : -1);
+				}
+				var ans = (x < y ? -1 : (x === y ? 0 : 1)) * newState.currentOrder.order;
+				return ans;
+			});
+			newState.students = state.students;
+			console.log(newState);
+			return newState;
 		});
-		console.log(JSON.stringify(this.state));
-		this.forceUpdate();
 	},
 	renderHeader(name, colname) {
 		var added = '';
@@ -83,7 +129,15 @@ var OverviewTable = React.createClass({
 		});
 		var studentRows = this.state.students.map(function(student) {
 			var problems = instance.state.problems.map(function(problem) {
-				return (<TableRowColumn>{student.problems[problem]}</TableRowColumn>);
+				if (student.problems[problem] === undefined) {
+					// No submissions
+					return (<TableRowColumn></TableRowColumn>);
+				}
+				if (student.problems[problem] === 'CE') {
+					// Compile error
+					return (<TableRowColumn><span style={{color: 'red'}}>Dịch Lỗi</span></TableRowColumn>);
+				}
+				return (<TableRowColumn>{student.problems[problem].score}</TableRowColumn>);
 			});
 			return (
 			<TableRow>

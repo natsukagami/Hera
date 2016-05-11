@@ -2,7 +2,8 @@
 const electron = require('electron');
 const app = electron.app;
 
-// Expressjs server, which holds all the serving need
+// Use bluebird as the Promise handler
+GLOBAL.Promise = require('bluebird');
 
 // adds debug features like hotkeys for triggering dev tools and reload
 require('electron-debug')();
@@ -10,6 +11,9 @@ require('electron-debug')();
 // prevent window being garbage collected
 let mainWindow;
 let server;
+
+// Register the current contest with null
+app.currentContest = null;
 
 function onClosed() {
 	// dereference the window
@@ -45,6 +49,7 @@ app.on('activate', () => {
 
 app.on('ready', () => {
 	mainWindow = createMainWindow();
+	app.mainWindow = mainWindow;
 	require('./app/main/index')(app);
 	server = require('./server/server');
 	mainWindow.loadURL('http://127.0.0.1:' + server.running_port + '/admin');

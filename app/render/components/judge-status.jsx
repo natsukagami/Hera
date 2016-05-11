@@ -1,3 +1,4 @@
+var { ipcRenderer } = window.require('electron');
 import React from 'react';
 import CircularProgress from 'material-ui/CircularProgress';
 import LinearProgress from 'material-ui/LinearProgress';
@@ -35,23 +36,61 @@ var JudgeStatusCircle = React.createClass({
 
 var JudgeStatusBar = React.createClass({
 	getInitialState() {
+		var inst = this; // Instance
+		ipcRenderer.on('judge-bar', function(event, data) {
+			// 'reset'
+			if (data === 'reset') {
+				inst.setState({
+					status: 'Máy chấm đang trong trạng thái nghỉ',
+					maxValue: 1,
+					value: 1,
+					mode: 'indeterminate'
+				});
+				return;
+			}
+			//  An update object
+			//  {
+			//  [status]: (string),
+			// 	[value]: [(mode: 'set' / 'add'), (int)],
+			// 	[maxValue]: [(mode: 'set' / 'add'), (int)],
+			// 	[mode]: "determinate" / "indeterminate"
+			//  }
+			inst.setState(function(prev, props) {
+				var updateState = {};
+				if (data.status) updateState.status = data.status;
+				if (data.value) {
+					if (data.value[0] === 'add')
+						updateState.value = prev.value + data.value[1];
+					else updateState.value = data.value[1];
+				}
+				if (data.maxValue) {
+					if (data.maxValue[0] === 'add')
+						updateState.maxValue = prev.maxValue + data.maxValue[1];
+					else updateState.maxValue = data.maxValue[1];
+				}
+				if (data.mode) updateState.mode = data.mode;
+				console.log(updateState);
+				return updateState;
+			});
+		});
 		return {
 			status: 'Máy chấm đang trong trạng thái nghỉ',
-			totalCount: 1,
-			totalCurrent: 1
+			maxValue: 1,
+			value: 1,
+			mode: 'indeterminate'
 		};
 	},
 	render() {
 		return (<div style={{'verticalAlign': 'middle'}}>
 					<div style={{'height': 40}}>
-						<h3>{this.state.status}</h3>
+						<h3 style={{fontFamily: 'Roboto', fontWeight: 300}}>{this.state.status}</h3>
 					</div>
 					<div style={{'height': 40}}>
 						<LinearProgress
-							mode='indeterminate'
+							mode={this.state.mode}
 							min={0}
-							max={this.state.totalCount}
-							value={this.state.totalCurrent}
+							max={this.state.maxValue}
+							value={this.state.value}
 						/>
 					</div>
 				</div>);
