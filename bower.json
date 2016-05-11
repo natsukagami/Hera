@@ -20,6 +20,7 @@
     "tests"
   ],
   "dependencies": {
-    "jquery": "^2.2.3"
+    "jquery": "^2.2.3",
+    "flexboxgrid": "^6.3.0"
   }
 }

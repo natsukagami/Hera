@@ -21,6 +21,12 @@ $ gulp build
 $ npm start
 ```
 
+###To-do
+- [x] Actually running
+- [ ] Opening .contest file (working)
+- [ ] Judge running
+- [ ] Export to other formats
+- [ ] Multi-computer judging
 
 ## License
 
