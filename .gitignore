@@ -1,0 +1,6 @@
+node_modules
+bower_components
+/server/public/js/*.min.js
+/server/public/js/*.min.js.map
+/server/public/css/*.min.css
+/dist
