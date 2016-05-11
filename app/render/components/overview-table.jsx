@@ -2,72 +2,83 @@ import React from 'react';
 import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn} from 'material-ui/Table';
 import IconAscending from 'material-ui/svg-icons/communication/call-made';
 import IconDecending from 'material-ui/svg-icons/communication/call-received';
+import Popover from 'material-ui/Popover';
+import Menu from 'material-ui/Menu';
+import MenuItem from 'material-ui/MenuItem';
 var { ipcRenderer } = window.require('electron');
+
+var ScoreCellWithContextMenu = React.createClass({
+	getInitialState() {
+		return {
+			open: false
+		};
+	},
+	handleContextMenu(event) {
+		event.preventDefault();
+		this.setState({
+			open: true,
+			anchorEl: event.currentTarget
+		});
+	},
+	handleRequestClose() {
+		this.setState({
+			open: false
+		});
+	},
+	handleMenuChange(value) {
+		console.log(this.props);
+		ipcRenderer.send('result-drawer', {
+			problem: this.props.problem,
+			student: this.props.student
+		});
+		this.setState({
+			open: false
+		});
+	},
+	render() {
+		return (<div>
+					<div
+						onContextMenu={this.handleContextMenu}
+					>
+					{this.props.children}
+					</div>
+					<Popover
+						open={this.state.open}
+						anchorEl={this.state.anchorEl}
+						anchorOrigin={{'horizontal':'left', 'vertical':'bottom'}}
+						targetOrigin={{'horizontal':'left', 'vertical':'top'}}
+						onRequestClose={this.handleRequestClose}
+					>
+						<Menu onChange={this.handleMenuChange}>
+							<MenuItem value='show-results' primaryText={'Xem kết quả'}/>
+							<MenuItem value='rejudge' primaryText={'Chấm lại...'}/>
+						</Menu>
+					</Popover>
+				</div>);
+	}
+});
 
 var OverviewTable = React.createClass({
 	getInitialState() {
 		var inst = this;
 		ipcRenderer.on('reload-table', function(event, data) {
-			console.log(data);
-			inst.setState(data);
+			var state = {
+				students: [],
+				problems: []
+			};
+			Object.keys(data.students).forEach(function(studentId) {
+				state.students.push(data.students[studentId]);
+			});
+			Object.keys(data.problems).forEach(function(problemId) {
+				state.problems.push(problemId);
+			});
+			console.log(state);
+			inst.setState(state);
 		});
 		return {
 			// Raw data, for now
-			students: [
-				{
-					name: 'Natsu Kagami',
-					total: 40,
-					problems: {
-						GIFTS: {
-							score: 10,
-							details: {
-								'Test00': {
-									score: 1,
-									time: 0.001, // in seconds
-									mem: 128, // in kilobytes
-									result: 'Kết quả đúng'
-								}
-							}
-						},
-						DOMINO: {
-							score: 10,
-							details: []
-						},
-						COLOR: {
-							score: 10,
-							details: []
-						},
-						PAREN: {
-							score: 10,
-							details: []
-						}
-					}
-				}, {
-					name: 'Pham Chi Bach',
-					total: 30,
-					problems: {
-						COLOR: {
-							score: 1,
-							details: []
-						},
-						PAREN: {
-							score: 10,
-							details: []
-						},
-						GIFTS: {
-							score: 10,
-							details: []
-						},
-						DOMINO: {
-							score: 9,
-							details: []
-						}
-					}
-				}
-			],
-			problems: [
-				'GIFTS', 'DOMINO', 'COLOR', 'PAREN'
-			],
+			students: [],
+			problems: [],
 			currentOrder: {
 				col: '__name',
 				order: 1 // 1 = ascending, -1 = decending
@@ -103,7 +114,6 @@ var OverviewTable = React.createClass({
 				return ans;
 			});
 			newState.students = state.students;
-			console.log(newState);
 			return newState;
 		});
 	},
@@ -127,7 +137,7 @@ var OverviewTable = React.createClass({
 				{instance.renderHeader(problem, problem)}
 			</TableHeaderColumn>);
 		});
-		var studentRows = this.state.students.map(function(student) {
+		var studentRows = this.state.students.map(function(student, idx) {
 			var problems = instance.state.problems.map(function(problem) {
 				if (student.problems[problem] === undefined) {
 					// No submissions
@@ -137,10 +147,17 @@ var OverviewTable = React.createClass({
 					// Compile error
 					return (<TableRowColumn><span style={{color: 'red'}}>Dịch Lỗi</span></TableRowColumn>);
 				}
-				return (<TableRowColumn>{student.problems[problem].score}</TableRowColumn>);
+				return (<TableRowColumn>
+							<ScoreCellWithContextMenu
+								student={student.name}
+								problem={problem}
+							>
+								{student.problems[problem].score}
+							</ScoreCellWithContextMenu>
+						</TableRowColumn>);
 			});
 			return (
-			<TableRow>
+			<TableRow key={idx}>
 				<TableRowColumn>{student.name}</TableRowColumn>
 				{problems}
 				<TableRowColumn>{student.total}</TableRowColumn>

@@ -49,11 +49,27 @@ function bundle() {
 			.pipe(gulp.dest('./server/public/js/'));
 }
 
+function _bundle() {
+	gulp.src('./bower_components/jquery/dist/jquery.min.js')
+		.pipe(gulp.dest('./server/public/js'));
+	gulp.src('./bower_components/flexboxgrid/dist/flexboxgrid.min.css')
+		.pipe(gulp.dest('./server/public/css'));
+	return _b.bundle()
+			.pipe(source('./app.min.js'))
+			.pipe(buffer())
+			.pipe(sourcemaps.init({ loadMaps: true }))
+				.pipe(uglify())
+				.on('error', gutil.log)
+			.pipe(sourcemaps.write('./'))
+			.pipe(gulp.dest('./server/public/js/'));
+}
+
+
 gulp.task('update', ['ui'], function() {
 	b.on('update', bundle);
 });
 
-gulp.task('build', ['ui']);
+gulp.task('build', _bundle);
 
 gulp.task('default', ['build'], function() {
 	gulp.src('.')

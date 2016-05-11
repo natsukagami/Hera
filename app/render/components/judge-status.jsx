@@ -69,7 +69,6 @@ var JudgeStatusBar = React.createClass({
 					else updateState.maxValue = data.maxValue[1];
 				}
 				if (data.mode) updateState.mode = data.mode;
-				console.log(updateState);
 				return updateState;
 			});
 		});

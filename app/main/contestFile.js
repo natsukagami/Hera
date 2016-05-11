@@ -44,11 +44,31 @@ function zlibToXml(file) {
  * @param  {Object} results The Contest.result file, decoded
  * @return {Object}         Hera-readable Contest object
  */
-function parseContestResult(results) {
+function parseContestResult(results, tasks) {
 	var ret = {
-		'students': [],
-		'problems': []
+		'students': {},
+		'problems': {}
 	};
+	tasks.Tasks.Exam.forEach(function(exam) {
+		var problem = {
+			name: exam.$.Name,
+			input: (exam.$.UseStdIn === 'false' ? exam.$.InputFile : 'stdin'),
+			output: (exam.$.UseStdOut === 'false' ? exam.$.OutputFile : 'stdout'),
+			score: Number(exam.$.Mark),
+			timeLimit: Number(exam.$.TimeLimit),
+			memoryLimit: Number(exam.$.MemoryLimit),
+			testcases: []
+		};
+		exam.TestCase.forEach(function(testcase) {
+			problem.testcases.push({
+				name: testcase.$.Name,
+				score: (testcase.$.Mark !== '-1' ? Number(testcase.$.Mark) : problem.score),
+				timeLimit: (testcase.$.TimeLimit !== '-1' ? Number(testcase.$.TimeLimit) : problem.timeLimit),
+				memoryLimit: (testcase.$.MemoryLimit !== '-1' ? Number(testcase.$.MemoryLimit) : problem.memoryLimit)
+			});
+		});
+		ret.problems[exam.$.Name] = problem;
+	});
 	results.ContestResult.ContestantResult.forEach(function(studentResult) {
 		var student = {
 			name: studentResult.$.ContestantName,
@@ -56,10 +76,6 @@ function parseContestResult(results) {
 			problems: {}
 		};
 		studentResult.ExamResult.forEach(function(examResult) {
-			if (ret.problems.indexOf(examResult.$.ExamName) === -1) {
-				// New problem?
-				ret.problems.push(examResult.$.ExamName);
-			}
 			var pName = examResult.$.ExamName;
 			if (examResult.$.State === '2') {
 				// Compile Error
@@ -70,22 +86,45 @@ function parseContestResult(results) {
 					score: Number(examResult.$.Evaluation),
 					details: {}
 				};
-				examResult.TestResult.forEach(function(testResult) {
+				examResult.TestResult.forEach(function(testResult, idx) {
 					var tests = student.problems[pName].details;
-					tests[testResult.$.TestName] = {
+					var test = {
+						name: testResult.$.TestName,
 						score: Number(testResult.$.Evaluation),
-						result: testResult.$.EvaluationText
+						maxScore: ret.problems[pName].testcases[idx].score,
+						result: testResult.$.EvaluationText,
+						time: 0,
+						memory: 0
 					};
+					tests[testResult.$.TestName] = test;
 					if (testResult.$.RunningTime !== undefined) {
-						tests[testResult.$.TestName].time = Number(testResult.$.RunningTime);
+						test.time = Number(testResult.$.RunningTime);
 					}
 					if (testResult.$.MemoryUsed !== undefined) {
-						tests[testResult.$.TestName].memory = Number(testResult.$.MemoryUsed);
+						test.memory = Number(testResult.$.MemoryUsed);
+					}
+					// Let's try parsing the result text
+					// Themis' result text are in one of the following format:
+					var Regexes = [
+						/Thời gian ≈ ([\d]+(?:\.[\d]+)?) giây\n(.+)/,
+						/Chạy quá thời gian/,
+						/(.+)\n(.+)/
+					];
+					var matches;
+					if (Regexes[0].test(test.result)) {
+						matches = Regexes[0].exec(test.result);
+						test.result = matches[2];
+						test.time = Number(matches[1]);
+					} else if (Regexes[1].test(test.result)) {
+						test.time = ret.problems[pName].testcases[idx].timeLimit;
+					} else if (Regexes[2].test(test.result)) {
+						matches = Regexes[2].exec(test.result);
+						test.result = matches[1] + ' (' + matches[2] + ')';
 					}
 				});
 			}
 		});
-		ret.students.push(student);
+		ret.students[studentResult.$.ContestantName] = student;
 	});
 	return ret;
 }
@@ -144,12 +183,19 @@ function unpackContest(app, contestFile) {
 					})
 					.then(function() {
 						// Decode the data files
-						return fs.readFileAsync(path.join(dir, 'Contest.result'))
+						var files = [
+							fs.readFileAsync(path.join(dir, 'Contest.result'))
+							.then(function(file) {
+								return zlibToXml(file);
+							}),
+							fs.readFileAsync(path.join(dir, 'Tasks.config'))
 							.then(function(file) {
 								return zlibToXml(file);
 							})
+						];
+						return Promise.all(files)
 							.then(function(object) {
-								app.currentContest = parseContestResult(object);
+								app.currentContest = parseContestResult(object[0], object[1]);
 								return app.currentContest;
 							})
 							.catch(function(err) {

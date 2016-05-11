@@ -6,6 +6,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import TitleBar from './components/titlebar.jsx';
 import OverviewTable from './components/overview-table.jsx';
 import JudgeStatus from './components/judge-status.jsx';
+import ResultDrawer from './components/result-drawer.jsx';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 // Needed for onTouchTap
 // Check this repo:
@@ -21,6 +22,7 @@ const App = () => (
         <div className='container-fluid'>
           <div className='appBody' style={{'paddingTop': '60px', 'height': 420}}>
             <OverviewTable />
+            <ResultDrawer />
           </div>
           <div className='appFoot' style={{'height': 100}}>
             <JudgeStatus/>
