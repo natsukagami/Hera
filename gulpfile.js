@@ -32,7 +32,6 @@ _b.transform(babelify.configure({
 }));
 
 gulp.task('ui', bundle);
-b.on('update', bundle);
 b.on('log', gutil.log);
 
 function bundle() {
@@ -50,9 +49,13 @@ function bundle() {
 			.pipe(gulp.dest('./server/public/js/'));
 }
 
+gulp.task('update', ['ui'], function() {
+	b.on('update', bundle);
+});
+
 gulp.task('build', ['ui']);
 
-gulp.task('default', function() {
+gulp.task('default', ['build'], function() {
 	gulp.src('.')
 	.pipe(runElectron([], {}));
 });

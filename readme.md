@@ -5,21 +5,20 @@
 
 
 ## Dev
+> Dependencies: 
+> 	nodejs v6
+> 	npm with `browserify`, `bower` and `gulp` installed
 
 ```
 $ npm install
+$ bower install
+$ gulp build
 ```
 
 ### Run
 
 ```
 $ npm start
-```
-
-### Build
-
-```
-$ npm run build
 ```
 
 
