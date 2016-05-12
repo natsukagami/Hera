@@ -230,6 +230,19 @@ function convertToContestXML(contest) {
 }
 
 /**
+ * Send the contest data to the renderer
+ * @param  {HeraContest} contestData [description]
+ * @return Nothing
+ */
+function sendToRenderer(contestData) {
+	// Send contest data to renderer
+	webContents.send('reload-table', {
+		students: contestData.students,
+		problems: contestData.problems
+	});
+}
+
+/**
  * Does the unpacking of the *.contest file
  * into a temporary folder.
  * @param  {ElectronApp} 	app         [description]
@@ -279,7 +292,7 @@ function unpackContest(app, contestFile) {
 								});
 							}));
 						});
-						return Promise.all(promises);
+						return Promise.all(promises).then(function() { contest = null; });
 					})
 					.then(function() {
 						// Decode the data files
@@ -308,13 +321,7 @@ function unpackContest(app, contestFile) {
 								return err;
 							});
 					})
-					.then(function(contestData) {
-						// Send contest data to renderer
-						webContents.send('reload-table', {
-							students: contestData.students,
-							problems: contestData.problems
-						});
-					})
+					.then(sendToRenderer)
 					.catch(function(err) {
 						dialog.showErrorBoxAsync(
 							'Lỗi',
@@ -394,17 +401,62 @@ function packContest(app, saveDir) {
 					webContents.send('judge-bar', {
 						status: 'Lưu file thành công'
 					});
+					zipFile = null;
 					setTimeout(function() { webContents.send('judge-bar', 'reset'); }, 3000);
 				});
 			});
+		}).catch(function(err) {
+			console.log(err);
 		});
 	});
 }
 
+function emptyTemp(app) {
+	if (app.currentContest.saved || !dialog.showMessageBox({
+		type: 'warning',
+		buttons: ['Có', 'Không'],
+		defaultId: 1,
+		title: 'Chưa lưu file hiện tại',
+		message: 'Bạn chưa lưu lại kì thi đang mở. Tiếp tục?',
+		cancelId: 1
+	})) {
+		temp.cleanupSync();
+		return true;
+	}
+	return false;
+}
+
+/**
+ * Create an empty contest
+ * @return {Promise<Contest>} The new empty contest
+ */
+function createEmptyContest() {
+	return temp.mkdirAsync('contest-').then(function(dir) {
+		return Promise.all([
+			fs.mkdirAsync(path.join(dir, 'Contestants')),
+			fs.mkdirAsync(path.join(dir, 'Tasks'))
+		]).then(function() {
+			return {
+				students: {},
+				problems: {},
+				dir: dir,
+				saved: true
+			};
+		});
+	}).then(function(contest) {
+		sendToRenderer(contest);
+		return contest;
+	});
+}
+
 module.exports = function(app, ipc) {
+	// Register the current contest with null
+	createEmptyContest().then(function(contest) {
+		app.currentContest = contest;
+	});
 	webContents = app.mainWindow.webContents;
 	ipc.on('file-open-contest', function() {
-		dialog.showOpenDialogAsync({
+		if (emptyTemp(app)) dialog.showOpenDialogAsync({
 			title: 'Mở kì thi cũ',
 			filters: [
 				{ name: 'Themis/Hera Contest', extensions: ['contest'] }
@@ -434,6 +486,11 @@ module.exports = function(app, ipc) {
 			if (path === null) return;
 			console.log('Saving contest to ' + path);
 			packContest(app, path);
+		});
+	});
+	ipc.on('file-new-contest', function() {
+		if (emptyTemp(app)) createEmptyContest().then(function(contest) {
+			app.currentContest = contest;
 		});
 	});
 };

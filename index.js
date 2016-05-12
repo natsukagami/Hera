@@ -12,8 +12,6 @@ require('electron-debug')();
 let mainWindow;
 let server;
 
-// Register the current contest with null
-app.currentContest = null;
 
 function onClosed() {
 	// dereference the window
