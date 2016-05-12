@@ -1,4 +1,5 @@
 # Hera
+[![Build Status](https://travis-ci.org/natsukagami/Hera.svg?branch=master)](https://travis-ci.org/natsukagami/Hera)
 
 > Phần mềm quản lí kì thi Tin học. 
 > Hiện đang trong giai đoạn thử nghiệm.
