@@ -11,7 +11,7 @@
     "url": "natsukagami.github.io"
   },
   "scripts": {
-    "test": "mocha",
+    "test": "./node_modules/mocha/bin/mocha",
     "update": "gulp build",
     "start": "electron .",
     "build": "gulp build && electron-packager . --out=dist --app-version=$npm_package_version --prune --asar --overwrite --all"
@@ -35,6 +35,7 @@
     "jade": "^1.11.0",
     "jszip": "^3.0.0",
     "material-ui": "^0.15.0",
+    "mocha": "^2.4.5",
     "morgan": "^1.7.0",
     "react": "^15.0.2",
     "react-dom": "^15.0.2",
