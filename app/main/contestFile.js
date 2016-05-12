@@ -455,6 +455,7 @@ module.exports = function(app, ipc) {
 		app.currentContest = contest;
 	});
 	webContents = app.mainWindow.webContents;
+	app.sendContestToRenderer = sendToRenderer;
 	ipc.on('file-open-contest', function() {
 		if (emptyTemp(app)) dialog.showOpenDialogAsync({
 			title: 'Mở kì thi cũ',

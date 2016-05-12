@@ -11,7 +11,7 @@
     "url": "natsukagami.github.io"
   },
   "scripts": {
-    "test": "xo",
+    "test": "mocha",
     "update": "gulp build",
     "start": "electron .",
     "build": "gulp build && electron-packager . --out=dist --app-version=$npm_package_version --prune --asar --overwrite --all"
@@ -51,6 +51,7 @@
     "babel-preset-react": "^6.5.0",
     "babelify": "^7.3.0",
     "browserify": "^13.0.1",
+    "chai": "^3.5.0",
     "electron-packager": "^7.0.0",
     "electron-prebuilt": "^0.37.6",
     "eslint": "^2.9.0",
@@ -62,6 +63,7 @@
     "gulp-uglify": "^1.5.3",
     "gulp-util": "^3.0.7",
     "lodash.assign": "^4.0.8",
+    "randomstring": "^1.1.4",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0",
     "watchify": "^3.7.0",
