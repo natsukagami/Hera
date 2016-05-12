@@ -94,7 +94,6 @@ app.use('/public', express.static(path.join(__dirname, 'public')));
 
 // app.use('/', routes);
 app.use(function(req, res, next) {
-	console.log(__dirname);
 	next();
 });
 

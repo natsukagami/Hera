@@ -4,7 +4,6 @@ var dialog = Promise.promisifyAll(require('electron').dialog);
 module.exports = function(app, ipc) {
 	webContents = app.mainWindow.webContents;
 	ipc.on('result-drawer', function(event, data) {
-		console.log(data);
 		if (app.currentContest.students[data.student] === undefined) {
 			dialog.showMessageBoxAsync({
 				type: 'info',

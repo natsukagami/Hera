@@ -26,7 +26,6 @@ var ScoreCellWithContextMenu = React.createClass({
 		});
 	},
 	handleMenuChange(value) {
-		console.log(this.props);
 		ipcRenderer.send('result-drawer', {
 			problem: this.props.problem,
 			student: this.props.student
@@ -72,7 +71,6 @@ var OverviewTable = React.createClass({
 			Object.keys(data.problems).forEach(function(problemId) {
 				state.problems.push(problemId);
 			});
-			console.log(state);
 			inst.setState(state);
 		});
 		return {

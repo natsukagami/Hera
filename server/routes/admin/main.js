@@ -2,7 +2,6 @@ var express = require('express');
 var router = express.Router();
 
 router.use('/', function(req, res, next) {
-	console.log(req.ip);
 	if (req.ip !== '::ffff:127.0.0.1' && req.ip !== '127.0.0.1') {
 		res.status(403);
 	}

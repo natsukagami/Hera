@@ -1,12 +1,13 @@
 var dialog = Promise.promisifyAll(require('electron').dialog);
 var fs = Promise.promisifyAll(require('fs'));
-console.log(Promise.promisifyAll);
 var jszip = require('jszip');
 jszip.external.Promise = GLOBAL.Promise = require('bluebird');
 var temp = Promise.promisifyAll(require('temp')).track();
 var path = require('path');
 var zlib = Promise.promisifyAll(require('zlib'));
 var xml2js = Promise.promisifyAll(require('xml2js'));
+var xmlbuilder = require('xmlbuilder');
+var walk = require('walk');
 
 var webContents;
 
@@ -34,9 +35,17 @@ function zlibToXml(file) {
 						'Lỗi',
 						'Không thể dịch file kết quả và các file cấu hình. Phải chăng file .contest bị lỗi?'
 					);
-					console.log(err);
 					return err;
 				});
+}
+
+/**
+ * Convert an XML string / buffer into Zlib-compressed buffer
+ * @param {[string / buffer]} buffer the XML string / buffer to be converted
+ * @return {Promise<Buffer>}
+ */
+function XmltoZlib(buffer) {
+	return zlib.deflateAsync(buffer);
 }
 
 /**
@@ -56,7 +65,8 @@ function parseContestResult(results, tasks) {
 			output: (exam.$.UseStdOut === 'false' ? exam.$.OutputFile : 'stdout'),
 			score: Number(exam.$.Mark),
 			timeLimit: Number(exam.$.TimeLimit),
-			memoryLimit: Number(exam.$.MemoryLimit),
+			memoryLimit: Number(exam.$.MemoryLimit) * 1024,
+			evaluator: exam.$.EvaluatorName,
 			testcases: []
 		};
 		exam.TestCase.forEach(function(testcase) {
@@ -64,7 +74,7 @@ function parseContestResult(results, tasks) {
 				name: testcase.$.Name,
 				score: (testcase.$.Mark !== '-1' ? Number(testcase.$.Mark) : problem.score),
 				timeLimit: (testcase.$.TimeLimit !== '-1' ? Number(testcase.$.TimeLimit) : problem.timeLimit),
-				memoryLimit: (testcase.$.MemoryLimit !== '-1' ? Number(testcase.$.MemoryLimit) : problem.memoryLimit)
+				memoryLimit: (testcase.$.MemoryLimit !== '-1' ? Number(testcase.$.MemoryLimit) * 1024 : problem.memoryLimit)
 			});
 		});
 		ret.problems[exam.$.Name] = problem;
@@ -108,17 +118,21 @@ function parseContestResult(results, tasks) {
 					var Regexes = [
 						/Thời gian ≈ ([\d]+(?:\.[\d]+)?) giây\n(.+)/,
 						/Chạy quá thời gian/,
+						/(.+)\nThời gian chạy: \d+(?:\.\d+)?s \| Bộ nhớ: \d+ KBs/,
 						/(.+)\n(.+)/
 					];
 					var matches;
-					if (Regexes[0].test(test.result)) {
+					if (Regexes[2].test(test.result)) {
+						matches = Regexes[2].exec(test.result);
+						test.result = matches[1];
+					} else if (Regexes[0].test(test.result)) {
 						matches = Regexes[0].exec(test.result);
 						test.result = matches[2];
 						test.time = Number(matches[1]);
 					} else if (Regexes[1].test(test.result)) {
 						test.time = ret.problems[pName].testcases[idx].timeLimit;
-					} else if (Regexes[2].test(test.result)) {
-						matches = Regexes[2].exec(test.result);
+					} else if (Regexes[3].test(test.result)) {
+						matches = Regexes[3].exec(test.result);
 						test.result = matches[1] + ' (' + matches[2] + ')';
 					}
 				});
@@ -127,6 +141,92 @@ function parseContestResult(results, tasks) {
 		ret.students[studentResult.$.ContestantName] = student;
 	});
 	return ret;
+}
+
+/**
+ * Convert the current app.currentContest into Tasks.config and Contest.result
+ * @param  {Object<Contest>} contest 	Hera-readable JS object
+ * @return {Object { 'Contest.result': Promise<Buffer>, 'Tasks.config': Promise<Buffer> }}
+ */
+function convertToContestXML(contest) {
+	var Contest = {ContestResult: {}};
+	var contestants = Contest.ContestResult.ContestantResult = [];
+	Object.keys(contest.students).forEach(function(studentId) {
+		var Student = contest.students[studentId];
+		var student = {
+			'@ContestantName': studentId,
+			'@Evaluation': Student.total.toString(),
+			'ExamResult': []
+		};
+		Object.keys(contest.problems).forEach(function(problemId) {
+			var Problem = Student.problems[problemId];
+			var problem = {
+				'@ExamName': problemId,
+				'@State': (
+					Problem === undefined ? 3 :
+					(
+						Problem === 'CE' ? 2 : 1
+					).toString()
+				)
+			};
+			if (problem['@State'] === '1') {
+				problem['@Evaluation'] = Problem.score.toString();
+				problem['TestResult'] = [];
+				Object.keys(Problem.details).forEach(function(testId) {
+					var Test = Problem.details[testId];
+					var test = {
+						'@TestName': testId,
+						'@Evaluation': Test.score.toString(),
+						'@RunningTime': Test.time.toString(),
+						'@MemoryUsed': Test.memory.toString(),
+						'@EvaluationText': (Test.result +
+							'\nThời gian chạy: ' +
+							(Math.round(Test.time * 1000) / 1000).toString() +
+							's | Bộ nhớ: ' + Test.memory.toString() +
+							' KBs'
+						)
+					};
+					problem.TestResult.push(test);
+				});
+			}
+			student.ExamResult.push(problem);
+		});
+		contestants.push(student);
+	});
+	Contest = xmlbuilder.create(Contest).toString();
+	var Tasks = {Tasks: {}};
+	var problems = Tasks.Tasks.Exam = [];
+	Object.keys(contest.problems).forEach(function(problemId) {
+		var Problem = contest.problems[problemId];
+		var problem = {
+			'@Name': problemId,
+			'@InputFile': (Problem.input === 'stdin' ? '' : Problem.input),
+			'@UseStdIn': (Problem.input === 'stdin').toString(),
+			'@OutputFile': (Problem.output === 'stdout' ? '' : Problem.output),
+			'@UseStdOut': (Problem.output === 'stdout').toString(),
+			'@EvaluatorName': Problem.evaluator,
+			'@Mark': Problem.score.toString(),
+			'@TimeLimit': Problem.timeLimit.toString(),
+			'@MemoryLimit': (Problem.memoryLimit / 1024).toString(),
+			'TestCase': []
+		};
+		Problem.testcases.forEach(function(testcase) {
+			problem.TestCase.push({
+				'@Name': testcase.name,
+				'@Mark': (testcase.score === Problem.score ? -1 : testcase.score).toString(),
+				'@TimeLimit': (testcase.timeLimit === Problem.timeLimit ? -1 : testcase.timeLimit).toString(),
+				'@MemoryLimit': (testcase.memoryLimit === Problem.memoryLimit ?
+					-1 :
+					(testcase.memoryLimit / 1024)).toString()
+			});
+		});
+		problems.push(problem);
+	});
+	Tasks = xmlbuilder.create(Tasks).toString();
+	return {
+		'Contest.result': XmltoZlib(Contest),
+		'Tasks.config': XmltoZlib(Tasks)
+	};
 }
 
 /**
@@ -196,6 +296,8 @@ function unpackContest(app, contestFile) {
 						return Promise.all(files)
 							.then(function(object) {
 								app.currentContest = parseContestResult(object[0], object[1]);
+								app.currentContest.saved = true; // No modification is made
+								app.currentContest.dir = dir;
 								return app.currentContest;
 							})
 							.catch(function(err) {
@@ -208,7 +310,10 @@ function unpackContest(app, contestFile) {
 					})
 					.then(function(contestData) {
 						// Send contest data to renderer
-						webContents.send('reload-table', contestData);
+						webContents.send('reload-table', {
+							students: contestData.students,
+							problems: contestData.problems
+						});
 					})
 					.catch(function(err) {
 						dialog.showErrorBoxAsync(
@@ -228,12 +333,79 @@ function unpackContest(app, contestFile) {
 	});
 }
 
+/**
+ * Packs the current contest into a .contest file on saveDir
+ * @param  {ElectronApp} 	app         [description]
+ * @param  {string} 		saveDir 	[description]
+ * @return Nothing
+ */
+function packContest(app, saveDir) {
+	webContents.send('judge-bar', {
+		status: 'Đang lưu lại kì thi...',
+		value: ['set', 0],
+		maxValue: ['set', 1],
+		mode: 'determinate'
+	});
+	var dir = app.currentContest.dir;
+	var files = convertToContestXML(app.currentContest);
+	Promise.all([files['Contest.result'], files['Tasks.config']]).then(function(f) {
+		Promise.all([
+			fs.writeFileAsync(path.join(dir, 'Contest.result'), f[0]),
+			fs.writeFileAsync(path.join(dir, 'Tasks.config'), f[1])
+		]).then(function() {
+			var zipFile = new jszip();
+			var walker = walk.walk(dir, {});
+			walker.on('file', function(root, file, next) {
+				file = file.name;
+				webContents.send('judge-bar', {
+					maxValue: ['add', 1]
+				});
+				zipFile.file(path.join(path.relative(dir, root), file), fs.createReadStream(path.join(root, file)));
+				webContents.send('judge-bar', {
+					value: ['add', 1]
+				});
+				next();
+			});
+			walker.on('end', function() {
+				webContents.send('judge-bar', {
+					status: 'Đang ghi kì thi ra file...',
+					value: ['set', 0],
+					maxValue: ['set', 100],
+					mode: 'determinate'
+				});
+				zipFile.generateAsync({
+					type: 'nodebuffer',
+					platform: process.platform,
+					compression: 'DEFLATE',
+					compressionOptions: {
+						level: 6
+					}
+				}, function update(status) {
+					var toSend = {
+						value: ['set', status.percent]
+					};
+					if (status.currentFile !== null)
+						toSend.status = 'Đang ghi file ' + status.currentFile + '...';
+					webContents.send('judge-bar', toSend);
+				}).then(function(buffer) {
+					return fs.writeFileAsync(saveDir, buffer);
+				}).then(function() {
+					app.currentContest.saved = true;
+					webContents.send('judge-bar', {
+						status: 'Lưu file thành công'
+					});
+					setTimeout(function() { webContents.send('judge-bar', 'reset'); }, 3000);
+				});
+			});
+		});
+	});
+}
+
 module.exports = function(app, ipc) {
 	webContents = app.mainWindow.webContents;
 	ipc.on('file-open-contest', function() {
 		dialog.showOpenDialogAsync({
 			title: 'Mở kì thi cũ',
-			defaultPath: __dirname,
 			filters: [
 				{ name: 'Themis/Hera Contest', extensions: ['contest'] }
 			],
@@ -250,6 +422,18 @@ module.exports = function(app, ipc) {
 				});
 				setTimeout(function() { webContents.send('judge-bar', 'reset'); }, 3000);
 			});
+		});
+	});
+	ipc.on('file-save-contest', function() {
+		dialog.showSaveDialog({
+			title: 'Lưu lại kì thi',
+			filters: [
+				{ name: 'Themis/Hera Contest', extensions: ['contest'] }
+			]
+		}, function(path) {
+			if (path === null) return;
+			console.log('Saving contest to ' + path);
+			packContest(app, path);
 		});
 	});
 };
