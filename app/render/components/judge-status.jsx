@@ -131,7 +131,7 @@ var JudgeAddContent = React.createClass({
 					targetOrigin={{horizontal: 'right', vertical: 'bottom'}}
 					onChange={this.handleAddContent}
 				>
-					<MenuItem value='problem'>Nạp danh sách bài tập...</MenuItem>
+					<MenuItem value='problem'>Thêm bài tập...</MenuItem>
 					<MenuItem value='student'>Nạp danh sách thí sinh...</MenuItem>
 				</IconMenu>);
 	}
