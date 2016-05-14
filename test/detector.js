@@ -62,4 +62,40 @@ describe('powerfulDetector', function() {
 			['Test100/pr', 'Test100/pr.a']
 		], List);
 	});
+	it('should do well with in.*, expect.*', function() {
+		var files = [
+			'file/in.1',
+			'file/expect.2',
+			'file/expect.1',
+			'file/in.100',
+			'file/in.2',
+			'file/expect.100',
+			'file/check.cpp'
+		];
+		var Detector = new detector(files);
+		var List = Detector.extractIOList();
+		assert.deepEqual([
+			['file/in.1', 'file/expect.1'],
+			['file/in.2', 'file/expect.2'],
+			['file/in.100', 'file/expect.100']
+		], List);
+	});
+	it('should do well with in.*.txt, expect.*.txt', function() {
+		var files = [
+			'file/in.1.txt',
+			'file/expect.2.txt',
+			'file/expect.1.txt',
+			'file/in.100.txt',
+			'file/in.2.txt',
+			'file/expect.100.txt',
+			'file/check.cpp'
+		];
+		var Detector = new detector(files);
+		var List = Detector.extractIOList();
+		assert.deepEqual(List, [
+			['file/in.1.txt', 'file/expect.1.txt'],
+			['file/in.2.txt', 'file/expect.2.txt'],
+			['file/in.100.txt', 'file/expect.100.txt']
+		]);
+	});
 });

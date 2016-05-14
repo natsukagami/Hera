@@ -116,6 +116,10 @@ var JudgeToolbox = React.createClass({
 });
 
 var JudgeAddContent = React.createClass({
+	handleAddContent(event, value) {
+		if (value === null) return;
+		ipcRenderer.send('add-' + value);
+	},
 	render() {
 		return (<IconMenu
 					iconButtonElement={
@@ -125,9 +129,10 @@ var JudgeAddContent = React.createClass({
 					}
 					anchorOrigin={{horizontal: 'right', vertical: 'bottom'}}
 					targetOrigin={{horizontal: 'right', vertical: 'bottom'}}
+					onChange={this.handleAddContent}
 				>
-					<MenuItem>Thêm bài tập...</MenuItem>
-					<MenuItem>Thêm thí sinh...</MenuItem>
+					<MenuItem value='problem'>Nạp danh sách bài tập...</MenuItem>
+					<MenuItem value='student'>Nạp danh sách thí sinh...</MenuItem>
 				</IconMenu>);
 	}
 });

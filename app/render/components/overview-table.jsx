@@ -57,13 +57,65 @@ var ScoreCellWithContextMenu = React.createClass({
 	}
 });
 
+var StudentCellWithContextMenu = React.createClass({
+	getInitialState() {
+		return {
+			open: false
+		};
+	},
+	handleContextMenu(event) {
+		event.preventDefault();
+		this.setState({
+			open: true,
+			anchorEl: event.currentTarget
+		});
+	},
+	handleRequestClose() {
+		this.setState({
+			open: false
+		});
+	},
+	handleMenuChange(event, value) {
+		ipcRenderer.send(value, {
+			student: this.props.student
+		});
+		this.setState({
+			open: false
+		});
+	},
+	render() {
+		return (<div>
+					<div
+						onContextMenu={this.handleContextMenu}
+					>
+					{this.props.student}
+					</div>
+					<Popover
+						open={this.state.open}
+						anchorEl={this.state.anchorEl}
+						anchorOrigin={{'horizontal':'left', 'vertical':'bottom'}}
+						targetOrigin={{'horizontal':'left', 'vertical':'top'}}
+						onRequestClose={this.handleRequestClose}
+					>
+						<Menu onChange={this.handleMenuChange}>
+							<MenuItem value='delete-student' primaryText={'Xóa thí sinh'}/>
+						</Menu>
+					</Popover>
+				</div>);
+	}
+});
+
 var OverviewTable = React.createClass({
 	getInitialState() {
 		var inst = this;
 		ipcRenderer.on('reload-table', function(event, data) {
 			var state = {
 				students: [],
-				problems: []
+				problems: [],
+				currentOrder: {
+					col: 'none',
+					order: 1 // 1 = ascending, -1 = decending
+				}
 			};
 			Object.keys(data.students).forEach(function(studentId) {
 				state.students.push(data.students[studentId]);
@@ -78,7 +130,7 @@ var OverviewTable = React.createClass({
 			students: [],
 			problems: [],
 			currentOrder: {
-				col: '__name',
+				col: 'none',
 				order: 1 // 1 = ascending, -1 = decending
 			}
 		};
@@ -156,7 +208,11 @@ var OverviewTable = React.createClass({
 			});
 			return (
 			<TableRow key={idx}>
-				<TableRowColumn>{student.name}</TableRowColumn>
+				<TableRowColumn>
+					<StudentCellWithContextMenu
+						student={student.name}
+					/>
+				</TableRowColumn>
 				{problems}
 				<TableRowColumn>{student.total}</TableRowColumn>
 			</TableRow>

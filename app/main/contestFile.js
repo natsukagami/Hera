@@ -451,7 +451,7 @@ function createEmptyContest() {
 
 module.exports = function(app, ipc) {
 	// Register the current contest with null
-	createEmptyContest().then(function(contest) {
+	app.startupPromise = createEmptyContest().then(function(contest) {
 		app.currentContest = contest;
 	});
 	webContents = app.mainWindow.webContents;
@@ -484,7 +484,7 @@ module.exports = function(app, ipc) {
 				{ name: 'Themis/Hera Contest', extensions: ['contest'] }
 			]
 		}, function(path) {
-			if (path === null) return;
+			if (path === null || path === undefined) return;
 			console.log('Saving contest to ' + path);
 			packContest(app, path);
 		});
