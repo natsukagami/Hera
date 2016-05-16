@@ -1,5 +1,5 @@
 var dialog = Promise.promisifyAll(require('electron').dialog);
-var fs = Promise.promisifyAll(require('fs'));
+var fs = Promise.promisifyAll(require('fs-extra'));
 var jszip = require('jszip');
 jszip.external.Promise = GLOBAL.Promise = require('bluebird');
 var temp = Promise.promisifyAll(require('temp')).track();
@@ -8,6 +8,7 @@ var zlib = Promise.promisifyAll(require('zlib'));
 var xml2js = Promise.promisifyAll(require('xml2js'));
 var xmlbuilder = require('xmlbuilder');
 var walk = require('walk');
+var app;
 
 var webContents;
 
@@ -284,7 +285,14 @@ function unpackContest(app, contestFile) {
 							});
 							// Write the file down
 							promises.push(file.async('nodebuffer').then(function(data) {
-								return fs.writeFileAsync(path.join(dir, relPath), data);
+								if (/Tasks\/(\w+)\/Test(\d+)\/\w+\.(inp|out)/i.test(relPath)) {
+									var matches = /Tasks\/(\w+)\/Test(\d+)\/\w+\.(inp|out)/i.exec(relPath);
+									console.log(matches);
+									relPath = path.join('Tasks', matches[1], 'Test' + matches[2], matches[1] + '.' + matches[3].toLowerCase());
+								}
+								return fs.ensureFileAsync(path.join(dir, relPath)).then(function() {
+									return fs.writeFileAsync(path.join(dir, relPath), data);
+								});
 							}).then(function() {
 								console.log('Written ' + relPath);
 								webContents.send('judge-bar', {
@@ -325,7 +333,7 @@ function unpackContest(app, contestFile) {
 					.catch(function(err) {
 						dialog.showErrorBoxAsync(
 							'Lỗi',
-							'Không thể mở file'
+							'Không thể mở file: ' + err.toString()
 						).then(function() {
 							app.quit();
 						});
@@ -412,18 +420,20 @@ function packContest(app, saveDir) {
 }
 
 function emptyTemp(app) {
-	if (app.currentContest.saved || !dialog.showMessageBox({
+	if (app.currentContest.saved || dialog.showMessageBox({
 		type: 'warning',
 		buttons: ['Có', 'Không'],
-		defaultId: 1,
+		defaultId: 0,
 		title: 'Chưa lưu file hiện tại',
-		message: 'Bạn chưa lưu lại kì thi đang mở. Tiếp tục?',
+		message: 'Bạn chưa lưu lại kì thi đang mở. Lưu lại trước khi tiếp tục?',
 		cancelId: 1
 	})) {
 		temp.cleanupSync();
 		return true;
+	} else {
+		doSaveContest();
+		return false;
 	}
-	return false;
 }
 
 /**
@@ -449,8 +459,27 @@ function createEmptyContest() {
 	});
 }
 
-module.exports = function(app, ipc) {
+/**
+ * Do the contest-saving work
+ * @return {string} the path where the contest was saved, or null if it was cancelled
+ */
+function doSaveContest() {
+	dialog.showSaveDialog({
+		title: 'Lưu lại kì thi',
+		filters: [
+			{ name: 'Themis/Hera Contest', extensions: ['contest'] }
+		]
+	}, function(path) {
+		if (path === null || path === undefined) return null;
+		console.log('Saving contest to ' + path);
+		packContest(app, path);
+		return path;
+	});
+}
+
+module.exports = function(electronApp, ipc) {
 	// Register the current contest with null
+	app = electronApp;
 	app.startupPromise = createEmptyContest().then(function(contest) {
 		app.currentContest = contest;
 	});
@@ -477,21 +506,13 @@ module.exports = function(app, ipc) {
 			});
 		});
 	});
-	ipc.on('file-save-contest', function() {
-		dialog.showSaveDialog({
-			title: 'Lưu lại kì thi',
-			filters: [
-				{ name: 'Themis/Hera Contest', extensions: ['contest'] }
-			]
-		}, function(path) {
-			if (path === null || path === undefined) return;
-			console.log('Saving contest to ' + path);
-			packContest(app, path);
-		});
-	});
+	ipc.on('file-save-contest', doSaveContest);
 	ipc.on('file-new-contest', function() {
 		if (emptyTemp(app)) createEmptyContest().then(function(contest) {
 			app.currentContest = contest;
 		});
+	});
+	app.on('before-quit', function(event) {
+		if (!emptyTemp(app)) event.preventDefault();
 	});
 };

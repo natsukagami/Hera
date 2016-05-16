@@ -6,7 +6,6 @@ import Subheader from 'material-ui/Subheader';
 import IconAccepted from 'material-ui/svg-icons/navigation/check';
 import IconPartial from 'material-ui/svg-icons/navigation/more-horiz';
 import IconNoScore from 'material-ui/svg-icons/navigation/close';
-import TextField from 'material-ui/TextField';
 import { green500, red500, yellow500 } from 'material-ui/styles/colors';
 import Avatar from 'material-ui/Avatar';
 import CircularProgress from 'material-ui/CircularProgress';

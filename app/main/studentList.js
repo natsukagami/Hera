@@ -35,7 +35,7 @@ var addStudents = function(dirpath) {
 						contest.students[item[0]] = {
 							name: item[0],
 							total: 0,
-							details: []
+							problems: {}
 						};
 					});
 				}

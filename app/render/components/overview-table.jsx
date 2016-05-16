@@ -124,6 +124,7 @@ var OverviewTable = React.createClass({
 				state.problems.push(problemId);
 			});
 			inst.setState(state);
+			inst.forceUpdate();
 		});
 		return {
 			// Raw data, for now

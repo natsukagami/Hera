@@ -8,7 +8,7 @@ var xmlbuilder = require('xmlbuilder');
 var sprintf = require('sprintf-js').sprintf;
 var powerfulDetector = require('./libs/powerful-detector/powerfulDetector');
 var webContents;
-var contest, app;
+var contest, app, ipc;
 
 /**
  * Writes the config into a zlib-encoded file
@@ -35,7 +35,7 @@ function writeConfig(config, file) {
 			'@Name': testcase.name,
 			'@Mark': (testcase.score === Problem.score ? -1 : testcase.score).toString(),
 			'@TimeLimit': (testcase.timeLimit === Problem.timeLimit ? -1 : testcase.timeLimit).toString(),
-			'@MemoryLimit': (testcase.memoryLimit === Problem.memoryLimit ?
+			'@MemoryLimit': (testcase.memoryLimit === Problem.memoryLimit || testcase.memoryLimit === -1 ?
 				-1 :
 				(testcase.memoryLimit / 1024)).toString()
 		});
@@ -83,9 +83,9 @@ function parseConfig(dirpath, problemName) {
 			exam.TestCase.forEach(function(testcase) {
 				problem.testcases.push({
 					name: testcase.$.Name,
-					score: (testcase.$.Mark !== '-1' ? Number(testcase.$.Mark) : problem.score),
-					timeLimit: (testcase.$.TimeLimit !== '-1' ? Number(testcase.$.TimeLimit) : problem.timeLimit),
-					memoryLimit: (testcase.$.MemoryLimit !== '-1' ? Number(testcase.$.MemoryLimit) * 1024 : problem.memoryLimit)
+					score: Number(testcase.$.Mark),
+					timeLimit: Number(testcase.$.TimeLimit),
+					memoryLimit: Number(testcase.$.MemoryLimit)
 				});
 			});
 			return problem;
@@ -109,6 +109,63 @@ function parseConfig(dirpath, problemName) {
 		});
 }
 
+/**
+ * Copies the current test folder into temp currentContest folder
+ * @param  {String} dirpath 	The problem folder
+ * @param  {String} problemName	Name of the problem, for test parsing
+ * @param  {[String]} filelist	The array of files to be copied over
+ * @param  {[String]} testlist 	The array of recognized tests to be reformatted
+ * @return {Promise<>}      	Promise of the process
+ */
+function copyConfig(dirpath, problemName, filelist, testlist) {
+	webContents.send('judge-bar', {
+		status: 'Đang thêm bài tập...'
+	});
+	var Copied = {};
+	return Promise.all(testlist.map(function(test) {
+		var inpDir = path.join(dirpath, test[0]);
+		var outDir = path.join(dirpath, test[1]);
+		var filepath = path.join(contest.dir, 'Tasks', problemName, test[2]);
+		return Promise.all([
+			fs.ensureFileAsync(path.join(filepath, problemName + '.inp'))
+				.then(function() {
+					return fs.copyAsync(inpDir, path.join(filepath, problemName + '.inp'), { clobber: true });
+				})
+				.then(function() { Copied[inpDir] = true; }),
+			fs.ensureFileAsync(path.join(filepath, problemName + '.out'))
+				.then(function() {
+					return fs.copyAsync(outDir, path.join(filepath, problemName + '.out'), { clobber: true });
+				})
+				.then(function() { Copied[outDir] = true; })
+		]);
+	})).then(function() {
+		return Promise.all(filelist.map(function(file) {
+			var filepath = path.join(contest.dir, 'Tasks', problemName, path.relative(dirpath, file));
+			if (Copied[file]) return;
+			return fs.ensureFileAsync(filepath)
+					.then(function() {
+						return fs.copyAsync(file, filepath, { clobber: true });
+					})
+					.then(function() {
+						webContents.send('judge-bar', {
+							value: ['add', 1]
+						});
+					});
+		}));
+	}).then(function() {
+		webContents.send('judge-bar', {
+			status: 'Thêm bài tập thành công',
+			value: ['add', 1]
+		});
+		setTimeout(function() { webContents.send('judge-bar', 'reset'); }, 3000);
+	}).error(function(err) {
+		dialog.showErrorBox(
+			'Lỗi',
+			'Không thể mở thư mục bài tập: ' + err.toString()
+		);
+	});
+}
+
 function addProblem(dirpath) {
 	if (dirpath === undefined) return;
 	dirpath = dirpath[0];
@@ -126,12 +183,15 @@ function addProblem(dirpath) {
 		file = path.join(root, file.name);
 		filelist.push(file); next();
 	});
+	// Send the number of files to judge bar
+	webContents.send('judge-bar', {
+		maxValue: ['add', filelist.length]
+	});
 	walker.on('end', function() {
 		// use the powerful powerfulDetector to match input - output pairs!
 		var detector = new powerfulDetector(filelist);
 		var list = detector.extractIOList();
 		parseConfig(dirpath, path.parse(dirpath).name).then(function(config) {
-			console.log(config);
 			list.forEach(function(item, idx, arr) {
 				var caseName = sprintf('Test%02d', idx);
 				arr[idx] = [
@@ -151,13 +211,51 @@ function addProblem(dirpath) {
 			return writeConfig(config, path.join(dirpath, 'Settings.cfg'))
 					.then(function() {
 						webContents.send('add-problem-drawer', list, config);
+						// Setting change listeners
+						ipc.on('add-problem-testcase-change', function(event, data) {
+							config.testcases.forEach(function(testcase) {
+								if (testcase.name === data.testcase) {
+									testcase[data.field] = Number(data.value);
+								}
+							});
+						});
+						ipc.on('add-problem-testcase-flip', function(event, data) {
+							list.forEach(function(testcase, idx, arr) {
+								if (testcase[2] === data) {
+									arr[idx] = [
+										testcase[1],
+										testcase[0],
+										testcase[2]
+									];
+								}
+							});
+						});
+						ipc.on('add-problem-general-change', function(event, data) {
+							config[data.field] = data.value;
+						});
+						// Confirms and end the problem adding procedure
+						ipc.on('add-problem-add', function(event) {
+							ipc.removeAllListeners('add-problem-testcase-change');
+							ipc.removeAllListeners('add-problem-general-change');
+							contest.saved = false;
+							copyConfig(dirpath, config.name, filelist, list).then(function() {
+								config.testcases.forEach(function(testcase) {
+									testcase.score = (testcase.score === -1 ? config.score : testcase.score);
+									testcase.timeLimit = (testcase.timeLimit === -1 ? config.timeLimit : testcase.timeLimit);
+									testcase.memoryLimit = (testcase.memoryLimit === -1 ? config.memoryLimit : testcase.memoryLimit);
+								});
+								contest.problems[config.name] = config;
+								app.sendContestToRenderer(contest);
+							});
+						});
 					});
 		});
 	});
 }
 
-module.exports = function(electronApp, ipc) {
+module.exports = function(electronApp, ipcMain) {
 	app = electronApp;
+	ipc = ipcMain;
 	app.startupPromise.then(function() {
 		contest = app.currentContest;
 	});
