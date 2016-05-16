@@ -250,8 +250,14 @@ var AddProblemDrawer = React.createClass({
 		this.setState(value);
 	},
 	handleChange(open) {
-		this.setState({open: open});
+		this.setState({
+			open: open
+		});
 		if (open === false) {
+			this.setState({
+				testcases: [],
+				config: {}
+			});
 			ipcRenderer.send('add-problem-add');
 		}
 	},
