@@ -50,7 +50,6 @@ var GeneralTextField = React.createClass({
 		};
 	},
 	handleChange(event, value) {
-		console.log(value); console.log(ipcRenderer);
 		var isNumber = (this.props.isNumber === undefined ? false : this.props.isNumber);
 		this.setState({value: value});
 		if (isNumber) if (value === '' || isNaN(Number(value))) return;

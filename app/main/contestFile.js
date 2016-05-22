@@ -287,7 +287,6 @@ function unpackContest(app, contestFile) {
 							promises.push(file.async('nodebuffer').then(function(data) {
 								if (/Tasks\/(\w+)\/Test(\d+)\/\w+\.(inp|out)/i.test(relPath)) {
 									var matches = /Tasks\/(\w+)\/Test(\d+)\/\w+\.(inp|out)/i.exec(relPath);
-									console.log(matches);
 									relPath = path.join('Tasks', matches[1], 'Test' + matches[2], matches[1] + '.' + matches[3].toLowerCase());
 								}
 								return fs.ensureFileAsync(path.join(dir, relPath)).then(function() {

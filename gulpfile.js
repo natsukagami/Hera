@@ -1,6 +1,7 @@
 'use strict';
 var gulp = require('gulp');
 var browserify = require('browserify');
+var envify = require('envify/custom');
 var watchify = require('watchify');
 var source = require('vinyl-source-stream');
 var buffer = require('vinyl-buffer');
@@ -29,6 +30,8 @@ _b.transform(babelify.configure({
 		'es2015',
 		'react'
 	]
+})).transform(envify({
+	NODE_ENV: 'production'
 }));
 
 gulp.task('ui', bundle);

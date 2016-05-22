@@ -1,9 +1,10 @@
 'use strict';
 const electron = require('electron');
 const app = electron.app;
+const socketServer = require('./socket/server/index');
 
 // Use bluebird as the Promise handler
-GLOBAL.Promise = require('bluebird');
+global.Promise = require('bluebird');
 
 // adds debug features like hotkeys for triggering dev tools and reload
 require('electron-debug')();
@@ -50,5 +51,6 @@ app.on('ready', () => {
 	app.mainWindow = mainWindow;
 	require('./app/main/index')(app);
 	server = require('./server/server');
+	socketServer(server);
 	mainWindow.loadURL('http://127.0.0.1:' + server.running_port + '/admin');
 });
