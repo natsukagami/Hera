@@ -8,7 +8,7 @@
 ## Dev
 > Dependencies: 
 > 	nodejs v6
-> 	npm with `browserify`, `bower` and `gulp` installed
+> 	npm with `bower` and `gulp` installed
 
 ```
 $ npm install
@@ -24,7 +24,7 @@ $ npm start
 
 ###To-do
 - [x] Actually running
-- [ ] Opening .contest file (working)
+* [x] Opening .contest file (working)
 - [ ] Judge running
 - [ ] Export to other formats
 - [ ] Multi-computer judging
