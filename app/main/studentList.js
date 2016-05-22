@@ -2,7 +2,7 @@ var { dialog } = require('electron');
 var fs = Promise.promisifyAll(require('fs-extra'));
 var path = require('path');
 var webContents;
-var contest, app;
+var app;
 
 var addStudents = function(dirpath) {
 	// User cancelled the call
@@ -18,21 +18,21 @@ var addStudents = function(dirpath) {
 		})
 		.then(function(list) {
 			// Clear the folders and database first
-			contest.students = {};
-			contest.saved = false;
-			return fs.emptyDirAsync(path.join(contest.dir, 'Contestants')).then(function() { return list; });
+			app.currentContest.students = {};
+			app.currentContest.saved = false;
+			return fs.emptyDirAsync(path.join(app.currentContest.dir, 'Contestants')).then(function() { return list; });
 		})
 		.then(function(list) {
 			// Add and copy the folders to tmp
 			return Promise.all(list.map(function(item) {
 				if (item[1] === true) {
 					// Is a directory
-					return fs.copyAsync(path.join(dirpath, item[0]), path.join(contest.dir, 'Contestants', item[0]), {
+					return fs.copyAsync(path.join(dirpath, item[0]), path.join(app.currentContest.dir, 'Contestants', item[0]), {
 						clobber: true,
 						dereference: true
 					}).then(function() {
 						console.log('Student ' + item[0] + ' added');
-						contest.students[item[0]] = {
+						app.currentContest.students[item[0]] = {
 							name: item[0],
 							total: 0,
 							problems: {}
@@ -43,7 +43,7 @@ var addStudents = function(dirpath) {
 			}));
 		})
 		.then(function() {
-			app.sendContestToRenderer(contest);
+			app.sendContestToRenderer(app.currentContest);
 		})
 		.error(function(err) {
 			dialog.showErrorBox(
@@ -56,9 +56,6 @@ var addStudents = function(dirpath) {
 module.exports = function(electronApp, ipc) {
 	app = electronApp;
 	webContents = app.mainWindow.webContents;
-	app.startupPromise.then(function() {
-		contest = app.currentContest;
-	});
 	ipc.on('add-student', function() {
 		dialog.showOpenDialog({
 			title: 'Nạp danh sách thí sinh',
@@ -66,7 +63,7 @@ module.exports = function(electronApp, ipc) {
 		}, addStudents);
 	});
 	ipc.on('delete-student', function(event, value) {
-		delete contest.students[value.student];
-		app.sendContestToRenderer(contest);
+		delete app.currentContest.students[value.student];
+		app.sendContestToRenderer(app.currentContest);
 	});
 };

@@ -105,6 +105,54 @@ var StudentCellWithContextMenu = React.createClass({
 	}
 });
 
+var ProblemCellWithContextMenu = React.createClass({
+	getInitialState() {
+		return {
+			open: false
+		};
+	},
+	handleContextMenu(event) {
+		event.preventDefault();
+		this.setState({
+			open: true,
+			anchorEl: event.currentTarget
+		});
+	},
+	handleRequestClose() {
+		this.setState({
+			open: false
+		});
+	},
+	handleMenuChange(event, value) {
+		ipcRenderer.send(value, {
+			problem: this.props.problem
+		});
+		this.setState({
+			open: false
+		});
+	},
+	render() {
+		return (<div>
+					<div
+						onContextMenu={this.handleContextMenu}
+					>
+					{this.props.children}
+					</div>
+					<Popover
+						open={this.state.open}
+						anchorEl={this.state.anchorEl}
+						anchorOrigin={{'horizontal':'left', 'vertical':'bottom'}}
+						targetOrigin={{'horizontal':'left', 'vertical':'top'}}
+						onRequestClose={this.handleRequestClose}
+					>
+						<Menu onChange={this.handleMenuChange}>
+							<MenuItem value='config-problem' primaryText={'Cấu hình bài tập'}/>
+						</Menu>
+					</Popover>
+				</div>);
+	}
+});
+
 var OverviewTable = React.createClass({
 	getInitialState() {
 		var inst = this;
@@ -176,10 +224,12 @@ var OverviewTable = React.createClass({
 					<IconDecending style={{width: 14, height: 14}}/>)}
 			</span>;
 		}
-		return (<span>
+		var ret = (<span>
 					<span data-colName={colname} onClick={this.handleHeaderClick}>{name}</span>
 					{added}
 				</span>);
+		if (name === colname) ret = (<ProblemCellWithContextMenu problem={name}>{ret}</ProblemCellWithContextMenu>);
+		return (ret);
 	},
 	render() {
 		var instance = this;

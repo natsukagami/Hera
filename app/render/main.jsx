@@ -8,6 +8,7 @@ import OverviewTable from './components/overview-table.jsx';
 import JudgeStatus from './components/judge-status.jsx';
 import ResultDrawer from './components/result-drawer.jsx';
 import AddProblemDrawer from './components/addProblem-drawer.jsx';
+import ConfigProblemDrawer from './components/configProblem-drawer.jsx';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 // Needed for onTouchTap
 // Check this repo:
@@ -25,6 +26,7 @@ const App = () => (
             <OverviewTable />
             <ResultDrawer />
             <AddProblemDrawer />
+            <ConfigProblemDrawer />
           </div>
           <div className='appFoot' style={{'height': 100}}>
             <JudgeStatus/>

@@ -12,19 +12,17 @@ import { 	GeneralTextField,
 		}
 	from './problemDrawer-components.jsx';
 
-var AddProblemDrawer = React.createClass({
+var ConfigProblemDrawer = React.createClass({
 	getInitialState() {
 		var inst = this;
-		ipcRenderer.on('add-problem-drawer', function(event, testcases, config) {
+		ipcRenderer.on('config-problem-drawer', function(event, config) {
 			inst.setState({
-				testcases: testcases,
 				config: config,
 				open: true
 			});
 		});
 		return {
-			testcases: [],
-			config: {},
+			config: {testcases: []},
 			open: false,
 			state: 'general' // Only in testing, switch to 'general' in production
 		};
@@ -38,10 +36,9 @@ var AddProblemDrawer = React.createClass({
 		});
 		if (open === false) {
 			this.setState({
-				testcases: [],
-				config: {}
+				config: {testcases: []}
 			});
-			ipcRenderer.send('add-problem-add');
+			ipcRenderer.send('config-problem-save');
 		}
 	},
 	render() {
@@ -50,14 +47,13 @@ var AddProblemDrawer = React.createClass({
 		if (this.state.config.name !== undefined) {
 			general = <GeneralContent config={this.state.config}/>;
 		}
-		var testcases = this.state.testcases.map(function(testcase, idx) {
+		var testcases = this.state.config.testcases.map(function(testcase, idx) {
 			return (<TestcaseListItem
-						name={testcase[2]}
-						input={testcase[0]}
-						output={testcase[1]}
-						timeLimit={inst.state.config.testcases[idx].timeLimit}
-						memoryLimit={inst.state.config.testcases[idx].memoryLimit}
-						score={inst.state.config.testcases[idx].score}
+						name={testcase.name}
+						configMode={true}
+						timeLimit={testcase.timeLimit}
+						memoryLimit={testcase.memoryLimit}
+						score={testcase.score}
 					/>);
 		});
 		return (<Drawer
@@ -66,7 +62,7 @@ var AddProblemDrawer = React.createClass({
 					open={this.state.open}
 					onRequestChange={this.handleChange}
 				>
-					<Subheader inset={true}>{<span>Thêm bài tập: {this.state.config.name}</span>}</Subheader>
+					<Subheader inset={true}>{<span>Cấu hình bài tập: {this.state.config.name}</span>}</Subheader>
 					<Tabs value={this.state.value} onChange={this.handleTabChange}>
 						<Tab label='Cấu hình chung' value='general'>
 							{general}
@@ -81,4 +77,4 @@ var AddProblemDrawer = React.createClass({
 	}
 });
 
-module.exports = AddProblemDrawer;
+module.exports = ConfigProblemDrawer;

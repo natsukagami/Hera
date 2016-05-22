@@ -107,7 +107,6 @@ var JudgeToolbox = React.createClass({
 					anchorOrigin={{horizontal: 'right', vertical: 'bottom'}}
 					targetOrigin={{horizontal: 'right', vertical: 'bottom'}}
 				>
-					<MenuItem>Cấu hình bài tập</MenuItem>
 					<MenuItem>Cấu hình máy chấm</MenuItem>
 					<MenuItem>Cấu hình máy chủ nộp bài</MenuItem>
 					<MenuItem>Chấm lại bài của các thí sinh đã chọn</MenuItem>

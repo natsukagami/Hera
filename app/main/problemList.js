@@ -8,7 +8,7 @@ var xmlbuilder = require('xmlbuilder');
 var sprintf = require('sprintf-js').sprintf;
 var powerfulDetector = require('./libs/powerful-detector/powerfulDetector');
 var webContents;
-var contest, app, ipc;
+var app, ipc;
 
 /**
  * Writes the config into a zlib-encoded file
@@ -125,7 +125,7 @@ function copyConfig(dirpath, problemName, filelist, testlist) {
 	return Promise.all(testlist.map(function(test) {
 		var inpDir = path.join(dirpath, test[0]);
 		var outDir = path.join(dirpath, test[1]);
-		var filepath = path.join(contest.dir, 'Tasks', problemName, test[2]);
+		var filepath = path.join(app.currentContest.dir, 'Tasks', problemName, test[2]);
 		return Promise.all([
 			fs.ensureFileAsync(path.join(filepath, problemName + '.inp'))
 				.then(function() {
@@ -140,7 +140,7 @@ function copyConfig(dirpath, problemName, filelist, testlist) {
 		]);
 	})).then(function() {
 		return Promise.all(filelist.map(function(file) {
-			var filepath = path.join(contest.dir, 'Tasks', problemName, path.relative(dirpath, file));
+			var filepath = path.join(app.currentContest.dir, 'Tasks', problemName, path.relative(dirpath, file));
 			if (Copied[file]) return;
 			return fs.ensureFileAsync(filepath)
 					.then(function() {
@@ -212,7 +212,7 @@ function addProblem(dirpath) {
 					.then(function() {
 						webContents.send('add-problem-drawer', list, config);
 						// Setting change listeners
-						ipc.on('add-problem-testcase-change', function(event, data) {
+						ipc.on('problem-testcase-change', function(event, data) {
 							config.testcases.forEach(function(testcase) {
 								if (testcase.name === data.testcase) {
 									testcase[data.field] = Number(data.value);
@@ -230,22 +230,23 @@ function addProblem(dirpath) {
 								}
 							});
 						});
-						ipc.on('add-problem-general-change', function(event, data) {
+						ipc.on('problem-general-change', function(event, data) {
 							config[data.field] = data.value;
 						});
 						// Confirms and end the problem adding procedure
-						ipc.on('add-problem-add', function(event) {
-							ipc.removeAllListeners('add-problem-testcase-change');
-							ipc.removeAllListeners('add-problem-general-change');
-							contest.saved = false;
+						ipc.once('add-problem-add', function(event) {
+							ipc.removeAllListeners('problem-testcase-change');
+							ipc.removeAllListeners('problem-general-change');
+							ipc.removeAllListeners('add-problem-testcase-flip');
+							app.currentContest.saved = false;
 							copyConfig(dirpath, config.name, filelist, list).then(function() {
 								config.testcases.forEach(function(testcase) {
 									testcase.score = (testcase.score === -1 ? config.score : testcase.score);
 									testcase.timeLimit = (testcase.timeLimit === -1 ? config.timeLimit : testcase.timeLimit);
 									testcase.memoryLimit = (testcase.memoryLimit === -1 ? config.memoryLimit : testcase.memoryLimit);
 								});
-								contest.problems[config.name] = config;
-								app.sendContestToRenderer(contest);
+								app.currentContest.problems[config.name] = config;
+								app.sendContestToRenderer(app.currentContest);
 							});
 						});
 					});
@@ -256,14 +257,36 @@ function addProblem(dirpath) {
 module.exports = function(electronApp, ipcMain) {
 	app = electronApp;
 	ipc = ipcMain;
-	app.startupPromise.then(function() {
-		contest = app.currentContest;
-	});
 	webContents = app.mainWindow.webContents;
 	ipc.on('add-problem', function() {
 		dialog.showOpenDialog({
 			title: 'Thêm bài tập',
 			properties: ['openDirectory']
 		}, addProblem);
+	});
+	ipc.on('config-problem', function(event, problem) {
+		var config = app.currentContest.problems[problem.problem];
+		webContents.send('config-problem-drawer', config);
+		ipc.on('problem-testcase-change', function(event, data) {
+			config.testcases.forEach(function(testcase) {
+				if (testcase.name === data.testcase) {
+					testcase[data.field] = Number(data.value);
+				}
+			});
+			app.currentContest.saved = false;
+		});
+		ipc.on('problem-general-change', function(event, data) {
+			config[data.field] = data.value;
+			app.currentContest.saved = false;
+		});
+		ipc.once('config-problem-save', function() {
+			ipc.removeAllListeners('problem-testcase-change');
+			ipc.removeAllListeners('problem-general-change');
+			config.testcases.forEach(function(testcase) {
+				testcase.score = (testcase.score === -1 ? config.score : testcase.score);
+				testcase.timeLimit = (testcase.timeLimit === -1 ? config.timeLimit : testcase.timeLimit);
+				testcase.memoryLimit = (testcase.memoryLimit === -1 ? config.memoryLimit : testcase.memoryLimit);
+			});
+		});
 	});
 };
