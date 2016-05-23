@@ -39,9 +39,9 @@ b.on('log', gutil.log);
 
 function bundle() {
 	gulp.src('./bower_components/jquery/dist/jquery.min.js')
-		.pipe(gulp.dest('./server/public/js'));
+		.pipe(gulp.dest('./server/public/common/js'));
 	gulp.src('./bower_components/flexboxgrid/dist/flexboxgrid.min.css')
-		.pipe(gulp.dest('./server/public/css'));
+		.pipe(gulp.dest('./server/public/common/css'));
 	return b.bundle()
 			.pipe(source('./app.min.js'))
 			.pipe(buffer())
@@ -49,14 +49,14 @@ function bundle() {
 				.pipe(uglify())
 				.on('error', gutil.log)
 			.pipe(sourcemaps.write('./'))
-			.pipe(gulp.dest('./server/public/js/'));
+			.pipe(gulp.dest('./server/public/admin/js/'));
 }
 
 function _bundle() {
 	gulp.src('./bower_components/jquery/dist/jquery.min.js')
-		.pipe(gulp.dest('./server/public/js'));
+		.pipe(gulp.dest('./server/public/common/js'));
 	gulp.src('./bower_components/flexboxgrid/dist/flexboxgrid.min.css')
-		.pipe(gulp.dest('./server/public/css'));
+		.pipe(gulp.dest('./server/public/common/css'));
 	return _b.bundle()
 			.pipe(source('./app.min.js'))
 			.pipe(buffer())
@@ -64,7 +64,7 @@ function _bundle() {
 				.pipe(uglify())
 				.on('error', gutil.log)
 			.pipe(sourcemaps.write('./'))
-			.pipe(gulp.dest('./server/public/js/'));
+			.pipe(gulp.dest('./server/public/admin/js/'));
 }
 
 

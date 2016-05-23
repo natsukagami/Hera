@@ -1,4 +1,5 @@
 var express = require('express');
+var path = require('path');
 var router = express.Router();
 
 router.use('/', function(req, res, next) {
@@ -7,6 +8,8 @@ router.use('/', function(req, res, next) {
 	}
 	else next();
 });
+
+router.use('/public/', express.static(path.join(global.project_dir, 'public', 'admin')));
 
 router.get('/', function(req, res) {
 	res.render('admin/main');
