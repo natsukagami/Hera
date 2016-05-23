@@ -15,7 +15,7 @@
     "update": "gulp update",
     "start": "electron .",
     "deploy": "gulp build && electron-packager . --out=dist --app-version=$npm_package_version --prune --asar --overwrite --all",
-    "build": "npm install && bower install && gulp build"
+    "build": "npm install && node ./node_modules/bower/bin/bower install && node ./node_modules/gulp/bin/gulp.js build"
   },
   "files": [
     "index.js",

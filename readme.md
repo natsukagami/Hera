@@ -8,12 +8,9 @@
 ## Dev
 > Dependencies: 
 > 	nodejs v6
-> 	npm with `bower` and `gulp` installed
 
 ```
-$ npm install
-$ bower install
-$ gulp build
+$ npm run build
 ```
 
 ### Run
@@ -24,8 +21,9 @@ $ npm start
 
 ###To-do
 - [x] Actually running
-* [x] Opening .contest file (working)
+* [x] Opening .contest file
 - [ ] Judge running
+- [ ] Web server for submitting 
 - [ ] Export to other formats
 - [ ] Multi-computer judging
 
