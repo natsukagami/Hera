@@ -1,6 +1,7 @@
 var socket = require('socket.io');
-var app;
+var Tasks, io;
 
 module.exports = function(expressApp) {
-	app = socket(expressApp);
+	io = socket(expressApp);
+	Tasks = require('./task')(io);
 };
