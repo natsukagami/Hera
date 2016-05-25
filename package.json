@@ -14,7 +14,7 @@
     "test": "./node_modules/mocha/bin/mocha",
     "update": "gulp update",
     "start": "electron .",
-    "deploy": "gulp build && electron-packager . --out=dist --app-version=$npm_package_version --prune --asar --overwrite --all",
+    "deploy": "gulp build && electron-packager . --out=dist --app-version=$npm_package_version --prune --asar --overwrite --all --icon=icon.ico",
     "build": "npm install && node ./node_modules/bower/bin/bower install && node ./node_modules/gulp/bin/gulp.js build"
   },
   "files": [
