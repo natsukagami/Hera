@@ -10,9 +10,43 @@ import MenuItem from 'material-ui/MenuItem';
 
 var JudgeStatusCircle = React.createClass({
 	getInitialState() {
+		var inst = this;
+		ipcRenderer.on('judge-circle', function(event, data) {
+			// 'reset'
+			if (data === 'reset') {
+				inst.setState({
+					maxValue: 1,
+					value: 1,
+					mode: 'indeterminate'
+				});
+				return;
+			}
+			//  An update object
+			//  {
+			//  [status]: (string),
+			// 	[value]: [(mode: 'set' / 'add'), (int)],
+			// 	[maxValue]: [(mode: 'set' / 'add'), (int)],
+			// 	[mode]: "determinate" / "indeterminate"
+			//  }
+			inst.setState(function(prev, props) {
+				var updateState = {};
+				if (data.value) {
+					if (data.value[0] === 'add')
+						updateState.value = prev.value + data.value[1];
+					else updateState.value = data.value[1];
+				}
+				if (data.maxValue) {
+					if (data.maxValue[0] === 'add')
+						updateState.maxValue = prev.maxValue + data.maxValue[1];
+					else updateState.maxValue = data.maxValue[1];
+				}
+				if (data.mode) updateState.mode = data.mode;
+				return updateState;
+			});
+		});
 		return {
 			'state': 'determinate',
-			'minValue': 1,
+			'minValue': 0,
 			'maxValue': 1,
 			'value': 1
 		};
@@ -97,6 +131,10 @@ var JudgeStatusBar = React.createClass({
 });
 
 var JudgeToolbox = React.createClass({
+	handleAddContent(event, value) {
+		if (value === null) return;
+		ipcRenderer.send('system-' + value);
+	},
 	render() {
 		return (<IconMenu
 					iconButtonElement={
@@ -106,10 +144,11 @@ var JudgeToolbox = React.createClass({
 					}
 					anchorOrigin={{horizontal: 'right', vertical: 'bottom'}}
 					targetOrigin={{horizontal: 'right', vertical: 'bottom'}}
+					onChange={this.handleAddContent}
 				>
 					<MenuItem>Cấu hình máy chấm</MenuItem>
 					<MenuItem>Cấu hình máy chủ nộp bài</MenuItem>
-					<MenuItem>Chấm lại bài của các thí sinh đã chọn</MenuItem>
+					<MenuItem value='rejudge-selected'>Chấm lại bài của các thí sinh đã chọn</MenuItem>
 				</IconMenu>);
 	}
 });

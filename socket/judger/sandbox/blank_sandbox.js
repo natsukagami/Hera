@@ -46,7 +46,7 @@ var Sandbox = function(options) {
 				else dir = options.cwd;
 				console.log(dir, options.cwd);
 				if (options.input !== 'stdin' && options.input !== null)
-					files.push(fs.copyAsync(path.join(options.cwd, options.input), path.join(dir, options.input)));
+					files.push(fs.copyAsync(path.join(options.cwd, 'input.txt'), path.join(dir, options.input)));
 				return Promise.all(files)
 					.then(function() {
 						return new Promise(function(resolve, reject) {

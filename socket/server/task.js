@@ -62,6 +62,7 @@ var io;
  */
 var Task = function(type, options) {
 	var inst = this;
+	this.nextTask = null;
 	/**
 	 * send the task to a client, receiving results from it or cancel after a timeout
 	 * @param  {String} receiver Id of the receiver (as a socket.io client)
@@ -70,6 +71,9 @@ var Task = function(type, options) {
 	this.send = function(receiver, socket) {
 		inst.uuid = uuid.v4(); // Give the task a random id
 		return new Promise(function(resolve, reject) {
+			inst.timeout = setTimeout(function() {
+				reject(new Error('Task timed out'));
+			}, 60000); // One minute
 			var timer;
 			if (type === 'compilation') {
 				socket.on(inst.uuid, function(msg) {
@@ -155,6 +159,8 @@ var Task = function(type, options) {
 			timer = setTimeout(function() { reject(new Error('Receiver timed out')); }, 60000);
 		}).then(function(data) {
 			console.log('Task ' + inst.uuid + ': Task completed.');
+			return data;
+		}).finally(function(data) {
 			socket.removeAllListeners(inst.uuid);
 			socket.removeAllListeners(inst.uuid + '-file');
 			return data;

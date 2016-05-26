@@ -6,5 +6,8 @@ module.exports = function(electron, express) {
 	expressApp = express;
 	client = require('socket.io-client')('http://localhost:' + expressApp.running_port + '/judgers');
 	require('./task')(client);
+	client.once('authorize', function() {
+		client.emit('authorize', electron.uuid);
+	});
 	return client;
 };

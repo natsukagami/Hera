@@ -117,9 +117,10 @@ function doCompile(uuid) {
 			});
 		});
 	}).then(function() {
+		return fs.removeAsync(dirPath);
+	}).finally(function() {
 		client.removeAllListeners(uuid);
 		client.removeAllListeners(uuid + '-file');
-		return fs.removeAsync(dirPath);
 	});
 }
 
@@ -149,6 +150,8 @@ function runDiff(files, scoreType) {
 	]).then(function prepare() {
 		if ([0, 2].indexOf(scoreTypes.indexOf(scoreType)) !== -1) {
 			files.forEach(function(str, id, arr) { arr[id] = str.toString().toLowerCase(); });
+		} else {
+			files.forEach(function(str, id, arr) { arr[id] = str.toString(); });
 		}
 		return files;
 	}).then(function compare(files) {
@@ -210,13 +213,26 @@ function doEvaluate(uuid) {
 							cwd: dir,
 							time: options.time,
 							memory: options.memory
-						}).run();
+						}).run().catch(function(err) {
+							// File error, most of
+							return {
+								exitcode: -1,
+								signal: 'FF',
+								time: 0,
+								memory: 0
+							};
+						});
 					}).then(function evaluate(result) {
 						console.log('Task ' + uuid + ': Process terminated with exitcode ' + result.exitcode);
 						if (result.exitcode !== 0) {
+							var judgeReturns = '';
+							if (result.signal === 'RTE') judgeReturns = 'Chạy sinh lỗi, chương trình thoát với exitcode ' + result.exitcode;
+							else if (result.signal === 'TLE') judgeReturns = 'Chạy quá thời gian';
+							else if (result.signal === 'FF') judgeReturns = 'Không thấy file kết quả';
 							return {
 								result: result.signal,
 								score: 0,
+								judgeReturns: judgeReturns,
 								time: result.time,
 								memory: result.memory
 							};
@@ -272,6 +288,8 @@ module.exports = function(ioClient) {
 			throw new Error('Undetermined request');
 		}).then(function() {
 			console.log('Task ' + uuid + ': Task completed.');
+		}).catch(function(err) {
+
 		});
 	});
 };

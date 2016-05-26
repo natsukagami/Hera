@@ -25,8 +25,8 @@ var ScoreCellWithContextMenu = React.createClass({
 			open: false
 		});
 	},
-	handleMenuChange(value) {
-		ipcRenderer.send('result-drawer', {
+	handleMenuChange(event, value) {
+		ipcRenderer.send(value, {
 			problem: this.props.problem,
 			student: this.props.student
 		});
@@ -49,7 +49,7 @@ var ScoreCellWithContextMenu = React.createClass({
 						onRequestClose={this.handleRequestClose}
 					>
 						<Menu onChange={this.handleMenuChange}>
-							<MenuItem value='show-results' primaryText={'Xem kết quả'}/>
+							<MenuItem value='result-drawer' primaryText={'Xem kết quả'}/>
 							<MenuItem value='rejudge' primaryText={'Chấm lại...'}/>
 						</Menu>
 					</Popover>

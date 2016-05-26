@@ -51,6 +51,6 @@ app.on('ready', () => {
 	app.mainWindow = mainWindow;
 	require('./app/main/index')(app);
 	server = require('./server/server');
-	socketServer(server);
+	socketServer(app, server);
 	mainWindow.loadURL('http://127.0.0.1:' + server.running_port + '/admin');
 });

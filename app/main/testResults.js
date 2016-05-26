@@ -34,4 +34,13 @@ module.exports = function(app, ipc) {
 		}
 		webContents.send('result-drawer', student.problems[data.problem].details);
 	});
+	ipc.on('rejudge', function(event, data) {
+		console.log('rejudge on ' + data.student + ' ' + data.problem);
+		app.enqueue([
+			{
+				student: app.currentContest.students[data.student],
+				problem: app.currentContest.problems[data.problem]
+			}
+		]);
+	});
 };

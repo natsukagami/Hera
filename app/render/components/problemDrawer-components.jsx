@@ -138,6 +138,18 @@ var GeneralContent = React.createClass({
 							value={this.props.config.memoryLimit}
 							isNumber={true}
 						/>
+						<GeneralTextField
+							field='input'
+							label='File nhập vào (stdin cho luồng vào chuẩn)'
+							value={this.props.config.input}
+							isNumber={false}
+						/>
+						<GeneralTextField
+							field='output'
+							label='File xuất ra (stdout cho luồng ra chuẩn)'
+							value={this.props.config.output}
+							isNumber={false}
+						/>
 						<GeneralSelectField
 							field='evaluator'
 							label='Phương thức chấm'
