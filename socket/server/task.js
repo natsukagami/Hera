@@ -16,33 +16,48 @@ var path = require('path');
 var io;
 
 /**
+ * A task consists of 5 phases
+ *  - Server sends the task signature to one of the judgers, which would be put into their queues.
+ *  Within 60 seconds if the judge is still not responding we restart the task.
+ *  - Judger sends 'online' message, server sends raw data.
+ *  - Judger sends 'ready' message, server sends file streams.
+ *  - Upon completion of file sending, the judger has 20 seconds to finish the given task. If the task
+ *  is not completed within time, we restart the task.
+ *  - Judger sends back the results, the task ends.
+ */
+
+/**
  * The task object
  * @param  {String} type    The task type. Can be either 'compilation' or 'evaluation'
  * @param  {Object} options Task options.
  *     - For 'compilation' tasks, the option should provide
- *      + @param {String}		  filename The file name
- *     	+ @param {String}         source   The path of the source code
- *     	+ @param {String}       graderName The name of the grader file, if required [optional]
- *     	+ @param {String}         grader   The path code for the grader, if required [optional]
- *     	+ @param {String}		  compile  The command for compilation
- *     	+ @param {String}      destination The directory to save the compiled binary
+ *      + @property {String}	filename 		The file name
+ *     	+ @property {String}	source    		The path of the source code
+ *     	+ @property {String}	graderName  	The name of the grader file, if required [optional]
+ *     	+ @property {String}	grader    		The path code for the grader, if required [optional]
+ *     	+ @property {String}	compile  		The command for compilation
+ *     	+ @property {String}	destination 	The directory to save the compiled binary
  *     - For 'evaluation' tasks, the option should provide
- *      + @param {String}          source  The path of the binary executable file
- *      + @param {String}          input   The path of the input file
- *      + @param {String}          output  The path of the expected output file
- *      + @param {String}      scoreType  The scoring method
- *      + @param {String}          scorer  The path of the binary executable scorer [optional]
+ *      + @property {String}	source  		The path of the binary executable file
+ *      + @property {String}	input   		The path of the input file
+ *      + @property {String}    inputFile      The name of the expected input file, or 'stdin'
+ *      + @property {String}	output  		The path of the expected output file
+ *      + @property {String}    outputFile      The name of the expected output file, or 'stdout'
+ *      + @property {Number}	time    		The time limit
+ *      + @property {Number}	memory  		The memory limit
+ *      + @property {String}	scoreType  		The scoring method
+ *      + @property {String}	scorer  		The path of the binary executable scorer [optional]
  * @return {Promise<Object>} The task result
  *     - For 'compilation' tasks, the object should provide
- *      + @param {Int}            result  The compilation result (0 for success, 1 for error)
- *      + @param {String} 		  file    In case of success, path of the compiled binary file
- *      + @param {String}		  err     In case of failure, a string containing the error
+ *      + @property {Int}            result  The compilation result (0 for success, 1 for error)
+ *      + @property {String} 		  file    In case of success, path of the compiled binary file
+ *      + @property {String}		  err     In case of failure, a string containing the error
  *     - For 'evaluation' tasks, the object should provide
- *      + @param {string}         result  The judging result (AC, WA, TLE, MLE, RTE, PS) (PS = Partially scored)
- *      + @param {string}    judgeRetuns  Any additional output of the scorer [optional]
- *      + @param {Number}		  score   The score of the test (between 0 and 1)
- *      + @param {Number}		  time    The running time of the code (in seconds)
- *      + @param {Number}		  memory  The used memory of the code (in kB)
+ *      + @property {string}         result   The judging result (AC, WA, TLE, MLE, RTE, PS) (PS = Partially scored)
+ *      + @property {string}    judgeReturns  Any additional output of the scorer [optional]
+ *      + @property {Number}		  score   The score of the test (between 0 and 1)
+ *      + @property {Number}		  time    The running time of the code (in seconds)
+ *      + @property {Number}		  memory  The used memory of the code (in kB)
  *   * If the task did not end in time, an error will be emitted
  */
 var Task = function(type, options) {
@@ -59,6 +74,7 @@ var Task = function(type, options) {
 			if (type === 'compilation') {
 				socket.on(inst.uuid, function(msg) {
 					if (msg === 'online') {
+						clearTimeout(timer);
 						var obj = {
 							compile: options.compile,
 							grader: (options.grader !== undefined)
@@ -66,7 +82,7 @@ var Task = function(type, options) {
 						socket.emit(inst.uuid, obj);
 					} else if (msg === 'ready') {
 						// Client ready to receive files
-						console.log('Task ' + inst.uuid + ': Sending file to judger...');
+						console.log('Task ' + inst.uuid + ': Sending files to judger...');
 						var files = [];
 						files.push(streamFileAsync(socket, inst.uuid, options.source, options.filename));
 						if (options.grader !== undefined)
@@ -81,7 +97,7 @@ var Task = function(type, options) {
 						reject(new Error('Receiver rejected the task'));
 					} else {
 						clearTimeout(timer);
-						if (msg.result === 1) {
+						if (msg.result !== 0) {
 							resolve(msg);
 						} else {
 							ss(socket).on(inst.uuid + '-file', function(file, filename, resolveClient) {
@@ -95,15 +111,52 @@ var Task = function(type, options) {
 						}
 					}
 				});
+			} else {
+				socket.on(inst.uuid, function(msg) {
+					clearTimeout(timer);
+					if (msg === 'online') {
+						socket.emit(inst.uuid, {
+							time: options.time,
+							memory: options.memory,
+							scoreType: options.scoreType,
+							inputFile: options.inputFile,
+							outputFile: options.outputFile
+						});
+					} else if (msg === 'ready') {
+						console.log('Task ' + inst.uuid + ': Sending files to judger...');
+						var files = [
+							streamFileAsync(socket, inst.uuid, options.source, 'code'),
+							streamFileAsync(socket, inst.uuid, options.input , 'input.txt'),
+							streamFileAsync(socket, inst.uuid, options.output, 'output.txt')
+						];
+						if (options.grader !== undefined) {
+							files.push(streamFileAsync(socket, inst.uuid, options.grader, 'grader'));
+						}
+						Promise.all(files).then(function() {
+							socket.emit(inst.uuid, 'done'); // Let's go
+							timer = setTimeout(function() {
+								reject(new Error('Receiver timed out'));
+							}, 20000);
+						});
+					} else if (typeof(msg) !== 'object') {
+						reject(new Error('Receiver rejected the task'));
+					} else {
+						clearTimeout(timer);
+						resolve(msg);
+					}
+				});
 			}
 			// Check if the receiver is still connected
 			if (socket.adapter.rooms[receiver] === undefined) {
 				reject(new Error('Receiver not found'));
 			}
-			console.log('Task ' + inst.uuid + ' queued to judge ' + receiver);
+			console.log('Task ' + inst.uuid + ' (' + type + ') queued to judge ' + receiver);
 			socket.emit('queue', inst.uuid, type);
+			timer = setTimeout(function() { reject(new Error('Receiver timed out')); }, 60000);
 		}).then(function(data) {
 			console.log('Task ' + inst.uuid + ': Task completed.');
+			socket.removeAllListeners(inst.uuid);
+			socket.removeAllListeners(inst.uuid + '-file');
 			return data;
 		});
 	};
@@ -114,7 +167,7 @@ var Task = function(type, options) {
  * This function should not ever reject?
  * @param  {SocketIO.Socket} stream   The socket.io stream.
  * @param  {String} 	     event    Broadcasted event name.
- * @param  {ReadableStream}  file     The file to send.
+ * @param  {String}  file     The path of the file to send.
  * @param  {String} 		 filename The name of the file. (optional)
  * @return {Promise<>}       The promise of the process
  */
@@ -124,6 +177,7 @@ function streamFileAsync(stream, event, file, filename) {
 		var goStream = ss.createStream();
 		ss(stream).emit(event + '-file', goStream, filename, resolve);
 		file.pipe(goStream);
+		setTimeout(reject, 10000);
 	});
 }
 /**

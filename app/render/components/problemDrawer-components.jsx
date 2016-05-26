@@ -144,11 +144,11 @@ var GeneralContent = React.createClass({
 							value={this.props.config.evaluator}
 							messages={messages}
 						>
-							<MenuItem value='C2LinesWordsCase.dll' primaryText='Diff'/>
-							<MenuItem value='C1LinesWordsIgnoreCase.dll' primaryText='Diff không phân biệt hoa thường'/>
+							<MenuItem value='C2LinesWordsCase.dll' primaryText='Diff phân biệt dòng'/>
+						<MenuItem value='C1LinesWordsIgnoreCase.dll' primaryText='Diff phân biệt dòng không phân biệt hoa thường'/>
 							<MenuItem value='C4WordsCase.dll' primaryText='Diff không phân biệt dấu trắng'/>
 							<MenuItem value='C3WordsIgnoreCase.dll' primaryText='Diff không phân biệt dấu trắng, không phân biệt hoa thường'/>
-							<MenuItem value='C5Binary.dll' primaryText='So sánh file nhị phân'/>
+						<MenuItem value='C5Binary.dll' primaryText='Diff theo từng kí tự'/>
 							<MenuItem value='C6AMM2External.dll' primaryText='Sử dụng trình chấm của AMM2 (Windows only)'/>
 							<MenuItem value='C7External.dll' primaryText='Sử dụng trình chấm của Themis (Windows only)'/>
 							<MenuItem value='C8CompileThemis.dll'
