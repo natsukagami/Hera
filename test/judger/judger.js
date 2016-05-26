@@ -150,6 +150,52 @@ describe('Socket.io server and judge client', function() {
 				});
 				var cl = require('../../socket/judger/index')(null, app);
 			});
+		}),
+		it('Should have a stable and reliable queuing system', function() {
+			this.timeout(20000);
+
+			return new Promise(function(resolve, reject) {
+				socket.once('connect', function b(client) {
+					var does = [
+						fail.send(client.id, client)
+						.then(function(data) {
+							assert.equal(data.result, 1);
+							assert.notProperty(data, 'file');
+							assert.property(data, 'err');
+						}).catch(reject)
+					];
+					for (var i = 0; i < 10; ++i) {
+						var compile = new Task('compilation', {
+							filename: 'code.cpp',
+							source: path.join(__dirname, 'compile_successful.cpp'),
+							destination: dir,
+							compile: 'g++ -static -O2 -o code code.cpp'
+						});
+						does.push(compile.send(client.id, client).then(function(data) {
+							assert.propertyVal(data, 'result', 0);
+							assert.propertyVal(data, 'file', path.join(dir, 'code'));
+							assert.notProperty(data, 'err');
+						}).then(function() {
+							var execute = new Task('evaluation', {
+								source: path.join(dir, 'code'),
+								input: path.join(__dirname, 'input.txt'),
+								inputFile: 'stdin',
+								output: path.join(__dirname, 'output.txt'),
+								outputFile: 'stdout',
+								time: 1,
+								memory: 262144,
+								scoreType: 'C3WordsIgnoreCase.dll'
+							});
+							return execute.send(client.id, client);
+						}).then(function(data) {
+							assert.propertyVal(data, 'result', 'AC');
+							assert.propertyVal(data, 'score', 1);
+						}).catch(reject));
+					}
+					Promise.all(does).then(resolve);
+				});
+				var cl = require('../../socket/judger/index')(null, app);
+			});
 		})
 	]);
 	after(function() {

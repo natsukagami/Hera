@@ -181,7 +181,7 @@ function runDiff(files, scoreType) {
  */
 function doEvaluate(uuid) {
 	var dirPath;
-	temp.mkdirAsync('judger-').then(function(dir) {
+	return temp.mkdirAsync('judger-').then(function(dir) {
 		dirPath = dir;
 		return new Promise(function(resolve, reject) {
 			var timer;
@@ -266,6 +266,7 @@ module.exports = function(ioClient) {
 	client = ioClient;
 	client.on('queue', function(uuid, type) {
 		queue.add(function() {
+			console.log('Accepting task ' + uuid + ' (' + type + ')...');
 			if (type === 'compilation') return doCompile(uuid);
 			if (type === 'evaluation') return doEvaluate(uuid);
 			throw new Error('Undetermined request');
