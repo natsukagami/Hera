@@ -91,6 +91,10 @@ function make_task(student, problem) {
 					// Compile error
 					student.problems[problem.name] = 'CE';
 					app.sendContestToRenderer(app.currentContest);
+					webContents.send('judge-bar', 'reset');
+					webContents.send('judge-circle', {
+						value: ['add', testcases.length]
+					});
 					return;
 				}
 				student.problems[problem.name] = {
