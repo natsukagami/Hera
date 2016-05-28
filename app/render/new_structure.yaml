@@ -1,0 +1,134 @@
+program:
+  state:
+    data 
+    selectedRows
+    panels # Problem Config, Submission Details
+	function:
+    handleMainMenu(action)
+    handleClose()
+    handleRowSelect(selectredRows)
+    handlePanel(panelName)
+    handleJudge(student, problem)
+
+header: program
+  prop:
+    handleMainMenu()
+    handleClose()
+
+mainMenu: header
+  prop:
+    handleMainMenu()
+  state:
+    isOpen: false
+  function:
+    handleOpen()
+  event:
+    onMenuOpen: handleOpen()
+
+mainMenuButton: mainMenu
+  prop:
+    handleMenu()
+    value # [excel, open, new, save]
+    label 
+  event:
+    onClick: handleMainMenu(value)
+
+heading: header
+
+close: header
+  prop:
+    handleClose()
+  event:
+    onClick: handleClose()
+
+time: program
+  prop:
+    startTime
+    endTime
+
+clock: time
+  prop:
+    startTime
+    endTime
+
+timeBar: time
+  prop:
+    startTime
+    endTime
+
+scoreboard:
+  prop:
+    handleRowSelect
+    selectedRows
+    currentContest # from data
+    handlePanel()
+    handleJudge()
+  state:
+    rowSortOrder: 
+      - row
+      - order
+  function:
+    handleSort(value, sortOrder)
+    handleProblem(problem, action) -> handlePanel, handleJudge
+    handleStudent(problem, action) -> handlePanel, handleJudge
+  event:
+    onRowSelection: handleRowSelect()
+
+scoreboardHeader: scoreboard
+  prop:
+    problems # from currentContest
+    rowSortOrder
+    handleSort()
+    handleProblem()
+
+scoreboardHeaderLabel: scoreboardHeader
+  prop:
+    label
+    value # Problem's name, or 'studentName', or 'total'
+    sortOrder
+    handleSort()
+    handleProblem()
+  state:
+    contextMenuIsOpen
+  function:
+    handleContextMenu()
+  event:
+    onClick: handleSort(value, ?sortOrder)
+    onContextMenu: handleContextMenu() # Right click
+
+scoreboardHeaderLabelContextMenu: scoreboardHeaderLabel
+  prop:
+    handleProblem()
+    isOpen # from contextMenuIsOpen
+  state:
+    currentValue
+  function:
+    handleContextMenuClick(value) # -> handleProblem
+  event:
+    onClick: handlePanel(value)
+
+scoreboardHeaderLabelContextMenuItem: scoreboardHeaderLabelContextMenu
+  prop:
+    label
+    value
+
+scoreboardRows: scoreboard
+  prop:
+    students # from contestData
+    problems # from contestData
+  function:
+    handleSubmission(student, problem, action)
+
+scoreboardRow: scoreboardRows
+  prop:
+    student # from students
+    problems
+    handleSubmission()
+
+scoreboardRowStudentCell: scoreboardRow
+  prop:
+    student
+  state:
+    contextMenuIsOpen
+    
+  
