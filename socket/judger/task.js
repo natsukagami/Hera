@@ -93,7 +93,6 @@ function doCompile(uuid) {
 							input: null,
 							output: 'stdout',
 							cwd: dir,
-							time: 10,
 							shell: true
 						}).run();
 					}).then(function(result) {
@@ -102,7 +101,8 @@ function doCompile(uuid) {
 							console.log('Task ' + uuid + ': Sending compiled file to server...');
 							client.emit(uuid, {result: 0});
 							var pathToFile = path.join(dir, 'code');
-							if (os.platform === 'win32') pathToFile = path.join(dir, 'code.exe');
+							console.log(os.platform());
+							if (os.platform() === 'win32') pathToFile = path.join(dir, 'code.exe');
 							streamFileAsync(client, uuid, pathToFile, 'code')
 							.then(resolve);
 						} else {
@@ -207,7 +207,7 @@ function doEvaluate(uuid) {
 							reject(new Error('Insufficient file'));
 					}).then(function execute() {
 						return new sandbox({
-							cmd: 'code' + (os.platform === 'win32' ? '.exe' : ''),
+							cmd: 'code' + (os.platform() === 'win32' ? '.exe' : ''),
 							input: options.inputFile,
 							output: options.outputFile,
 							cwd: dir,
@@ -215,6 +215,7 @@ function doEvaluate(uuid) {
 							memory: options.memory
 						}).run().catch(function(err) {
 							// File error, most of
+							console.log(err);
 							return {
 								exitcode: -1,
 								signal: 'FF',
@@ -262,7 +263,7 @@ function doEvaluate(uuid) {
 			});
 			ss(client).on(uuid + '-file', function(file, filename, resolveServer) {
 				files[filename] = true;
-				if (os.platform === 'win32' && /^(code|scorer)$/.test(filename))
+				if (os.platform() === 'win32' && /^(code|scorer)$/.test(filename))
 					filename = filename + '.exe';
 				filelist.push(receiveFileAsync(file, filename, dir)
 				.then(function() {

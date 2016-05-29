@@ -71,12 +71,14 @@ function parseContestResult(results, tasks) {
 			testcases: []
 		};
 		exam.TestCase.forEach(function(testcase) {
-			problem.testcases.push({
+			var T = {
 				name: testcase.$.Name,
 				score: (testcase.$.Mark !== '-1' ? Number(testcase.$.Mark) : problem.score),
 				timeLimit: (testcase.$.TimeLimit !== '-1' ? Number(testcase.$.TimeLimit) : problem.timeLimit),
 				memoryLimit: (testcase.$.MemoryLimit !== '-1' ? Number(testcase.$.MemoryLimit) * 1024 : problem.memoryLimit)
-			});
+			};
+			if (testcase.$.Timelimit !== undefined) T.timeLimit = (testcase.$.Timelimit !== '-1' ? Number(testcase.$.Timelimit) : problem.timeLimit);
+			problem.testcases.push(T);
 		});
 		ret.problems[exam.$.Name] = problem;
 	});

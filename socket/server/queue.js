@@ -56,6 +56,7 @@ function make_task(student, problem) {
 		maxValue: ['add', problem.testcases.length + 1]
 	});
 	student.problems[problem.name] = undefined;
+	app.currentContest.saved = false;
 	ret = acceptedLanguages.map(function(lang) {
 		return fs.statAsync(path.join(app.currentContest.dir, 'Contestants', student.name, problem.name + lang.ext))
 		.then(function(stat) {

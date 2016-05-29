@@ -2,6 +2,106 @@
  * Choose the current sandbox implementation of Hera
  * CURRENTLY USING BLANK SANDBOX (NO SECURITY)
  */
-var Sandbox = require('./blank_sandbox');
+ var child_process = Promise.promisifyAll(require('child_process'));
+ var temp = Promise.promisifyAll(require('temp')).track();
+ var fs = Promise.promisifyAll(require('fs-extra'));
+ var path = require('path');
+ var os = require('os');
+/**
+ * The sandbox object
+ * @param  {Object} options
+ *  @param {String}  		cmd   The command to run
+ *  @param {String}         input The input file name, or 'stdin'
+ *  @param {String}        output The output file name, or 'stdout'
+ *  @param {String}         cwd   The specified home directory for the command
+ *  @param {Number}		    time  Time limit (in seconds)
+ *  @param {Number}		  memory  Memory limit (in kB)
+ *  @param {Boolean}       shell  Whether we call it in a shell or not (default False)
+ */
+var Sandbox = function(options) {
+	this.dir = null;
+	this._dir = null;
+	this.prepared = false;
+	this.inputStream = null;
+	this.options = options;
+};
 
-module.exports = Sandbox;
+/**
+ * Prepares the sandbox
+ * @return {Promise<>}
+ */
+Sandbox.prototype.prepare = function() {
+	var inst = this;
+	return temp.mkdirAsync('sandbox-').then(function(dirPath) {
+		inst.dir = dirPath; inst._dir = dirPath;
+		var files = [];
+		// Copy the files out if we're running a submission instead of compiling
+		if (inst.options.shell !== true) {
+			files.push(fs.copyAsync(path.join(inst.options.cwd, inst.options.cmd),
+				path.join(inst.dir, inst.options.cmd))
+						.then(function() {
+							if (os.platform() !== 'win32')
+								fs.chmodAsync(path.join(inst.dir, inst.options.cmd), '755');
+						}));
+			if (os.platform() !== 'win32') inst.options.cmd = './' + inst.options.cmd;
+		}
+		else inst.dir = inst.options.cwd;
+		if (inst.options.input !== 'stdin' && inst.options.input !== null)
+			files.push(fs.copyAsync(path.join(inst.options.cwd, 'input.txt'), path.join(inst.dir, inst.options.input)));
+		return Promise.all(files)
+			.then(function() {
+				return new Promise(function(resolve, reject) {
+					inst.inputStream = (inst.options.input === 'stdin' ?
+						fs.createReadStream(path.join(inst.options.cwd, 'input.txt')) :
+						null);
+					if (inst.inputStream === null) resolve();
+					inst.inputStream.on('open', function() {
+						resolve();
+					});
+				});
+			})
+			.then(function() { inst.prepared = true; });
+	});
+};
+/**
+ * Runs the process
+ * @return {Promise<{stdout, stderr, time, memory, exitcode, dir}>} The process' outputs
+ */
+Sandbox.prototype.run = function() {
+	var done = [];
+	var inst = this;
+	if (!this.prepared) done = [this.prepare()];
+	return Promise.all(done)
+		.then(function() { return inst._run(); })
+		.then(function(data) {
+			return inst.cleanup(data).then(function() { return data; });
+		});
+};
+
+/**
+ * The sandbox's internal run() function. All sandboxes should only overload this.
+ * @property dir         The directory to use
+ * @property inputStream The input stream, if required (else it will be null)
+ * @property options     The the options object in the Sandbox constructor
+ * @return {Promise<{stdout, stderr, time, memory, exitcode, dir}>} The process' outputs
+ */
+Sandbox.prototype._run = function() {};
+
+/**
+ * Cleans the sandbox, for later use
+ * @return {Promise}
+ */
+Sandbox.prototype.cleanup = function(data) {
+	var files = [];
+	var inst = this;
+	if (this.options.output !== 'stdout' && data.exitcode === 0)
+		files.push(fs.moveAsync(path.join(this.dir, this.options.output), path.join(this.options.cwd, this.options.output)));
+	return Promise.all(files).then(function() {
+		return fs.removeAsync(inst._dir);
+	});
+};
+
+var CurrentSandbox = require('./blank_sandbox')(Sandbox);
+if (os.platform() === 'win32') CurrentSandbox = require('./windows_sandbox')(Sandbox);
+
+module.exports = CurrentSandbox;

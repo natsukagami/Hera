@@ -11,7 +11,7 @@
     "url": "natsukagami.github.io"
   },
   "scripts": {
-    "test": "./node_modules/mocha/bin/mocha --recursive",
+    "test": "node ./node_modules/mocha/bin/mocha --recursive",
     "update": "gulp update",
     "start": "electron .",
     "deploy": "gulp build && electron-packager . --out=dist --app-version=$npm_package_version --prune --asar --overwrite --all --icon=icon.ico",
@@ -33,6 +33,7 @@
     "debug": "^2.2.0",
     "diff": "^2.2.2",
     "electron-debug": "^0.6.0",
+    "eol": "^0.2.0",
     "express": "^4.13.4",
     "fs-extra": "^0.30.0",
     "jade": "^1.11.0",
@@ -51,6 +52,7 @@
     "temp": "^0.8.3",
     "uuid": "^2.0.2",
     "walk": "^2.3.9",
+    "winreg": "^1.2.1",
     "xml2js": "^0.4.16",
     "xmlbuilder": "^8.2.2"
   },

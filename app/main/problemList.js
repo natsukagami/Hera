@@ -276,17 +276,19 @@ module.exports = function(electronApp, ipcMain) {
 			app.currentContest.saved = false;
 		});
 		ipc.on('problem-general-change', function(event, data) {
+			if (['timeLimit', 'memoryLimit', 'score'].indexOf(data.field) !== -1) {
+				config.testcases.forEach(function(testcase) {
+					if (testcase[data.field] == config[data.field])
+						testcase[data.field] = Number(data.value);
+				});
+				webContents.send('config-problem-drawer', config);
+			}
 			config[data.field] = data.value;
 			app.currentContest.saved = false;
 		});
 		ipc.once('config-problem-save', function() {
 			ipc.removeAllListeners('problem-testcase-change');
 			ipc.removeAllListeners('problem-general-change');
-			config.testcases.forEach(function(testcase) {
-				testcase.score = (testcase.score === -1 ? config.score : testcase.score);
-				testcase.timeLimit = (testcase.timeLimit === -1 ? config.timeLimit : testcase.timeLimit);
-				testcase.memoryLimit = (testcase.memoryLimit === -1 ? config.memoryLimit : testcase.memoryLimit);
-			});
 		});
 	});
 };
