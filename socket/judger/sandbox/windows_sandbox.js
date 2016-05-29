@@ -51,8 +51,7 @@ module.exports = function(Sandbox) {
 		var setAsync = Promise.promisify(registry.set, {
 			context: registry
 		});
-		//setAsync('DontShowUI', 'REG_DWORD', 1)
-		return Promise.bind(null)
+		return setAsync('DontShowUI', 'REG_DWORD', 1)
 		.then(function() {
 			return fs.copyAsync(path.join(__dirname, 'binaries', 'win32', 'sandbox.exe'), path.join(inst.dir, 'sandbox.exe'));
 		})
