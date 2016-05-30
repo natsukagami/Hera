@@ -246,7 +246,13 @@ var OverviewTable = React.createClass({
 				}
 				if (student.problems[problem] === 'CE') {
 					// Compile error
-					return (<TableRowColumn><span style={{color: 'red'}}>Dịch Lỗi</span></TableRowColumn>);
+					return (<TableRowColumn>
+							<ScoreCellWithContextMenu
+								student={student.name}
+								problem={problem}
+							><span style={{color: 'red'}}>Dịch Lỗi</span>
+							</ScoreCellWithContextMenu>
+						</TableRowColumn>);
 				}
 				return (<TableRowColumn>
 							<ScoreCellWithContextMenu
