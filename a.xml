@@ -1,0 +1,1234 @@
+<ContestResult>
+    <ContestantResult ContestantName="aloneranger" Evaluation="30.149253714">
+        <ExamResult ExamName="CNTSEQ" State="1" Evaluation="0" EvaluationText="CNTSEQ.cpp&#xA;Dịch thành công&#xA;">
+            <TestResult TestName="Test00" Evaluation="0" EvaluationText="Chạy quá thời gian" />
+            <TestResult TestName="Test01" Evaluation="0" EvaluationText="Chạy quá thời gian" />
+            <TestResult TestName="Test02" Evaluation="0" EvaluationText="Chạy quá thời gian" />
+            <TestResult TestName="Test03" Evaluation="0" EvaluationText="Chạy quá thời gian" />
+            <TestResult TestName="Test04" Evaluation="0" EvaluationText="Chạy quá thời gian" />
+            <TestResult TestName="Test05" Evaluation="0" EvaluationText="Chạy quá thời gian" />
+            <TestResult TestName="Test06" Evaluation="0" EvaluationText="Chạy quá thời gian" />
+            <TestResult TestName="Test07" Evaluation="0" EvaluationText="Chạy quá thời gian" />
+            <TestResult TestName="Test08" Evaluation="0" EvaluationText="Chạy quá thời gian" />
+            <TestResult TestName="Test09" Evaluation="0" EvaluationText="Chạy quá thời gian" />
+            <TestResult TestName="Test10" Evaluation="0" EvaluationText="Chạy quá thời gian" />
+            <TestResult TestName="Test11" Evaluation="0" EvaluationText="Chạy quá thời gian" />
+            <TestResult TestName="Test12" Evaluation="0" EvaluationText="Chạy quá thời gian" />
+            <TestResult TestName="Test13" Evaluation="0" EvaluationText="Chạy quá thời gian" />
+            <TestResult TestName="Test14" Evaluation="0" EvaluationText="Chạy quá thời gian" />
+            <TestResult TestName="Test15" Evaluation="0" EvaluationText="Chạy quá thời gian" />
+            <TestResult TestName="Test16" Evaluation="0" EvaluationText="Chạy quá thời gian" />
+            <TestResult TestName="Test17" Evaluation="0" EvaluationText="Chạy quá thời gian" />
+            <TestResult TestName="Test18" Evaluation="0" EvaluationText="Chạy quá thời gian" />
+            <TestResult TestName="Test19" Evaluation="0" EvaluationText="Chạy quá thời gian" />
+            <TestResult TestName="Test20" Evaluation="0" EvaluationText="Chạy quá thời gian" />
+        </ExamResult>
+        <ExamResult ExamName="DOMINATE" State="3" />
+        <ExamResult ExamName="JUMP" State="1" Evaluation="9.999999996" EvaluationText="JUMP.cpp&#xA;Dịch thành công&#xA;">
+            <TestResult TestName="Test00" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.029635574 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test01" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.012839252 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test02" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011181220 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test03" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011497990 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test04" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011588030 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test05" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011521783 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test06" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011050126 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test07" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.012530412 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test08" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011682735 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test09" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011507321 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test10" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.015501713 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test11" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011134100 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test12" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011258196 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test13" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.012058288 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test14" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.012278954 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test15" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.012258427 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test16" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011479329 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test17" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011935591 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test18" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011748515 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test19" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011060856 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test20" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011929060 giây&#xA;Kết quả khớp đáp án!" />
+        </ExamResult>
+        <ExamResult ExamName="MAXWALK" State="3" />
+        <ExamResult ExamName="NONPALIN" State="1" Evaluation="10.149253708" EvaluationText="NONPALIN.cpp&#xA;Dịch thành công&#xA;">
+            <TestResult TestName="0" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.012710491 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test00" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.087418504 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test01" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.040855981 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test02" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.014224833 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test03" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.087614911 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test04" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.014115666 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test05" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.066602131 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test06" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.014697890 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test07" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.031023487 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test08" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.048048407 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test09" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.010994143 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test10" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.012082547 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test11" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.055924292 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test12" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011599693 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test13" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011404685 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test14" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.012964747 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test15" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011383692 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test16" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011774640 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test17" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.012184716 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test18" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011568436 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test19" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011569369 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test20" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.013531576 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test21" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011117306 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test22" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011449005 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test23" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011533446 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test24" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.012070417 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test25" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011521783 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test26" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.012246298 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test27" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011425212 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test28" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011240002 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test29" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011876809 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test30" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011486794 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test31" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011627218 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test32" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011369229 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test33" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011541377 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test34" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011752247 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test35" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.012031229 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test36" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011518518 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test37" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011223207 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test38" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.012787467 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test39" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.033523598 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test40" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011484928 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test41" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.016488882 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test42" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.012097476 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test43" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011333307 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test44" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011486327 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test45" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011383225 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test46" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011212010 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test47" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011469532 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test48" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.010996009 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test49" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011963116 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test50" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011677136 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test51" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011672471 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test52" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011627218 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test53" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011956119 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test54" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.012106340 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test55" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011156027 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test56" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011473731 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test57" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.013456932 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test58" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.012031229 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test59" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011633749 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test60" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011687400 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test61" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.012743147 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test62" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.013475126 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test63" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.012517815 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test64" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.010883110 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test65" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011551174 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test66" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.012701160 giây&#xA;Kết quả khớp đáp án!" />
+        </ExamResult>
+        <ExamResult ExamName="STRBUF" State="1" Evaluation="10.00000001" EvaluationText="STRBUF.cpp&#xA;Dịch thành công&#xA;">
+            <TestResult TestName="Test00" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.011511986 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test01" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.046066139 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test02" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.014259822 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test03" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.013834817 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test04" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.440360531 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test05" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.014187511 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test06" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.244808853 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test07" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.013414944 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test08" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.013892200 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test09" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.349148707 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test10" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.011420547 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test11" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.011307648 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test12" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.011644479 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test13" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.011959384 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test14" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.011389290 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test15" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.011542777 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test16" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.011619754 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test17" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.010973149 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test18" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.011530181 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test19" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.011418215 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test20" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.011176554 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test21" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.010895706 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test22" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.011358966 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test23" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.012428709 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test24" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.011339838 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test25" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.011438275 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test26" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.011393022 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test27" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.011290387 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test28" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.011549308 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test29" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.011142498 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test30" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.011743383 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test31" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.011825491 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test32" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.089199232 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test33" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.012479560 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test34" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.011051525 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test35" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.011767176 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test36" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.011975246 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test37" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.011337506 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test38" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.012122202 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test39" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.011961250 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test40" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.011125703 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test41" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.012877507 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test42" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.011541377 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test43" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.011326776 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test44" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.010882177 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test45" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.012334471 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test46" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.011880541 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test47" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.011159759 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test48" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.011398154 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test49" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.011691599 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test50" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.011117306 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test51" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.011533446 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test52" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.011432210 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test53" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.011197081 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test54" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.011238602 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test55" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.011846019 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test56" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.011163958 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test57" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.015592686 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test58" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.011337039 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test59" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.012226703 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test60" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.011335640 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test61" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.011439208 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test62" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.011929060 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test63" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.011475597 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test64" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.011095379 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test65" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.011704195 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test66" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.011852550 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test67" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.011093979 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test68" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.011814295 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test69" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.011276391 giây&#xA;Kết quả khớp đáp án!" />
+        </ExamResult>
+    </ContestantResult>
+    <ContestantResult ContestantName="an" Evaluation="50.1492537">
+        <ExamResult ExamName="CNTSEQ" State="1" Evaluation="9.999999996" EvaluationText="CNTSEQ.cpp&#xA;Dịch thành công&#xA;">
+            <TestResult TestName="Test00" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011341704 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test01" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.012042426 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test02" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.012716555 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test03" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011695797 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test04" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011264728 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test05" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011111707 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test06" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011660341 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test07" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.012153459 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test08" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011330974 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test09" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.010966151 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test10" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011907133 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test11" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.012334937 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test12" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.012116603 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test13" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011251665 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test14" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011336573 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test15" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011448072 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test16" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011429411 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test17" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011821293 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test18" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.012741748 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test19" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011658942 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test20" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011515252 giây&#xA;Kết quả khớp đáp án!" />
+        </ExamResult>
+        <ExamResult ExamName="DOMINATE" State="3" />
+        <ExamResult ExamName="JUMP" State="1" Evaluation="9.999999996" EvaluationText="JUMP.cpp&#xA;Dịch thành công&#xA;">
+            <TestResult TestName="Test00" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011452271 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test01" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011418215 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test02" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011229272 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test03" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.013409812 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test04" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011107975 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test05" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011388357 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test06" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011508721 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test07" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011382292 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test08" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011317912 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test09" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011513852 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test10" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011720057 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test11" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011535312 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test12" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011155561 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test13" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011820826 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test14" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011421947 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test15" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011243267 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test16" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.012518282 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test17" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011818960 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test18" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011549308 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test19" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011133634 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test20" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011091180 giây&#xA;Kết quả khớp đáp án!" />
+        </ExamResult>
+        <ExamResult ExamName="MAXWALK" State="1" Evaluation="9.99999999" EvaluationText="MAXWALK.cpp&#xA;Dịch thành công&#xA;">
+            <TestResult TestName="Test00" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.012578930 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test01" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.094301156 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test02" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.037814701 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test03" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.014091873 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test04" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.014491219 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test05" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.014740810 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test06" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.013687862 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test07" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.054380092 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test08" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.042882102 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test09" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.014649838 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test10" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.011594561 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test11" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.012342868 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test12" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.012300415 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test13" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.011079050 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test14" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.011234403 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test15" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.012304147 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test16" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.011102843 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test17" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.012242565 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test18" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.011492392 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test19" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.011319778 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test20" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.012016767 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test21" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.011460202 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test22" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.011361765 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test23" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.012521548 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test24" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.011334240 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test25" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.011311847 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test26" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.011742450 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test27" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.037342110 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test28" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.011466267 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test29" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.011543710 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test30" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.011616021 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test31" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.011216209 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test32" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.011915531 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test33" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.011256797 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test34" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.011448072 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test35" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.011288520 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test36" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.011614155 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test37" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.011304382 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test38" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.049405530 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test39" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.011017469 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test40" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.010915766 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test41" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.012263092 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test42" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.011058057 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test43" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.011226006 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test44" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.011095845 giây&#xA;Kết quả khớp đáp án!" />
+        </ExamResult>
+        <ExamResult ExamName="NONPALIN" State="1" Evaluation="10.149253708" EvaluationText="NONPALIN.cpp&#xA;Dịch thành công&#xA;">
+            <TestResult TestName="0" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.012497288 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test00" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.012725419 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test01" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011262395 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test02" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011692065 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test03" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011785837 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test04" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011953319 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test05" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.012709557 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test06" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011623952 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test07" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011844152 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test08" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011386024 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test09" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011833422 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test10" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011162092 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test11" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.012205710 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test12" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011457403 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test13" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011312313 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test14" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.012553738 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test15" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011292719 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test16" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011675737 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test17" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011721456 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test18" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.012414247 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test19" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.012279421 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test20" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011636082 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test21" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011573101 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test22" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011888006 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test23" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011384625 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test24" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011634216 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test25" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.012102141 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test26" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.012856513 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test27" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011251198 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test28" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.012064819 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test29" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011591296 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test30" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011182619 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test31" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011775107 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test32" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011147163 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test33" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011219475 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test34" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011637948 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test35" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011547909 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test36" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011480729 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test37" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.012310212 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test38" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011668272 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test39" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011663607 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test40" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.012613920 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test41" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011962183 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test42" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011867012 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test43" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011379026 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test44" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.012010236 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test45" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011908533 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test46" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011071586 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test47" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011595961 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test48" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011432210 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test49" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011547442 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test50" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011966849 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test51" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011951453 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test52" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011195682 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test53" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011637948 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test54" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011884274 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test55" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011427079 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test56" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011414949 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test57" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011311847 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test58" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011476064 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test59" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011404685 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test60" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011432210 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test61" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.013102839 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test62" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011796100 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test63" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011243734 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test64" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.012569133 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test65" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011569835 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test66" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011666406 giây&#xA;Kết quả khớp đáp án!" />
+        </ExamResult>
+        <ExamResult ExamName="STRBUF" State="1" Evaluation="10.00000001" EvaluationText="STRBUF.cpp&#xA;Dịch thành công&#xA;">
+            <TestResult TestName="Test00" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.150519826 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test01" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.151193489 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test02" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.150104152 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test03" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.150725097 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test04" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.150839396 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test05" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.150392931 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test06" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.151047933 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test07" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.150456845 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test08" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.149826103 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test09" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.150767085 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test10" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.150143340 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test11" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.150573943 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test12" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.150570677 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test13" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.150791811 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test14" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.150362607 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test15" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.151593768 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test16" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.149935736 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test17" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.150107884 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test18" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.150687775 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test19" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.150294028 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test20" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.150494634 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test21" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.150056566 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test22" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.150003849 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test23" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.151791108 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test24" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.150677045 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test25" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.150573477 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test26" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.150102752 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test27" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.150065897 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test28" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.151913338 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test29" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.149799977 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test30" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.150581408 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test31" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.151277930 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test32" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.150153604 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test33" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.150804407 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test34" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.150276766 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test35" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.151358639 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test36" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.150482971 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test37" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.150293095 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test38" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.150486236 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test39" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.150118148 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test40" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.150987751 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test41" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.152125141 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test42" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.154064954 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test43" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.151683808 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test44" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.150038838 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test45" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.149848962 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test46" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.150122346 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test47" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.150969557 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test48" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.150589805 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test49" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.150491835 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test50" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.151597500 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test51" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.150595403 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test52" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.151069860 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test53" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.151702935 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test54" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.150031840 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test55" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.149981456 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test56" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.150460577 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test57" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.149477608 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test58" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.150756821 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test59" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.151492066 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test60" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.150825867 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test61" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.150619663 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test62" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.150247842 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test63" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.150684510 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test64" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.150015512 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test65" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.151072659 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test66" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.150338348 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test67" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.150937833 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test68" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.151559712 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test69" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.149402031 giây&#xA;Kết quả khớp đáp án!" />
+        </ExamResult>
+    </ContestantResult>
+    <ContestantResult ContestantName="aome" Evaluation="20.149253704">
+        <ExamResult ExamName="CNTSEQ" State="3" />
+        <ExamResult ExamName="DOMINATE" State="3" />
+        <ExamResult ExamName="JUMP" State="1" Evaluation="9.999999996" EvaluationText="JUMP.cpp&#xA;Dịch thành công&#xA;">
+            <TestResult TestName="Test00" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.012261226 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test01" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011253064 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test02" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011320711 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test03" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011040329 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test04" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011130835 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test05" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011322110 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test06" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011553974 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test07" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011252598 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test08" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011295985 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test09" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011042195 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test10" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.012469763 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test11" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011570302 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test12" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011473265 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test13" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.012514083 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test14" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011065055 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test15" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.038525686 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test16" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011373895 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test17" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011681335 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test18" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011991575 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test19" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.015542301 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test20" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.016905022 giây&#xA;Kết quả khớp đáp án!" />
+        </ExamResult>
+        <ExamResult ExamName="MAXWALK" State="3" />
+        <ExamResult ExamName="NONPALIN" State="1" Evaluation="10.149253708" EvaluationText="NONPALIN.cpp&#xA;Dịch thành công&#xA;">
+            <TestResult TestName="0" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011985976 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test00" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.010913900 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test01" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.012009769 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test02" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.010931162 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test03" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011557706 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test04" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011387890 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test05" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011089781 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test06" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011361765 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test07" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011039396 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test08" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.010854185 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test09" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011447139 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test10" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.012079748 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test11" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011558172 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test12" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011069720 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test13" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011296451 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test14" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011903868 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test15" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011470465 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test16" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011026800 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test17" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011161625 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test18" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011062256 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test19" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011619754 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test20" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011326309 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test21" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011379026 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test22" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.012467431 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test23" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011600160 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test24" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011139699 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test25" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011335640 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test26" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011753646 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test27" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.010990877 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test28" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011370629 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test29" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011572635 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test30" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011164425 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test31" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011397221 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test32" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011219008 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test33" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011332840 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test34" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011131301 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test35" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011241401 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test36" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011772774 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test37" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011117306 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test38" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011321644 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test39" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011915997 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test40" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011148563 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test41" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011173289 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test42" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011182153 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test43" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011473731 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test44" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011887539 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test45" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011150429 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test46" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011058523 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test47" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.012041493 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test48" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011092113 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test49" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.010906902 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test50" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.012802863 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test51" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011692532 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test52" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011142031 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test53" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011162092 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test54" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011299251 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test55" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.010898038 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test56" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.012209909 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test57" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.010993676 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test58" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011347303 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test59" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011273125 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test60" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011198948 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test61" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011018869 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test62" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011712126 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test63" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011741983 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test64" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011287121 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test65" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011063655 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test66" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011192883 giây&#xA;Kết quả khớp đáp án!" />
+        </ExamResult>
+        <ExamResult ExamName="STRBUF" State="3" />
+    </ContestantResult>
+    <ContestantResult ContestantName="bf201" Evaluation="50.1492537">
+        <ExamResult ExamName="CNTSEQ" State="1" Evaluation="9.999999996" EvaluationText="CNTSEQ.cpp&#xA;Dịch thành công&#xA;">
+            <TestResult TestName="Test00" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.012271490 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test01" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011319311 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test02" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011666406 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test03" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011186818 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test04" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011895470 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test05" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011611356 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test06" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011058523 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test07" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011652410 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test08" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011219475 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test09" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.012021432 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test10" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011625818 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test11" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011784904 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test12" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011413083 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test13" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011226006 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test14" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011401886 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test15" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.012643777 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test16" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011123370 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test17" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011073452 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test18" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011652877 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test19" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011984110 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test20" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011262395 giây&#xA;Kết quả khớp đáp án!" />
+        </ExamResult>
+        <ExamResult ExamName="DOMINATE" State="3" />
+        <ExamResult ExamName="JUMP" State="1" Evaluation="9.999999996" EvaluationText="JUMP.cpp&#xA;Dịch thành công&#xA;">
+            <TestResult TestName="Test00" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011361765 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test01" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011710726 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test02" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011510120 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test03" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011025867 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test04" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011722389 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test05" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011534846 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test06" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011267060 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test07" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.010965218 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test08" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.013079979 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test09" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011321177 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test10" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011331441 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test11" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011620220 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test12" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.012164189 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test13" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.010986212 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test14" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.010766945 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test15" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011301583 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test16" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011097711 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test17" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011499390 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test18" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011107975 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test19" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011687866 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test20" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011386491 giây&#xA;Kết quả khớp đáp án!" />
+        </ExamResult>
+        <ExamResult ExamName="MAXWALK" State="1" Evaluation="9.99999999" EvaluationText="MAXWALK.cpp&#xA;Dịch thành công&#xA;">
+            <TestResult TestName="Test00" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.011393955 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test01" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.012276622 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test02" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.011224606 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test03" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.010797735 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test04" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.011253998 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test05" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.010828993 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test06" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.011869345 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test07" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.011103776 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test08" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.012634447 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test09" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.012167921 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test10" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.010999741 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test11" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.011037063 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test12" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.011587097 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test13" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.011097245 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test14" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.048958132 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test15" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.011772308 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test16" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.011568436 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test17" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.010907369 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test18" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.011950520 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test19" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.011202213 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test20" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.011743849 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test21" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.011407951 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test22" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.011384625 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test23" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.011101910 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test24" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.011930926 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test25" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.011514785 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test26" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.011255397 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test27" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.012023298 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test28" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.011492392 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test29" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.011339838 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test30" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.012356864 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test31" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.012138530 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test32" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.011754580 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test33" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.011871211 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test34" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.011270326 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test35" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.010842055 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test36" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.027678965 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test37" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.011421480 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test38" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.011253064 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test39" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.011588963 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test40" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.011818960 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test41" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.011386491 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test42" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.012323274 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test43" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.011475131 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test44" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.011666406 giây&#xA;Kết quả khớp đáp án!" />
+        </ExamResult>
+        <ExamResult ExamName="NONPALIN" State="1" Evaluation="10.149253708" EvaluationText="NONPALIN.cpp&#xA;Dịch thành công&#xA;">
+            <TestResult TestName="0" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011573101 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test00" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.010910635 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test01" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.012240233 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test02" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011149029 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test03" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011826891 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test04" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011366430 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test05" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011654277 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test06" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011214343 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test07" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.012051290 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test08" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.017728440 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test09" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011735919 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test10" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.019322092 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test11" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011772774 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test12" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011836222 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test13" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011576833 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test14" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.012358264 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test15" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011697663 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test16" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011283855 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test17" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.012077882 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test18" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011415415 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test19" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011057590 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test20" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.012710024 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test21" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011205479 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test22" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011605758 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test23" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011381359 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test24" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011484928 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test25" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011441074 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test26" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.012184250 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test27" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011410284 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test28" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011921596 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test29" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.012346134 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test30" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011365031 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test31" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011736385 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test32" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011603892 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test33" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011736385 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test34" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011815694 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test35" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.012222038 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test36" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.012224371 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test37" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.014328401 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test38" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011248866 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test39" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011132701 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test40" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011714925 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test41" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.012016300 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test42" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011220874 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test43" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011457869 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test44" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.035017413 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test45" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011520850 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test46" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.012343335 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test47" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011121971 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test48" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011961717 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test49" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011125703 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test50" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011444340 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test51" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.015475588 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test52" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.019009053 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test53" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.017046380 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test54" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011277324 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test55" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011050592 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test56" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.012890103 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test57" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.018779056 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test58" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.016634904 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test59" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.012994138 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test60" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.010942358 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test61" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011895937 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test62" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.010762746 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test63" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.012975944 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test64" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.012559336 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test65" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011386491 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test66" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.012075083 giây&#xA;Kết quả khớp đáp án!" />
+        </ExamResult>
+        <ExamResult ExamName="STRBUF" State="1" Evaluation="10.00000001" EvaluationText="STRBUF.cpp&#xA;Dịch thành công&#xA;">
+            <TestResult TestName="Test00" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.012119403 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test01" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.011083716 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test02" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.011689732 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test03" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.011555373 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test04" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.011611356 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test05" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.011824558 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test06" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.011147630 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test07" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.010989944 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test08" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.012293883 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test09" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.011479329 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test10" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.011530181 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test11" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.011159759 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test12" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.012433841 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test13" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.011054325 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test14" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.011688333 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test15" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.010877978 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test16" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.011425212 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test17" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.012386255 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test18" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.011964050 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test19" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.013290382 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test20" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.011336106 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test21" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.011505455 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test22" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.011666873 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test23" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.012577997 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test24" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.011299251 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test25" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.011944455 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test26" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.011230205 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test27" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.011595961 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test28" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.011631417 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test29" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.011246533 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test30" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.011744782 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test31" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.011731253 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test32" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.011926727 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test33" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.011302983 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test34" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.011920196 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test35" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.028217336 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test36" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.011111241 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test37" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.011898269 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test38" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.011655210 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test39" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.011332840 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test40" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.011243267 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test41" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.011664074 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test42" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.011522716 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test43" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.011586630 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test44" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.011538578 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test45" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.011231138 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test46" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.033074334 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test47" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.012707691 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test48" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.024032601 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test49" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.011690199 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test50" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.011292719 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test51" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.011594561 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test52" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.012176319 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test53" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.011734052 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test54" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.011547442 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test55" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.011281523 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test56" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.011489593 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test57" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.011404219 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test58" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.011770908 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test59" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.011590829 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test60" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.011969181 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test61" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.011196148 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test62" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.011981778 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test63" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.012264492 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test64" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.011603425 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test65" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.012202444 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test66" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.011993441 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test67" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.011821293 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test68" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.012225770 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test69" Evaluation="0.142857143" EvaluationText="Thời gian ≈ 0.011620220 giây&#xA;Kết quả khớp đáp án!" />
+        </ExamResult>
+    </ContestantResult>
+    <ContestantResult ContestantName="bonjourneko" Evaluation="40.14925369">
+        <ExamResult ExamName="CNTSEQ" State="1" Evaluation="9.999999996" EvaluationText="CNTSEQ.cpp&#xA;Dịch thành công&#xA;">
+            <TestResult TestName="Test00" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011545576 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test01" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011304849 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test02" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011291786 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test03" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011195682 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test04" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011816627 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test05" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011474198 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test06" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011938857 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test07" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.012365728 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test08" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.010989944 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test09" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011479329 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test10" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.012100275 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test11" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011804498 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test12" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011087914 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test13" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011824092 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test14" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011796100 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test15" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011612756 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test16" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.013327237 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test17" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.010962419 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test18" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011363165 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test19" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.012194980 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test20" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011024000 giây&#xA;Kết quả khớp đáp án!" />
+        </ExamResult>
+        <ExamResult ExamName="DOMINATE" State="3" />
+        <ExamResult ExamName="JUMP" State="1" Evaluation="9.999999996" EvaluationText="JUMP.cpp&#xA;Dịch thành công&#xA;">
+            <TestResult TestName="Test00" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011748048 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test01" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.033887488 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test02" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011350568 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test03" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011413549 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test04" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.062800413 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test05" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.012354065 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test06" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011251198 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test07" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011591296 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test08" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011186351 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test09" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011099578 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test10" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.012279887 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test11" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011420547 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test12" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011692532 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test13" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.010943291 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test14" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.010818263 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test15" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011555840 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test16" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.010983413 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test17" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011376227 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test18" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011120571 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test19" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.010884043 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test20" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011630017 giây&#xA;Kết quả khớp đáp án!" />
+        </ExamResult>
+        <ExamResult ExamName="MAXWALK" State="1" Evaluation="9.99999999" EvaluationText="MAXWALK.cpp&#xA;Dịch thành công&#xA;">
+            <TestResult TestName="Test00" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.034600806 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test01" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.080898808 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test02" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.011329108 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test03" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.039977047 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test04" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.024452474 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test05" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.017797952 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test06" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.022109582 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test07" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.011104243 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test08" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.011742916 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test09" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.012532278 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test10" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.011197081 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test11" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.012312078 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test12" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.011582898 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test13" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.010958220 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test14" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.011221807 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test15" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.010788871 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test16" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.011361298 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test17" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.011281523 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test18" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.011347303 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test19" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.109375999 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test20" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.030379682 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test21" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.053243636 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test22" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.046954404 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test23" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.012301814 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test24" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.011539511 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test25" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.016737540 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test26" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.011264728 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test27" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.011978978 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test28" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.022851824 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test29" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.011883341 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test30" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.011263328 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test31" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.012975011 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test32" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.011227872 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test33" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.011467200 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test34" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.018519201 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test35" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.012065752 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test36" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.010963352 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test37" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.012981542 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test38" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.011125236 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test39" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.010979214 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test40" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.011966849 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test41" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.011898269 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test42" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.011286188 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test43" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.011095379 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test44" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.011240002 giây&#xA;Kết quả khớp đáp án!" />
+        </ExamResult>
+        <ExamResult ExamName="NONPALIN" State="1" Evaluation="10.149253708" EvaluationText="NONPALIN.cpp&#xA;Dịch thành công&#xA;">
+            <TestResult TestName="0" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.013518979 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test00" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011689266 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test01" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011581032 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test02" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011351968 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test03" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011683668 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test04" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011302050 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test05" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.027662637 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test06" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011436876 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test07" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011912732 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test08" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.012076016 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test09" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011329108 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test10" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011379493 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test11" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011061789 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test12" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011622553 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test13" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011537645 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test14" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.012711890 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test15" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011402819 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test16" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011599227 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test17" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.041335570 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test18" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011699530 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test19" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011120571 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test20" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011063655 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test21" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011490993 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test22" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.010916233 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test23" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011650544 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test24" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.045542698 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test25" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011718191 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test26" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011650544 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test27" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011513852 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test28" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.039381294 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test29" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011609024 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test30" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011126636 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test31" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.013039391 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test32" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011567503 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test33" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.012408182 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test34" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011418215 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test35" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011191950 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test36" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011401886 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test37" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011961250 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test38" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.012138064 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test39" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011651944 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test40" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011953319 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test41" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011411217 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test42" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.012044292 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test43" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011178887 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test44" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011235337 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test45" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011386491 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test46" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011790502 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test47" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011506388 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test48" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011546976 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test49" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011953319 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test50" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011577766 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test51" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011548375 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test52" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.012101208 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test53" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011337972 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test54" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011972447 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test55" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011487260 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test56" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.012065752 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test57" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011701396 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test58" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011685067 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test59" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011448072 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test60" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011657542 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test61" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011385091 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test62" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011905267 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test63" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011600626 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test64" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011217609 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test65" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.011864680 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test66" Evaluation="0.149253731" EvaluationText="Thời gian ≈ 0.012181917 giây&#xA;Kết quả khớp đáp án!" />
+        </ExamResult>
+        <ExamResult ExamName="STRBUF" State="3" />
+    </ContestantResult>
+    <ContestantResult ContestantName="ckw" Evaluation="19.999999986">
+        <ExamResult ExamName="CNTSEQ" State="3" />
+        <ExamResult ExamName="JUMP" State="1" Evaluation="9.999999996" EvaluationText="JUMP.cpp&#xA;Dịch thành công&#xA;">
+            <TestResult TestName="Test00" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.012131532 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test01" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011763910 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test02" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.012178185 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test03" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011601093 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test04" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011701862 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test05" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.012201511 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test06" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.012270090 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test07" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.012126400 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test08" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011159759 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test09" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011143431 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test10" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011151828 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test11" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.012043825 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test12" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011142031 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test13" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011667339 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test14" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.012497755 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test15" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011590363 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test16" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011242801 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test17" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.028779966 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test18" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.011326309 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test19" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.012202444 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test20" Evaluation="0.476190476" EvaluationText="Thời gian ≈ 0.013010467 giây&#xA;Kết quả khớp đáp án!" />
+        </ExamResult>
+        <ExamResult ExamName="MAXWALK" State="1" Evaluation="9.99999999" EvaluationText="MAXWALK.cpp&#xA;Dịch thành công&#xA;">
+            <TestResult TestName="Test00" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.012599457 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test01" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.013144359 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test02" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.011999972 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test03" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.011110774 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test04" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.012866310 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test05" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.011792835 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test06" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.059459623 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test07" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.011362698 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test08" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.011844619 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test09" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.011481196 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test10" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.012074616 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test11" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.011240002 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test12" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.011708860 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test13" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.011073919 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test14" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.026239267 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test15" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.011407951 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test16" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.011771841 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test17" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.011867479 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test18" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.012072750 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test19" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.011247466 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test20" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.011950054 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test21" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.012016300 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test22" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.012314877 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test23" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.011184485 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test24" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.011370162 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test25" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.011203146 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test26" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.011074385 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test27" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.011838554 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test28" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.011706994 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test29" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.011673404 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test30" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.011727521 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test31" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.012157191 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test32" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.024957255 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test33" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.011575434 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test34" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.012432441 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test35" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.011360365 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test36" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.011349169 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test37" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.011995307 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test38" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.013195211 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test39" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.014921822 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test40" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.012631648 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test41" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.012200111 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test42" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.015055715 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test43" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.012371326 giây&#xA;Kết quả khớp đáp án!" />
+            <TestResult TestName="Test44" Evaluation="0.222222222" EvaluationText="Thời gian ≈ 0.011525515 giây&#xA;Kết quả khớp đáp án!" />
+        </ExamResult>
+        <ExamResult ExamName="STRBUF" State="3" />
+    </ContestantResult>
+    <ContestantResult ContestantName="clgt" Evaluation="0">
+        <ExamResult ExamName="CNTSEQ" State="3" />
+        <ExamResult ExamName="JUMP" State="3" />
+        <ExamResult ExamName="MAXWALK" State="3" />
+        <ExamResult ExamName="NONPALIN" State="3" />
+        <ExamResult ExamName="STRBUF" State="3" />
+    </ContestantResult>
+    <ContestantResult ContestantName="clgt2" Evaluation="0">
+        <ExamResult ExamName="CNTSEQ" State="3" />
+        <ExamResult ExamName="JUMP" State="3" />
+        <ExamResult ExamName="MAXWALK" State="3" />
+        <ExamResult ExamName="NONPALIN" State="3" />
+        <ExamResult ExamName="STRBUF" State="3" />
+    </ContestantResult>
+    <ContestantResult ContestantName="cunbidun" Evaluation="0">
+        <ExamResult ExamName="CNTSEQ" State="3" />
+        <ExamResult ExamName="JUMP" State="3" />
+        <ExamResult ExamName="MAXWALK" State="3" />
+        <ExamResult ExamName="NONPALIN" State="3" />
+        <ExamResult ExamName="STRBUF" State="3" />
+    </ContestantResult>
+    <ContestantResult ContestantName="cuts" Evaluation="0">
+        <ExamResult ExamName="CNTSEQ" State="3" />
+        <ExamResult ExamName="JUMP" State="3" />
+        <ExamResult ExamName="MAXWALK" State="3" />
+        <ExamResult ExamName="NONPALIN" State="3" />
+        <ExamResult ExamName="STRBUF" State="3" />
+    </ContestantResult>
+    <ContestantResult ContestantName="Dkmofk" Evaluation="0">
+        <ExamResult ExamName="CNTSEQ" State="3" />
+        <ExamResult ExamName="JUMP" State="3" />
+        <ExamResult ExamName="MAXWALK" State="3" />
+        <ExamResult ExamName="NONPALIN" State="3" />
+        <ExamResult ExamName="STRBUF" State="3" />
+    </ContestantResult>
+    <ContestantResult ContestantName="dmofk" Evaluation="0">
+        <ExamResult ExamName="CNTSEQ" State="3" />
+        <ExamResult ExamName="JUMP" State="3" />
+        <ExamResult ExamName="MAXWALK" State="3" />
+        <ExamResult ExamName="NONPALIN" State="3" />
+        <ExamResult ExamName="STRBUF" State="3" />
+    </ContestantResult>
+    <ContestantResult ContestantName="FUCK" Evaluation="0">
+        <ExamResult ExamName="CNTSEQ" State="3" />
+        <ExamResult ExamName="JUMP" State="3" />
+        <ExamResult ExamName="MAXWALK" State="3" />
+        <ExamResult ExamName="NONPALIN" State="3" />
+        <ExamResult ExamName="STRBUF" State="3" />
+    </ContestantResult>
+    <ContestantResult ContestantName="GGWP" Evaluation="0">
+        <ExamResult ExamName="CNTSEQ" State="3" />
+        <ExamResult ExamName="JUMP" State="3" />
+        <ExamResult ExamName="MAXWALK" State="3" />
+        <ExamResult ExamName="NONPALIN" State="3" />
+        <ExamResult ExamName="STRBUF" State="3" />
+    </ContestantResult>
+    <ContestantResult ContestantName="HackMDA" Evaluation="0">
+        <ExamResult ExamName="CNTSEQ" State="3" />
+        <ExamResult ExamName="JUMP" State="3" />
+        <ExamResult ExamName="MAXWALK" State="3" />
+        <ExamResult ExamName="NONPALIN" State="3" />
+        <ExamResult ExamName="STRBUF" State="3" />
+    </ContestantResult>
+    <ContestantResult ContestantName="hailam" Evaluation="0">
+        <ExamResult ExamName="CNTSEQ" State="3" />
+        <ExamResult ExamName="JUMP" State="3" />
+        <ExamResult ExamName="MAXWALK" State="3" />
+        <ExamResult ExamName="NONPALIN" State="3" />
+        <ExamResult ExamName="STRBUF" State="3" />
+    </ContestantResult>
+    <ContestantResult ContestantName="haiminhlol" Evaluation="0">
+        <ExamResult ExamName="CNTSEQ" State="3" />
+        <ExamResult ExamName="JUMP" State="3" />
+        <ExamResult ExamName="MAXWALK" State="3" />
+        <ExamResult ExamName="NONPALIN" State="3" />
+        <ExamResult ExamName="STRBUF" State="3" />
+    </ContestantResult>
+    <ContestantResult ContestantName="huynd2001" Evaluation="0">
+        <ExamResult ExamName="CNTSEQ" State="3" />
+        <ExamResult ExamName="JUMP" State="3" />
+        <ExamResult ExamName="MAXWALK" State="3" />
+        <ExamResult ExamName="NONPALIN" State="3" />
+        <ExamResult ExamName="STRBUF" State="3" />
+    </ContestantResult>
+    <ContestantResult ContestantName="huynd2001#1" Evaluation="0">
+        <ExamResult ExamName="CNTSEQ" State="3" />
+        <ExamResult ExamName="JUMP" State="3" />
+        <ExamResult ExamName="MAXWALK" State="3" />
+        <ExamResult ExamName="NONPALIN" State="3" />
+        <ExamResult ExamName="STRBUF" State="3" />
+    </ContestantResult>
+    <ContestantResult ContestantName="huynd2001#2" Evaluation="0">
+        <ExamResult ExamName="CNTSEQ" State="3" />
+        <ExamResult ExamName="JUMP" State="3" />
+        <ExamResult ExamName="MAXWALK" State="3" />
+        <ExamResult ExamName="NONPALIN" State="3" />
+        <ExamResult ExamName="STRBUF" State="3" />
+    </ContestantResult>
+    <ContestantResult ContestantName="huyyeubichngoc" Evaluation="0">
+        <ExamResult ExamName="CNTSEQ" State="3" />
+        <ExamResult ExamName="JUMP" State="3" />
+        <ExamResult ExamName="MAXWALK" State="3" />
+        <ExamResult ExamName="NONPALIN" State="3" />
+        <ExamResult ExamName="STRBUF" State="3" />
+    </ContestantResult>
+    <ContestantResult ContestantName="mink" Evaluation="0">
+        <ExamResult ExamName="CNTSEQ" State="3" />
+        <ExamResult ExamName="JUMP" State="3" />
+        <ExamResult ExamName="MAXWALK" State="3" />
+        <ExamResult ExamName="NONPALIN" State="3" />
+        <ExamResult ExamName="STRBUF" State="3" />
+    </ContestantResult>
+    <ContestantResult ContestantName="n cô gái" Evaluation="0">
+        <ExamResult ExamName="CNTSEQ" State="3" />
+        <ExamResult ExamName="JUMP" State="3" />
+        <ExamResult ExamName="MAXWALK" State="3" />
+        <ExamResult ExamName="NONPALIN" State="3" />
+        <ExamResult ExamName="STRBUF" State="3" />
+    </ContestantResult>
+    <ContestantResult ContestantName="nct1120" Evaluation="0">
+        <ExamResult ExamName="CNTSEQ" State="3" />
+        <ExamResult ExamName="JUMP" State="3" />
+        <ExamResult ExamName="MAXWALK" State="3" />
+        <ExamResult ExamName="NONPALIN" State="3" />
+        <ExamResult ExamName="STRBUF" State="3" />
+    </ContestantResult>
+    <ContestantResult ContestantName="ngkan ixecr34m" Evaluation="0">
+        <ExamResult ExamName="CNTSEQ" State="3" />
+        <ExamResult ExamName="JUMP" State="3" />
+        <ExamResult ExamName="MAXWALK" State="3" />
+        <ExamResult ExamName="NONPALIN" State="3" />
+        <ExamResult ExamName="STRBUF" State="3" />
+    </ContestantResult>
+    <ContestantResult ContestantName="nglong153" Evaluation="0">
+        <ExamResult ExamName="CNTSEQ" State="3" />
+        <ExamResult ExamName="JUMP" State="3" />
+        <ExamResult ExamName="MAXWALK" State="3" />
+        <ExamResult ExamName="NONPALIN" State="3" />
+        <ExamResult ExamName="STRBUF" State="3" />
+    </ContestantResult>
+    <ContestantResult ContestantName="Sil" Evaluation="0">
+        <ExamResult ExamName="CNTSEQ" State="3" />
+        <ExamResult ExamName="JUMP" State="3" />
+        <ExamResult ExamName="MAXWALK" State="3" />
+        <ExamResult ExamName="NONPALIN" State="3" />
+        <ExamResult ExamName="STRBUF" State="3" />
+    </ContestantResult>
+    <ContestantResult ContestantName="spectator1" Evaluation="0">
+        <ExamResult ExamName="CNTSEQ" State="3" />
+        <ExamResult ExamName="JUMP" State="3" />
+        <ExamResult ExamName="MAXWALK" State="3" />
+        <ExamResult ExamName="NONPALIN" State="3" />
+        <ExamResult ExamName="STRBUF" State="3" />
+    </ContestantResult>
+    <ContestantResult ContestantName="sơn tùng mtp" Evaluation="0">
+        <ExamResult ExamName="CNTSEQ" State="3" />
+        <ExamResult ExamName="JUMP" State="3" />
+        <ExamResult ExamName="MAXWALK" State="3" />
+        <ExamResult ExamName="NONPALIN" State="3" />
+        <ExamResult ExamName="STRBUF" State="3" />
+    </ContestantResult>
+    <ContestantResult ContestantName="teehee" Evaluation="0">
+        <ExamResult ExamName="CNTSEQ" State="3" />
+        <ExamResult ExamName="JUMP" State="3" />
+        <ExamResult ExamName="MAXWALK" State="3" />
+        <ExamResult ExamName="NONPALIN" State="3" />
+        <ExamResult ExamName="STRBUF" State="3" />
+    </ContestantResult>
+    <ContestantResult ContestantName="tomo" Evaluation="0">
+        <ExamResult ExamName="CNTSEQ" State="3" />
+        <ExamResult ExamName="JUMP" State="3" />
+        <ExamResult ExamName="MAXWALK" State="3" />
+        <ExamResult ExamName="NONPALIN" State="3" />
+        <ExamResult ExamName="STRBUF" State="3" />
+    </ContestantResult>
+    <ContestantResult ContestantName="ToMo#2" Evaluation="0">
+        <ExamResult ExamName="CNTSEQ" State="3" />
+        <ExamResult ExamName="JUMP" State="3" />
+        <ExamResult ExamName="MAXWALK" State="3" />
+        <ExamResult ExamName="NONPALIN" State="3" />
+        <ExamResult ExamName="STRBUF" State="3" />
+    </ContestantResult>
+    <ContestantResult ContestantName="ToMo#3" Evaluation="0">
+        <ExamResult ExamName="CNTSEQ" State="3" />
+        <ExamResult ExamName="JUMP" State="3" />
+        <ExamResult ExamName="MAXWALK" State="3" />
+        <ExamResult ExamName="NONPALIN" State="3" />
+        <ExamResult ExamName="STRBUF" State="3" />
+    </ContestantResult>
+    <ContestantResult ContestantName="ToMo#4" Evaluation="0">
+        <ExamResult ExamName="CNTSEQ" State="3" />
+        <ExamResult ExamName="JUMP" State="3" />
+        <ExamResult ExamName="MAXWALK" State="3" />
+        <ExamResult ExamName="NONPALIN" State="3" />
+        <ExamResult ExamName="STRBUF" State="3" />
+    </ContestantResult>
+    <ContestantResult ContestantName="UncleGrandpa" Evaluation="0">
+        <ExamResult ExamName="CNTSEQ" State="3" />
+        <ExamResult ExamName="JUMP" State="3" />
+        <ExamResult ExamName="MAXWALK" State="3" />
+        <ExamResult ExamName="NONPALIN" State="3" />
+        <ExamResult ExamName="STRBUF" State="3" />
+    </ContestantResult>
+    <ContestantResult ContestantName="UserName" Evaluation="0">
+        <ExamResult ExamName="CNTSEQ" State="3" />
+        <ExamResult ExamName="JUMP" State="3" />
+        <ExamResult ExamName="MAXWALK" State="3" />
+        <ExamResult ExamName="NONPALIN" State="3" />
+        <ExamResult ExamName="STRBUF" State="3" />
+    </ContestantResult>
+    <ContestantResult ContestantName="wtf" Evaluation="0">
+        <ExamResult ExamName="CNTSEQ" State="3" />
+        <ExamResult ExamName="JUMP" State="3" />
+        <ExamResult ExamName="MAXWALK" State="3" />
+        <ExamResult ExamName="NONPALIN" State="3" />
+        <ExamResult ExamName="STRBUF" State="3" />
+    </ContestantResult>
+    <ContestantResult ContestantName="xamf" Evaluation="0">
+        <ExamResult ExamName="CNTSEQ" State="3" />
+        <ExamResult ExamName="JUMP" State="3" />
+        <ExamResult ExamName="MAXWALK" State="3" />
+        <ExamResult ExamName="NONPALIN" State="3" />
+        <ExamResult ExamName="STRBUF" State="3" />
+    </ContestantResult>
+</ContestResult>

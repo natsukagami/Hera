@@ -203,9 +203,9 @@ function convertToContestXML(contest) {
 		var Problem = contest.problems[problemId];
 		var problem = {
 			'@Name': problemId,
-			'@InputFile': (Problem.input === 'stdin' ? '' : Problem.input),
+			'@InputFile': (Problem.input === 'stdin' ? problemId + '.inp' : Problem.input),
 			'@UseStdIn': (Problem.input === 'stdin').toString(),
-			'@OutputFile': (Problem.output === 'stdout' ? '' : Problem.output),
+			'@OutputFile': (Problem.output === 'stdout' ? problemId + '.out' : Problem.output),
 			'@UseStdOut': (Problem.output === 'stdout').toString(),
 			'@EvaluatorName': Problem.evaluator,
 			'@Mark': Problem.score.toString(),
