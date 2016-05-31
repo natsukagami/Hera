@@ -52,15 +52,13 @@ function pushToQueue(task) {
 function make_task(student, problem) {
 	var ret; // The promise to return
 	var taskDir;
-	webContents.send('judge-circle', {
-		maxValue: ['add', problem.testcases.length + 1]
-	});
 	student.problems[problem.name] = undefined;
 	app.currentContest.saved = false;
 	ret = acceptedLanguages.map(function(lang) {
 		return fs.statAsync(path.join(app.currentContest.dir, 'Contestants', student.name, problem.name + lang.ext))
 		.then(function(stat) {
-			if (!stat.isFile()) return;
+			var err = new Error('Not a file'); err.code = 'ENOENT';
+			if (!stat.isFile()) throw err;
 			return temp.mkdirAsync('queue-');
 		})
 		.then(function(dir) {
@@ -125,13 +123,13 @@ function make_task(student, problem) {
 			});
 			return pushToQueue(compile);
 		})
-		.error(function(err) {
+		.catch(function(err) {
 			/* pass, file not found */
 			if (err.code === 'ENOENT') return;
 			else throw err;
 		})
 		.finally(function(data) {
-			return fs.removeAsync(taskDir).then(function() { return data; });
+			if (taskDir !== undefined) return fs.removeAsync(taskDir).then(function() { return data; });
 		});
 	});
 	return Promise.all(ret);

@@ -157,27 +157,38 @@ var OverviewTable = React.createClass({
 	getInitialState() {
 		var inst = this;
 		ipcRenderer.on('reload-table', function(event, data) {
-			var state = {
-				students: [],
-				problems: [],
-				currentOrder: {
-					col: 'none',
-					order: 1 // 1 = ascending, -1 = decending
+			inst.setState(function(oldState) {
+				var state = {
+					students: [],
+					problems: [],
+					currentOrder: {
+						col: 'none',
+						order: 1 // 1 = ascending, -1 = decending
+					}
+				};
+				Object.keys(data.students).forEach(function(studentId) {
+					state.students.push(data.students[studentId]);
+				});
+				Object.keys(data.problems).forEach(function(problemId) {
+					state.problems.push(problemId);
+				});
+				if (oldState.selected === 'all') state.selected = 'all';
+				else {
+					state.selected = [];
+					if (oldState instanceof Array) oldState.forEach(function(item) {
+						if (data.students[item] !== 'undefined') state.selected.push(item);
+					});
 				}
-			};
-			Object.keys(data.students).forEach(function(studentId) {
-				state.students.push(data.students[studentId]);
+				ipcRenderer.send('update-selected', state.selected);
+				return state;
 			});
-			Object.keys(data.problems).forEach(function(problemId) {
-				state.problems.push(problemId);
-			});
-			inst.setState(state);
 			inst.forceUpdate();
 		});
 		return {
 			// Raw data, for now
 			students: [],
 			problems: [],
+			selected: [],
 			currentOrder: {
 				col: 'none',
 				order: 1 // 1 = ascending, -1 = decending
@@ -231,6 +242,19 @@ var OverviewTable = React.createClass({
 		if (name === colname) ret = (<ProblemCellWithContextMenu problem={name}>{ret}</ProblemCellWithContextMenu>);
 		return (ret);
 	},
+	handleRowSelect(rows) {
+		var inst = this;
+		this.setState(function(oldState) {
+			if (rows === 'all') return { selected: 'all' };
+			var selected = rows.map(function(row) {
+				return oldState.students[row].name;
+			});
+			return { selected: selected };
+		}, function() {
+			ipcRenderer.send('update-selected', inst.state.selected);
+			inst.forceUpdate();
+		});
+	},
 	render() {
 		var instance = this;
 		var problemHeaders = this.state.problems.map(function(problem) {
@@ -264,7 +288,7 @@ var OverviewTable = React.createClass({
 						</TableRowColumn>);
 			});
 			return (
-			<TableRow key={idx}>
+			<TableRow key={student.name} selected={instance.state.selected === 'all' || instance.state.selected.indexOf(student.name) !== -1}>
 				<TableRowColumn>
 					<StudentCellWithContextMenu
 						student={student.name}
@@ -280,6 +304,7 @@ var OverviewTable = React.createClass({
 			className='dynamicTable'
 			height={Math.round(window.innerHeight * 0.6).toString() + 'px'}
 			multiSelectable={true}
+			onRowSelection={this.handleRowSelect}
 		>
 			<TableHeader
 				displaySelectAll={true}

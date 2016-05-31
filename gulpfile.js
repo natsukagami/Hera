@@ -14,7 +14,7 @@ var assign = require('lodash.assign');
 
 var customOpts = {
 	entries: './app/render/main.jsx',
-	debug: true
+	debug: false
 };
 var opts = assign({}, watchify.args, customOpts);
 var b = watchify(browserify(opts));
@@ -25,12 +25,14 @@ b.transform(babelify.configure({
 		'react'
 	]
 }));
-_b.transform(babelify.configure({
+_b
+.transform(babelify.configure({
 	presets: [
 		'es2015',
 		'react'
 	]
-})).transform(envify({
+}))
+.transform(envify({
 	NODE_ENV: 'production'
 }));
 

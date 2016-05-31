@@ -43,4 +43,26 @@ module.exports = function(app, ipc) {
 			}
 		]);
 	});
+	var selectedRows = [];
+	ipc.on('update-selected', function(event, selected) {
+		if (selected === 'all') {
+			selectedRows = Object.keys(app.currentContest.students).map(function(id) {
+				return app.currentContest.students[id];
+			});
+		} else selectedRows = selected.map(function(id) {
+			return app.currentContest.students[id];
+		});
+	});
+	ipc.on('system-rejudge-selected', function(event) {
+		var queue = [];
+		selectedRows.forEach(function(student) {
+			Object.keys(app.currentContest.problems).forEach(function(id) {
+				queue.push({
+					student: student,
+					problem: app.currentContest.problems[id]
+				});
+			});
+		});
+		app.enqueue(queue);
+	});
 };
