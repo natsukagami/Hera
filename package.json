@@ -13,9 +13,9 @@
   "scripts": {
     "test": "node ./node_modules/mocha/bin/mocha --recursive",
     "update": "gulp update",
-    "start": "electron .",
+    "start": "electron . ",
     "deploy": "gulp build && electron-packager . --out=dist --app-version=$npm_package_version --prune --asar --overwrite --all --icon=icon.ico",
-    "build": "npm install && node ./node_modules/bower/bin/bower install && node ./node_modules/gulp/bin/gulp.js build"
+    "build": "set NODE_ENV=production && npm install && node ./node_modules/bower/bin/bower install && node ./node_modules/gulp/bin/gulp.js build"
   },
   "files": [
     "index.js",
@@ -81,12 +81,5 @@
     "vinyl-source-stream": "^1.1.0",
     "watchify": "^3.7.0",
     "xo": "^0.14.0"
-  },
-  "xo": {
-    "esnext": true,
-    "envs": [
-      "node",
-      "browser"
-    ]
   }
 }

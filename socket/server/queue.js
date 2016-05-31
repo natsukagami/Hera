@@ -11,8 +11,8 @@ var os = require('os');
 var webContents;
 var queue = [];
 var promise_queue = require('promise-queue');
-var taskQueue = new promise_queue(1, Infinity);
-var Task;
+var taskQueue = new promise_queue(Math.max(3, os.cpus().length) - 2, Infinity);
+var Task = require('./task');
 
 const acceptedLanguages = [
 	{
@@ -28,11 +28,12 @@ const acceptedLanguages = [
  * @return {Promise<>}         The chained promise of the completed task
  */
 function pushToQueue(task) {
+	var client;
 	return taskQueue.add(function() {
 		webContents.send('judge-bar', {
 			status: 'Tiến trình: ' + task.message + '...'
 		});
-		var client = queue.shift();
+		client = queue.shift();
 		queue.push(client);
 		return task.send(client.id, client);
 	}).then(function(data) {
@@ -40,6 +41,10 @@ function pushToQueue(task) {
 			value: ['add', 1]
 		});
 		return task.nextTask(data);
+	}).catch(function(err) {
+		console.log(err);
+		client.disconnect();
+		return pushToQueue(task);
 	});
 }
 
@@ -64,6 +69,9 @@ function make_task(student, problem) {
 		.then(function(dir) {
 			// Prepare the tasks
 			taskDir = dir;
+			webContents.send('judge-circle', {
+				maxValue: ['add', problem.testcases.length + 1]
+			});
 			var compile = new Task(
 				'compilation', {
 					source: path.join(app.currentContest.dir, 'Contestants', student.name, problem.name + lang.ext),
@@ -155,9 +163,8 @@ module.exports = function(electronApp, socketIoApp) {
 	app = electronApp;
 	webContents = app.mainWindow.webContents;
 	io = socketIoApp;
-	Task = require('./task')(io);
 	app.uuid = uuid.v4(); // Give the app an unique id, so that only verified clients can connect
-	io.on('connect', function(client) {
+	io.on('connection', function(client) {
 		var timer = setTimeout(client.disconnect, 10000);
 		client.emit('authorize');
 		client.once('authorize', function(id) {
@@ -168,6 +175,9 @@ module.exports = function(electronApp, socketIoApp) {
 			console.log('Client ' + client.id + ' connected');
 			clearTimeout(timer);
 			queue.push(client); // Puts client into queue
+		});
+		client.on('disconnect', function() {
+			queue.splice(queue.indexOf(client), 1);
 		});
 	});
 	return run_judge;

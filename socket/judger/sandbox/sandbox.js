@@ -74,6 +74,7 @@ Sandbox.prototype.run = function() {
 	return Promise.all(done)
 		.then(function() { return inst._run(); })
 		.then(function(data) {
+			console.log('Process terminated with exitcode ' + data.exitcode);
 			return inst.cleanup(data).then(function() { return data; });
 		});
 };
@@ -97,7 +98,8 @@ Sandbox.prototype.cleanup = function(data) {
 	if (this.options.output !== 'stdout' && data.exitcode === 0)
 		files.push(fs.moveAsync(path.join(this.dir, this.options.output), path.join(this.options.cwd, this.options.output)));
 	return Promise.all(files).then(function() {
-		return fs.removeAsync(inst._dir);
+		fs.removeAsync(inst._dir);
+		return;
 	});
 };
 

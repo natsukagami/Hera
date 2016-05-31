@@ -1,13 +1,15 @@
-var electronApp, expressApp;
-var client;
-
-module.exports = function(electron, express) {
-	electronApp = electron;
-	expressApp = express;
-	client = require('socket.io-client')('http://localhost:' + expressApp.running_port + '/judgers');
-	require('./task')(client);
-	client.once('authorize', function() {
-		client.emit('authorize', electron.uuid);
+var f = require('socket.io-client');
+module.exports = function Judger(electron, host, port, uuid) {
+	this.electronApp = electron;
+	this.client = f('http://' + host + ':' + port + '/judgers', {
+		'force new connection': true
 	});
-	return client;
+	require('./task')(this.client);
+	var inst = this;
+	this.client.once('authorize', function() {
+		inst.client.emit('authorize', uuid);
+	});
+	this.client.on('message', function(msg) {
+		inst.client.emit('message', msg);
+	});
 };

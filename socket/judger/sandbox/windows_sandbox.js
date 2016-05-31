@@ -37,7 +37,10 @@ module.exports = function(Sandbox) {
 					resolve([stdout, stderr]);
 				}
 			);
-			if (inst.inputStream !== null) inst.inputStream.pipe(f.stdin);
+			if (inst.inputStream !== null) inst.inputStream.pipe(f.stdin).on('error', function(err) {
+				if (err.code === 'EPIPE') return; // ignore
+				else throw err;
+			});
 		});
 	};
 	WindowsSandbox.prototype = Object.create(Sandbox.prototype);
