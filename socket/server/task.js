@@ -62,7 +62,7 @@ var path = require('path');
 var Task = function(type, options) {
 	this.type = type;
 	this.options = options;
-	this.uuid = uuid.v4(); // Give the task a random id
+	this.uuid;
 	this.nextTask = null;
 	/**
 	 * send the task to a client, receiving results from it or cancel after a timeout
@@ -74,6 +74,7 @@ var Task = function(type, options) {
 Task.prototype.send = function(receiver, _socket) {
 	var inst = this;
 	var socket = _socket;
+	this.uuid = uuid.v4(); // Give the task a random id
 	return new Promise(function(resolve, reject) {
 		inst.timeout = setTimeout(function() {
 			reject(new Error('Task timed out'));
@@ -164,7 +165,8 @@ Task.prototype.send = function(receiver, _socket) {
 	}).then(function(data) {
 		console.log('Task ' + inst.uuid + ': Task completed.');
 		return data;
-	}).finally(function(data) {
+	})
+	.finally(function(data) {
 		socket.removeAllListeners(inst.uuid);
 		socket.removeAllListeners(inst.uuid + '-file');
 		return data;

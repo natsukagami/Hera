@@ -41,6 +41,7 @@ module.exports = function(ioClient) {
 	 * @return {Promise<>}       The promise of the process
 	 */
 	function receiveFileAsync(stream, filename, dir) {
+		console.log('Receiving file ' + filename + '...');
 		return new Promise(function(resolve, reject) {
 			var f = fs.createWriteStream(path.join(dir, filename));
 			stream.pipe(f);
@@ -102,7 +103,6 @@ module.exports = function(ioClient) {
 								console.log('Task ' + uuid + ': Sending compiled file to server...');
 								client.emit(uuid, {result: 0});
 								var pathToFile = path.join(dir, 'code');
-								console.log(os.platform());
 								if (os.platform() === 'win32') pathToFile = path.join(dir, 'code.exe');
 								streamFileAsync(client, uuid, pathToFile, 'code')
 								.then(resolve);
@@ -207,6 +207,7 @@ module.exports = function(ioClient) {
 							if (scoreTypes.indexOf(options.scoreType) >= 5 && !files['scorer'])
 								reject(new Error('Insufficient file'));
 						}).then(function execute() {
+							console.log('Running code in sandbox...');
 							return new sandbox({
 								cmd: 'code' + (os.platform() === 'win32' ? '.exe' : ''),
 								input: options.inputFile,
@@ -258,10 +259,13 @@ module.exports = function(ioClient) {
 						}).then(function send(result) {
 							client.emit(uuid, result);
 							resolve();
+						}).catch(function(err) {
+							console.log(err);
 						});
 					}
 				});
 				ss(client).on(uuid + '-file', function(file, filename, resolveServer) {
+					console.log(uuid, filename);
 					files[filename] = true;
 					if (os.platform() === 'win32' && /^(code|scorer)$/.test(filename))
 						filename = filename + '.exe';
@@ -272,7 +276,11 @@ module.exports = function(ioClient) {
 					}));
 				});
 			});
-		}).finally(function() {
+		})
+		.catch(function(err) {
+			console.log(err);
+		})
+		.finally(function() {
 			client.removeAllListeners(uuid);
 			client.removeAllListeners(uuid + '-file');
 			return fs.removeAsync(dirPath);
