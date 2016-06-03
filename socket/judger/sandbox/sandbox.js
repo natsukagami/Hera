@@ -124,10 +124,14 @@ Sandbox.prototype.cleanup = function(data) {
 
 var CurrentSandbox = require('./blank_sandbox')(Sandbox);
 if (os.platform() === 'win32') CurrentSandbox = require('./windows_sandbox')(Sandbox);
-if (!child_process.execSync('isolate --init').error) {
-	CurrentSandbox = require('./preinstalled_isolate_sandbox')(Sandbox);
-	child_process.execSync('isolate --cleanup');
-	console.log('isolate sandbox loaded');
+try {
+	if (!child_process.execSync('isolate --init').error) {
+		CurrentSandbox = require('./preinstalled_isolate_sandbox')(Sandbox);
+		child_process.execSync('isolate --cleanup');
+		console.log('isolate sandbox loaded');
+	}
+} catch (e) {
+	// Pass
 }
 
 module.exports = CurrentSandbox;

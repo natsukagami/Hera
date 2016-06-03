@@ -24,7 +24,7 @@ module.exports = function(Sandbox) {
 						inst.sandboxDir
 					)];
 					if (inst.options.input === 'stdin') {
-						files.push(fs.copyAsync(path.join(inst.options.cwd, 'input.txt')), path.join(inst.sandboxDir, '_in.txt'));
+						files.push(fs.copyAsync(path.join(inst.options.cwd, 'input.txt'), path.join(inst.sandboxDir, '_in.txt')));
 					}
 					return Promise.all(files).catch(function(err) {
 						console.log(err);

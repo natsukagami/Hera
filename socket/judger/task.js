@@ -105,6 +105,7 @@ module.exports = function(ioClient) {
 			var cmd = 'diff ' + files[0] + ' ' + files[1];
 			if ([0, 2].indexOf(scoreTypes.indexOf(scoreType)) !== -1) cmd += ' -i';
 			if (scoreTypes.indexOf(scoreType) < 4) cmd += ' -w';
+			console.log('Running diff by command ' + cmd);
 			return cp.execAsync(cmd)
 					.then(function() {
 						return { differ: false };
@@ -220,7 +221,7 @@ module.exports = function(ioClient) {
 								var ops = [];
 								if (options.outputFile === 'stdout') {
 									files.push(path.join(dir, '_output.txt'));
-									ops.push(fs.writeFileAsync(path.join(dir, '_output.txt'), result.output));
+									ops.push(fs.writeFileAsync(path.join(dir, '_output.txt'), result.stdout));
 								} else {
 									files.push(path.join(dir, options.outputFile));
 								}
