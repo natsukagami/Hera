@@ -1,4 +1,5 @@
 'use strict';
+process.env.NODE_ENV = 'production';
 var gulp = require('gulp');
 var browserify = require('browserify');
 var envify = require('envify/custom');

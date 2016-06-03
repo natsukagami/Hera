@@ -118,7 +118,7 @@ module.exports = function(ioClient) {
 				});
 			});
 		}).then(function() {
-			return fs.removeAsync(dirPath);
+			fs.removeAsync(dirPath);
 		}).finally(function() {
 			client.removeAllListeners(uuid);
 			client.removeAllListeners(uuid + '-file');
@@ -265,7 +265,6 @@ module.exports = function(ioClient) {
 					}
 				});
 				ss(client).on(uuid + '-file', function(file, filename, resolveServer) {
-					console.log(uuid, filename);
 					files[filename] = true;
 					if (os.platform() === 'win32' && /^(code|scorer)$/.test(filename))
 						filename = filename + '.exe';
@@ -283,7 +282,7 @@ module.exports = function(ioClient) {
 		.finally(function() {
 			client.removeAllListeners(uuid);
 			client.removeAllListeners(uuid + '-file');
-			return fs.removeAsync(dirPath);
+			fs.removeAsync(dirPath);
 		});
 	}
 	var queue = new Queue(1);
@@ -296,7 +295,7 @@ module.exports = function(ioClient) {
 		}).then(function() {
 			console.log('Task ' + uuid + ': Task completed.');
 		}).catch(function(err) {
-
+			console.log(err);
 		});
 	});
 };

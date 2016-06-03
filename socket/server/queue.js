@@ -57,6 +57,9 @@ function pushToQueue(task) {
 function make_task(student, problem) {
 	var ret; // The promise to return
 	var taskDir;
+	if (typeof(student.problems[problem.name]) === 'object') {
+		student.total -= student.problems[problem.name].score;
+	}
 	student.problems[problem.name] = undefined;
 	app.currentContest.saved = false;
 	ret = acceptedLanguages.map(function(lang) {
@@ -113,6 +116,7 @@ function make_task(student, problem) {
 			problem.testcases.forEach(function(testcase, id) {
 				testcases[id].nextTask = function(data) {
 					student.problems[problem.name].score += testcase.score * data.score;
+					student.total += testcase.score * data.score;
 					student.problems[problem.name].details[testcase.name] = {
 						name: testcase.name,
 						score: testcase.score * data.score,
