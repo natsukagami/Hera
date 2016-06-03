@@ -4,6 +4,7 @@ import { List, ListItem } from 'material-ui/List';
 import Drawer from 'material-ui/Drawer';
 import Subheader from 'material-ui/Subheader';
 import {Tabs, Tab} from 'material-ui/Tabs';
+import RaisedButton from 'material-ui/RaisedButton';
 import { 	GeneralTextField,
 			GeneralContent,
 			TestcaseTextField,
@@ -19,6 +20,8 @@ var ConfigProblemDrawer = React.createClass({
 			inst.setState({
 				config: config,
 				open: true
+			}, function() {
+				inst.forceUpdate();
 			});
 		});
 		return {
@@ -41,6 +44,12 @@ var ConfigProblemDrawer = React.createClass({
 			ipcRenderer.send('config-problem-save');
 		}
 	},
+	handleResetAll() {
+		ipcRenderer.send('problem-reset-all');
+		this.setState({
+			open: false
+		});
+	},
 	render() {
 		var inst = this;
 		var general = null;
@@ -50,6 +59,7 @@ var ConfigProblemDrawer = React.createClass({
 		var testcases = this.state.config.testcases.map(function(testcase, idx) {
 			return (<TestcaseListItem
 						name={testcase.name}
+						key={testcase.name}
 						configMode={true}
 						timeLimit={testcase.timeLimit}
 						memoryLimit={testcase.memoryLimit}
@@ -68,6 +78,11 @@ var ConfigProblemDrawer = React.createClass({
 							{general}
 						</Tab>
 						<Tab label='Cấu hình các test' value='testcases'>
+							<div className='row end-xs'>
+								<div className='col-xs-4'>
+									<RaisedButton onClick={this.handleResetAll}>Reset tất cả các test</RaisedButton>
+								</div>
+							</div>
 							<List>
 								{testcases}
 							</List>

@@ -60,7 +60,10 @@ Sandbox.prototype.prepare = function() {
 					});
 				});
 			})
-			.then(function() { inst.prepared = true; });
+			.then(function() {
+				inst.prepared = true;
+				console.log('Preparations completed');
+			});
 	});
 };
 /**
@@ -70,6 +73,14 @@ Sandbox.prototype.prepare = function() {
 Sandbox.prototype.run = function() {
 	var done = [];
 	var inst = this;
+	console.log(this.options);
+	if (this.options.shell !== true && (this.options.time === null || isNaN(Number(this.options.time)) ||
+		this.options.memory === null || isNaN(Number(this.options.memory)))) return Promise.resolve({
+			signal: '??',
+			time: 0,
+			memory: 0,
+			exitcode: -1
+		});
 	if (!this.prepared) done = [this.prepare()];
 	return Promise.all(done)
 		.then(function() { return inst._run(); })
@@ -96,7 +107,15 @@ Sandbox.prototype.cleanup = function(data) {
 	var files = [];
 	var inst = this;
 	if (this.options.output !== 'stdout' && data.exitcode === 0)
-		files.push(fs.moveAsync(path.join(this.dir, this.options.output), path.join(this.options.cwd, this.options.output)));
+		files.push(
+			fs.statAsync(path.join(this.dir, this.options.output))
+			.then(function() {
+				return fs.moveAsync(path.join(inst.dir, inst.options.output), path.join(inst.options.cwd, inst.options.output));
+			})
+			.catch(function(err) {
+				console.log(err);
+			}) // file not found, skip
+		);
 	return Promise.all(files).then(function() {
 		fs.removeAsync(inst._dir);
 		return;
@@ -105,5 +124,10 @@ Sandbox.prototype.cleanup = function(data) {
 
 var CurrentSandbox = require('./blank_sandbox')(Sandbox);
 if (os.platform() === 'win32') CurrentSandbox = require('./windows_sandbox')(Sandbox);
+if (!child_process.execSync('isolate --init').error) {
+	CurrentSandbox = require('./preinstalled_isolate_sandbox')(Sandbox);
+	child_process.execSync('isolate --cleanup');
+	console.log('isolate sandbox loaded');
+}
 
 module.exports = CurrentSandbox;

@@ -7,7 +7,9 @@ var path = require('path');
 var stream = require('stream');
 var os = require('os');
 var diff = require('diff');
+var cp = Promise.promisifyAll(require('child_process'));
 var sandbox = require('./sandbox/sandbox');
+var { streamFileAsync, receiveFileAsync, stringToStream } = require('../socket-stream/index');
 // Implements an asynchronous queue here
 var Queue = require('promise-queue');
 
@@ -15,53 +17,6 @@ module.exports = function(ioClient) {
 	client = ioClient;
 	var client;
 	var temp = Promise.promisifyAll(require('temp')).track();
-
-	/**
-	 * Send a file and return a promise of the process.
-	 * This function should not ever reject?
-	 * @param  {SocketIO.Socket} stream   The socket.io stream.
-	 * @param  {String} 	     event    Broadcasted event name.
-	 * @param  {ReadableStream}  file     The file to send.
-	 * @param  {String} 		 filename The name of the file. (optional)
-	 * @return {Promise<>}       The promise of the process
-	 */
-	function streamFileAsync(stream, event, file, filename) {
-		file = fs.createReadStream(file);
-		return new Promise(function(resolve, reject) {
-			var goStream = ss.createStream();
-			ss(stream).emit(event + '-file', goStream, filename, resolve);
-			file.pipe(goStream);
-		});
-	}
-	/**
-	 * Receives the file from the stream
-	 * @param  {ReadableStream} stream  The stream to read from
-	 * @param  {String}       filename  The name of the file to save
-	 * @param  {String}          dir	The resulting directory
-	 * @return {Promise<>}       The promise of the process
-	 */
-	function receiveFileAsync(stream, filename, dir) {
-		console.log('Receiving file ' + filename + '...');
-		return new Promise(function(resolve, reject) {
-			var f = fs.createWriteStream(path.join(dir, filename));
-			stream.pipe(f);
-			stream.on('end', function() {
-				resolve();
-			});
-		});
-	}
-
-	/**
-	 * Converts a string to a ReadableStream
-	 * @param  {String} string  The string to convert
-	 * @return {ReadableStream} The resulting stream
-	 */
-	function stringToStream(string) {
-		var s = new stream.Readable();
-		s._read = function noop() {}; // redundant? see update below
-		s.push(string);
-		s.push(null); return s;
-	}
 
 	/**
 	 * Executes the compilation task and returns the compiled file
@@ -146,9 +101,23 @@ module.exports = function(ioClient) {
 	 * @return {Promise<{bool, Array<String>}>}  The diff object
 	 */
 	function runDiff(files, scoreType) {
-		return Promise.all([
-
-		]).then(function prepare() {
+		if (os.platform() === 'linux') {
+			var cmd = 'diff ' + files[0] + ' ' + files[1];
+			if ([0, 2].indexOf(scoreTypes.indexOf(scoreType)) !== -1) cmd += ' -i';
+			if (scoreTypes.indexOf(scoreType) < 4) cmd += ' -w';
+			return cp.execAsync(cmd)
+					.then(function() {
+						return { differ: false };
+					})
+					.catch(function() {
+						return { differ: true };
+					});
+		}
+		return Promise.all(
+			files.map(function(file) {
+				return fs.readFileAsync(file);
+			})
+		).then(function prepare() {
 			if ([0, 2].indexOf(scoreTypes.indexOf(scoreType)) !== -1) {
 				files.forEach(function(str, id, arr) { arr[id] = str.toString().toLowerCase(); });
 			} else {
@@ -215,15 +184,22 @@ module.exports = function(ioClient) {
 								cwd: dir,
 								time: options.time,
 								memory: options.memory
-							}).run().catch(function(err) {
+							}).run().then(function(data) {
 								// File error, most of
-								console.log(err);
-								return {
-									exitcode: -1,
-									signal: 'FF',
-									time: 0,
-									memory: 0
-								};
+								if (options.outputFile === 'stdout') return data;
+								if (data.exitcode !== 0) return data;
+								return fs.statAsync(path.join(dir, options.outputFile))
+										.then(function() {
+											return data;
+										})
+										.catch(function(err) {
+											return {
+												exitcode: -1,
+												signal: 'FF',
+												time: 0,
+												memory: 0
+											};
+										});
 							});
 						}).then(function evaluate(result) {
 							if (result.exitcode !== 0) {
@@ -231,6 +207,7 @@ module.exports = function(ioClient) {
 								if (result.signal === 'RTE') judgeReturns = 'Chạy sinh lỗi, chương trình thoát với exitcode ' + result.exitcode;
 								else if (result.signal === 'TLE') judgeReturns = 'Chạy quá thời gian';
 								else if (result.signal === 'FF') judgeReturns = 'Không thấy file kết quả';
+								else if (result.signal === '??') judgeReturns = 'Trình chấm bị lỗi';
 								return {
 									result: result.signal,
 									score: 0,
@@ -239,14 +216,25 @@ module.exports = function(ioClient) {
 									memory: result.memory
 								};
 							} else {
-								var files = [fs.readFileAsync(path.join(dir, 'output.txt'))];
-								if (options.outputFile !== 'stdout')
-									files.push(fs.readFileAsync(path.join(dir, options.outputFile)));
-								return Promise.all(files).then(function(content) {
-									files = [content[0], (options.outputFile === 'stdout' ? result.stdout : content[1])];
+								var files = [path.join(dir, 'output.txt')];
+								var ops = [];
+								if (options.outputFile === 'stdout') {
+									files.push(path.join(dir, '_output.txt'));
+									ops.push(fs.writeFileAsync(path.join(dir, '_output.txt'), result.output));
+								} else {
+									files.push(path.join(dir, options.outputFile));
+								}
+								return Promise.all(ops).then(function() {
 									if (scoreTypes.indexOf(options.scoreType) < 5 || true)
 										return runDiff(files, options.scoreType);
 								}).then(function(diff) {
+									console.log({
+										result: (diff.differ ? 'WA' : 'AC'),
+										judgeReturns: (diff.differ ? 'Kết quả KHÁC đáp án' : 'Kết quả đúng đáp án!'),
+										score: (diff.differ ? 0 : 1),
+										time: result.time,
+										memory: result.memory
+									});
 									return {
 										result: (diff.differ ? 'WA' : 'AC'),
 										judgeReturns: (diff.differ ? 'Kết quả KHÁC đáp án' : 'Kết quả đúng đáp án!'),
@@ -296,6 +284,13 @@ module.exports = function(ioClient) {
 			console.log('Task ' + uuid + ': Task completed.');
 		}).catch(function(err) {
 			console.log(err);
+			queue.queue = []; // So that no new error would be made
+			client.io.reconnect();
 		});
+	});
+	client.on('disconnect', function() {
+		console.log('Client disconnected');
+		queue.queue = []; // So that no new error would be made
+		client.io.reconnect();
 	});
 };

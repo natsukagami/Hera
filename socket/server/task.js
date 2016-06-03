@@ -13,6 +13,7 @@ var ss = require('socket.io-stream');
 var uuid = require('uuid');
 var fs = require('fs');
 var path = require('path');
+var { streamFileAsync, receiveFileAsync } = require('../socket-stream/index');
 
 /**
  * A task consists of 5 phases
@@ -172,37 +173,5 @@ Task.prototype.send = function(receiver, _socket) {
 		return data;
 	});
 };
-
-/**
- * Send a file and return a promise of the process.
- * This function should not ever reject?
- * @param  {SocketIO.Socket} stream   The socket.io stream.
- * @param  {String} 	     event    Broadcasted event name.
- * @param  {String}  file     The path of the file to send.
- * @param  {String} 		 filename The name of the file. (optional)
- * @return {Promise<>}       The promise of the process
- */
-function streamFileAsync(stream, event, file, filename) {
-	file = fs.createReadStream(file);
-	return new Promise(function(resolve, reject) {
-		var goStream = ss.createStream();
-		ss(stream).emit(event + '-file', goStream, filename, resolve);
-		file.pipe(goStream);
-		setTimeout(reject, 10000);
-	});
-}
-/**
- * Receives the file from the stream
- * @param  {ReadableStream} stream  The stream to read from
- * @param  {String}       filename  The name of the file to save
- * @param  {String}          dir	The resulting directory
- * @return {Promise<>}       The promise of the process
- */
-function receiveFileAsync(stream, filename, dir) {
-	return new Promise(function(resolve, reject) {
-		stream.pipe(fs.createWriteStream(path.join(dir, filename)));
-		stream.on('end', resolve);
-	});
-}
 
 module.exports = Task;

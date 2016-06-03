@@ -7,11 +7,13 @@ var uuid = require('uuid');
 var fs = Promise.promisifyAll(require('fs-extra'));
 var path = require('path');
 var temp = require('temp');
+var EventEmiiter = require('event-emitter');
 var os = require('os');
 var webContents;
-var queue = [];
+var queue = []; var queueEmitter = new EventEmiiter();
 var promise_queue = require('promise-queue');
-var taskQueue = new promise_queue(Math.max(3, os.cpus().length) - 2, Infinity);
+var taskQueue = new promise_queue(global.maxQueueLength, Infinity);
+var submissionQueue = new promise_queue(global.maxQueueLength, Infinity);
 var Task = require('./task');
 
 const acceptedLanguages = [
@@ -22,6 +24,24 @@ const acceptedLanguages = [
 	}
 ]; // Should not be here
 
+queueEmitter.pendingTasks = [];
+queueEmitter.on('added', function() {
+	if (this.pendingTasks.length === 0) return;
+	var task = this.pendingTasks.shift();
+	task[0]().finally(task[1]); // task[0] => main function, task[1] => resolve function
+});
+/**
+ * Adds a promise-returning function into queue, to be run with every 'added' event
+ * @param  {Function<Promise<>>} f The function to be queued
+ * @return {Promise<>} Promise to be resolved when the task is done
+ */
+queueEmitter.taskAdd = function(f) {
+	var inst = this;
+	return new Promise(function(resolve, reject) {
+		inst.pendingTasks.push([f, resolve]);
+	});
+};
+
 /**
  * Pushes a task into the queue
  * @param  {Task} task         The task to be pushed
@@ -30,20 +50,33 @@ const acceptedLanguages = [
 function pushToQueue(task) {
 	var client;
 	return taskQueue.add(function() {
-		webContents.send('judge-bar', {
-			status: 'Tiến trình: ' + task.message + '...'
+		if (queue.length > 0) {
+			webContents.send('judge-bar', {
+				status: 'Tiến trình: ' + task.message + '...'
+			});
+			client = queue.shift();
+			return task.send(client.id, client);
+		} else return new Promise(function(resolve, reject) {
+			var f = function() {
+				webContents.send('judge-bar', {
+					status: 'Tiến trình: ' + task.message + '...'
+				});
+				client = queue.shift();
+				queue.push(client);
+				return task.send(client.id, client).then(resolve);
+			};
+			queueEmitter.taskAdd(f);
 		});
-		client = queue.shift();
-		queue.push(client);
-		return task.send(client.id, client);
 	}).then(function(data) {
 		webContents.send('judge-circle', {
 			value: ['add', 1]
 		});
+		queue.push(client);
+		queueEmitter.emit('added');
 		return task.nextTask(data);
 	}).catch(function(err) {
 		console.log(err);
-		client.disconnect();
+		if (client !== undefined) client.disconnect();
 		return pushToQueue(task);
 	});
 }
@@ -133,7 +166,7 @@ function make_task(student, problem) {
 				};
 				testcases[id].message = 'Chấm bài ' + problem.name + ' của ' + student.name + ' (' + testcase.name + ')';
 			});
-			return pushToQueue(compile);
+			return submissionQueue.add(function() { return pushToQueue(compile); });
 		})
 		.catch(function(err) {
 			/* pass, file not found */
@@ -179,6 +212,7 @@ module.exports = function(electronApp, socketIoApp) {
 			console.log('Client ' + client.id + ' connected');
 			clearTimeout(timer);
 			queue.push(client); // Puts client into queue
+			queueEmitter.emit('added');
 		});
 		client.on('disconnect', function() {
 			queue.splice(queue.indexOf(client), 1);

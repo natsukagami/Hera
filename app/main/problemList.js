@@ -286,9 +286,18 @@ module.exports = function(electronApp, ipcMain) {
 			config[data.field] = data.value;
 			app.currentContest.saved = false;
 		});
+		ipc.on('problem-reset-all', function(event) {
+			config.testcases.forEach(function(testcase) {
+				['timeLimit', 'memoryLimit', 'score'].forEach(function(field) {
+					testcase[field] = Number(config[field]);
+				});
+			});
+			webContents.send('config-problem-drawer', config);
+		});
 		ipc.once('config-problem-save', function() {
 			ipc.removeAllListeners('problem-testcase-change');
 			ipc.removeAllListeners('problem-general-change');
+			ipc.removeAllListeners('problem-reset-all');
 		});
 	});
 };
