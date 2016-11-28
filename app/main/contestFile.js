@@ -1,16 +1,16 @@
-var dialog = Promise.promisifyAll(require('electron').dialog);
-var fs = Promise.promisifyAll(require('fs-extra'));
-var jszip = require('jszip');
+const dialog = Promise.promisifyAll(require('electron').dialog);
+const fs = Promise.promisifyAll(require('fs-extra'));
+const jszip = require('jszip');
 jszip.external.Promise = GLOBAL.Promise = require('bluebird');
-var temp = Promise.promisifyAll(require('temp')).track();
-var path = require('path');
-var zlib = Promise.promisifyAll(require('zlib'));
-var xml2js = Promise.promisifyAll(require('xml2js'));
-var xmlbuilder = require('xmlbuilder');
-var walk = require('walk');
-var app;
+const temp = Promise.promisifyAll(require('temp')).track();
+const path = require('path');
+const zlib = Promise.promisifyAll(require('zlib'));
+const xml2js = Promise.promisifyAll(require('xml2js'));
+const xmlbuilder = require('xmlbuilder');
+const walk = require('walk');
+let app;
 
-var webContents;
+let webContents;
 
 // Contest File logic
 
@@ -20,17 +20,16 @@ var webContents;
  * @return {Promise<Object>}	The output JSON object
  */
 function zlibToXml(file) {
-	return zlib	.inflateAsync(file)
-				.then(function(buf) {
+	return zlib.inflateAsync(file)
+				.then(buf => {
 					// Convert buffer to string
-					buf = buf.toString();
-					return buf;
+					return buf.toString();
 				})
-				.then(function(str) {
+				.then(str => {
 					// Convert XML string to JSON object
 					return xml2js.parseStringAsync(str);
 				})
-				.catch(function(err) {
+				.catch(err => {
 					// Handle any error
 					dialog.showErrorBoxAsync(
 						'Lỗi',
@@ -55,12 +54,12 @@ function XmltoZlib(buffer) {
  * @return {Object}         Hera-readable Contest object
  */
 function parseContestResult(results, tasks) {
-	var ret = {
+	let ret = {
 		'students': {},
 		'problems': {}
 	};
-	tasks.Tasks.Exam.forEach(function(exam) {
-		var problem = {
+	tasks.Tasks.Exam.forEach(exam => {
+		let problem = {
 			name: exam.$.Name,
 			input: (exam.$.UseStdIn === 'false' ? exam.$.InputFile : 'stdin'),
 			output: (exam.$.UseStdOut === 'false' ? exam.$.OutputFile : 'stdout'),
@@ -70,8 +69,8 @@ function parseContestResult(results, tasks) {
 			evaluator: exam.$.EvaluatorName,
 			testcases: []
 		};
-		exam.TestCase.forEach(function(testcase) {
-			var T = {
+		exam.TestCase.forEach(testcase => {
+			let T = {
 				name: testcase.$.Name,
 				score: (testcase.$.Mark !== '-1' ? Number(testcase.$.Mark) : problem.score),
 				timeLimit: (testcase.$.TimeLimit !== '-1' ? Number(testcase.$.TimeLimit) : problem.timeLimit),
@@ -82,14 +81,14 @@ function parseContestResult(results, tasks) {
 		});
 		ret.problems[exam.$.Name] = problem;
 	});
-	results.ContestResult.ContestantResult.forEach(function(studentResult) {
-		var student = {
+	results.ContestResult.ContestantResult.forEach(studentResult => {
+		let student = {
 			name: studentResult.$.ContestantName,
 			total: Number(studentResult.$.Evaluation),
 			problems: {}
 		};
-		studentResult.ExamResult.forEach(function(examResult) {
-			var pName = examResult.$.ExamName;
+		studentResult.ExamResult.forEach(examResult => {
+			let pName = examResult.$.ExamName;
 			if (examResult.$.State === '2') {
 				// Compile Error
 				student.problems[pName] = 'CE';
@@ -99,9 +98,9 @@ function parseContestResult(results, tasks) {
 					score: Number(examResult.$.Evaluation),
 					details: {}
 				};
-				examResult.TestResult.forEach(function(testResult, idx) {
-					var tests = student.problems[pName].details;
-					var test = {
+				examResult.TestResult.forEach((testResult, idx) => {
+					let tests = student.problems[pName].details;
+					let test = {
 						name: testResult.$.TestName,
 						score: Number(testResult.$.Evaluation),
 						maxScore: ret.problems[pName].testcases[idx].score,
@@ -118,13 +117,13 @@ function parseContestResult(results, tasks) {
 					}
 					// Let's try parsing the result text
 					// Themis' result text are in one of the following format:
-					var Regexes = [
+					let Regexes = [
 						/Thời gian ≈ ([\d]+(?:\.[\d]+)?) giây\n(.+)/,
 						/Chạy quá thời gian/,
 						/(.+)\nThời gian chạy: \d+(?:\.\d+)?s \| Bộ nhớ: \d+ KBs/,
 						/(.+)\n(.+)/
 					];
-					var matches;
+					let matches;
 					if (Regexes[2].test(test.result)) {
 						matches = Regexes[2].exec(test.result);
 						test.result = matches[1];
@@ -152,18 +151,18 @@ function parseContestResult(results, tasks) {
  * @return {Object { 'Contest.result': Promise<Buffer>, 'Tasks.config': Promise<Buffer> }}
  */
 function convertToContestXML(contest) {
-	var Contest = {ContestResult: {}};
-	var contestants = Contest.ContestResult.ContestantResult = [];
-	Object.keys(contest.students).forEach(function(studentId) {
-		var Student = contest.students[studentId];
-		var student = {
+	let Contest = {ContestResult: {}};
+	let contestants = Contest.ContestResult.ContestantResult = [];
+	Object.keys(contest.students).forEach(studentId => {
+		let Student = contest.students[studentId];
+		let student = {
 			'@ContestantName': studentId,
 			'@Evaluation': Student.total.toString(),
 			'ExamResult': []
 		};
-		Object.keys(contest.problems).forEach(function(problemId) {
-			var Problem = Student.problems[problemId];
-			var problem = {
+		Object.keys(contest.problems).forEach(problemId => {
+			let Problem = Student.problems[problemId];
+			let problem = {
 				'@ExamName': problemId,
 				'@State': (
 					Problem === undefined ? 3 :
@@ -175,9 +174,9 @@ function convertToContestXML(contest) {
 			if (problem['@State'] === '1') {
 				problem['@Evaluation'] = Problem.score.toString();
 				problem['TestResult'] = [];
-				Object.keys(Problem.details).forEach(function(testId) {
-					var Test = Problem.details[testId];
-					var test = {
+				Object.keys(Problem.details).forEach(testId => {
+					let Test = Problem.details[testId];
+					let test = {
 						'@TestName': testId,
 						'@Evaluation': Test.score.toString(),
 						'@RunningTime': Test.time.toString(),
@@ -197,11 +196,11 @@ function convertToContestXML(contest) {
 		contestants.push(student);
 	});
 	Contest = xmlbuilder.create(Contest).toString();
-	var Tasks = {Tasks: {}};
-	var problems = Tasks.Tasks.Exam = [];
-	Object.keys(contest.problems).forEach(function(problemId) {
-		var Problem = contest.problems[problemId];
-		var problem = {
+	let Tasks = {Tasks: {}};
+	let problems = Tasks.Tasks.Exam = [];
+	Object.keys(contest.problems).forEach(problemId => {
+		let Problem = contest.problems[problemId];
+		let problem = {
 			'@Name': problemId,
 			'@InputFile': (Problem.input === 'stdin' ? problemId + '.inp' : Problem.input),
 			'@UseStdIn': (Problem.input === 'stdin').toString(),
@@ -213,7 +212,7 @@ function convertToContestXML(contest) {
 			'@MemoryLimit': (Problem.memoryLimit / 1024).toString(),
 			'TestCase': []
 		};
-		Problem.testcases.forEach(function(testcase) {
+		Problem.testcases.forEach(testcase => {
 			problem.TestCase.push({
 				'@Name': testcase.name,
 				'@Mark': (testcase.score === Problem.score ? -1 : testcase.score).toString(),
@@ -260,41 +259,43 @@ function unpackContest(app, contestFile) {
 		maxValue: ['set', 1],
 		mode: 'determinate'
 	});
-	return temp.mkdirAsync('contest-').then(function(dir) {
+	return temp.mkdirAsync('contest-').then(dir => {
 		return fs	.readFileAsync(contestFile)
-					.then(function(data) {
-						return data;
-					})
-					.then(function(data) {
+					.then(data => {
 						// Read the content with jszip
-						var contest = new jszip();
+						let contest = new jszip();
 						return contest.loadAsync(data, { createFolders: true});
 					})
-					.then(function(contest) {
+					.then(contest => {
 						// Unpack it to the desired temp folder
-						contest.forEach(function(relPath, file) {
+						let arr = [];
+						contest.forEach((relPath, file) => {
 							if (file.dir) {
 								// Create the folders first
-								fs.mkdirSync(path.join(dir, relPath));
+								arr.push(fs.mkdirAsync(path.join(dir, relPath)));
 							}
 						});
-						var promises = [];
-						contest.forEach(function(relPath, file) {
+						return Promise.all(arr).then(() => { return contest; });
+					})
+					.then(contest => {
+						let promises = [];
+						contest.forEach((relPath, file) => {
 							if (file.dir) return;
 							// Update the progress bar
 							webContents.send('judge-bar', {
 								maxValue: ['add', 1]
 							});
 							// Write the file down
-							promises.push(file.async('nodebuffer').then(function(data) {
+							promises.push(file.async('nodebuffer').then(data => {
 								if (/Tasks\/(\w+)\/Test(\d+)\/\w+\.(inp|out)/i.test(relPath)) {
-									var matches = /Tasks\/(\w+)\/Test(\d+)\/\w+\.(inp|out)/i.exec(relPath);
+									let matches = /Tasks\/(\w+)\/Test(\d+)\/\w+\.(inp|out)/i.exec(relPath);
 									relPath = path.join('Tasks', matches[1], 'Test' + matches[2], matches[1] + '.' + matches[3].toLowerCase());
 								}
-								return fs.ensureFileAsync(path.join(dir, relPath)).then(function() {
+								return fs.ensureFileAsync(path.join(dir, relPath)).then(() => {
 									return fs.writeFileAsync(path.join(dir, relPath), data);
 								});
-							}).then(function() {
+							}).then(() => {
+								// TODO: Replace console.log with debug()
 								console.log('Written ' + relPath);
 								webContents.send('judge-bar', {
 									value: ['add', 1]
@@ -303,9 +304,9 @@ function unpackContest(app, contestFile) {
 						});
 						return Promise.all(promises).then(function() { contest = null; });
 					})
-					.then(function() {
+					.then(() => {
 						// Decode the data files
-						var files = [
+						let files = [
 							fs.readFileAsync(path.join(dir, 'Contest.result'))
 							.then(function(file) {
 								return zlibToXml(file);
@@ -315,20 +316,13 @@ function unpackContest(app, contestFile) {
 								return zlibToXml(file);
 							})
 						];
-						return Promise.all(files)
-							.then(function(object) {
-								app.currentContest = parseContestResult(object[0], object[1]);
-								app.currentContest.saved = true; // No modification is made
-								app.currentContest.dir = dir;
-								return app.currentContest;
-							})
-							.catch(function(err) {
-								dialog.showErrorBoxAsync(
-									'Lỗi',
-									'Không thể mở file: ' + err.toString()
-								);
-								return err;
-							});
+						return Promise.all(files);
+					})
+					.then(function(object) {
+						app.currentContest = parseContestResult(object[0], object[1]);
+						app.currentContest.saved = true; // No modification is made
+						app.currentContest.dir = dir;
+						return app.currentContest;
 					})
 					.then(sendToRenderer)
 					.catch(function(err) {
@@ -362,16 +356,16 @@ function packContest(app, saveDir) {
 		maxValue: ['set', 1],
 		mode: 'determinate'
 	});
-	var dir = app.currentContest.dir;
-	var files = convertToContestXML(app.currentContest);
-	Promise.all([files['Contest.result'], files['Tasks.config']]).then(function(f) {
+	let dir = app.currentContest.dir;
+	let files = convertToContestXML(app.currentContest);
+	Promise.all([files['Contest.result'], files['Tasks.config']]).then(([result, config]) => {
 		Promise.all([
-			fs.writeFileAsync(path.join(dir, 'Contest.result'), f[0]),
-			fs.writeFileAsync(path.join(dir, 'Tasks.config'), f[1])
-		]).then(function() {
-			var zipFile = new jszip();
-			var walker = walk.walk(dir, {});
-			walker.on('file', function(root, file, next) {
+			fs.writeFileAsync(path.join(dir, 'Contest.result'), result),
+			fs.writeFileAsync(path.join(dir, 'Tasks.config'), config)
+		]).then(() => {
+			let zipFile = new jszip();
+			let walker = walk.walk(dir, {});
+			walker.on('file', (root, file, next) => {
 				file = file.name;
 				webContents.send('judge-bar', {
 					maxValue: ['add', 1]
@@ -382,7 +376,7 @@ function packContest(app, saveDir) {
 				});
 				next();
 			});
-			walker.on('end', function() {
+			walker.on('end', () => {
 				webContents.send('judge-bar', {
 					status: 'Đang ghi kì thi ra file...',
 					value: ['set', 0],
@@ -396,25 +390,26 @@ function packContest(app, saveDir) {
 					compressionOptions: {
 						level: 6
 					}
-				}, function update(status) {
-					var toSend = {
+				}, status => {
+					let toSend = {
 						value: ['set', status.percent]
 					};
 					if (status.currentFile !== null)
 						toSend.status = 'Đang ghi file ' + status.currentFile + '...';
 					webContents.send('judge-bar', toSend);
-				}).then(function(buffer) {
+				}).then(buffer => {
 					return fs.writeFileAsync(saveDir, buffer);
-				}).then(function() {
+				}).then(() => {
 					app.currentContest.saved = true;
 					webContents.send('judge-bar', {
 						status: 'Lưu file thành công'
 					});
 					zipFile = null;
-					setTimeout(function() { webContents.send('judge-bar', 'reset'); }, 3000);
+					Promise.delay(3000).then(() => { webContents.send('judge-bar', 'reset'); });
 				});
 			});
-		}).catch(function(err) {
+		}).catch(err => {
+			// TODO: Replace console.log with debug()
 			console.log(err);
 		});
 	});
@@ -446,7 +441,7 @@ function createEmptyContest() {
 		return Promise.all([
 			fs.mkdirAsync(path.join(dir, 'Contestants')),
 			fs.mkdirAsync(path.join(dir, 'Tasks'))
-		]).then(function() {
+		]).then(() => {
 			return {
 				students: {},
 				problems: {},
